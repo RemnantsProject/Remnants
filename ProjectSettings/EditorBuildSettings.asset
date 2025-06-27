@@ -9,6 +9,7 @@ EditorBuildSettings:
     path: Assets/Remnants/Scenes/Lobby.unity
     guid: b4a39bc5ad8c0f447815ac4264632dca
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Remnants/Scenes/RoomOfVoid.unity
 <<<<<<< HEAD
     guid: 3e41e73e6f2546a43a373e63f1e8ce02
@@ -16,6 +17,8 @@ EditorBuildSettings:
     guid: c106181a53b561b4aa8f41ec55e3ecda
 >>>>>>> d468c0aa4f0c0b0bbbba73c8a3e3e85da886693b
   - enabled: 1
+=======
+>>>>>>> 0bdfcec (Revert "1. 공허의 방 구현")
     path: Assets/Remnants/Scenes/RoomOfSorrow.unity
     guid: dd669b8db7fe6c94b87e529544eb59a9
   - enabled: 1

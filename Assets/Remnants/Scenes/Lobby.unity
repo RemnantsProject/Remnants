@@ -2249,17 +2249,14 @@ Transform:
   m_Script: {fileID: 11500000, guid: e3e6001a9fdea8a4d8026afd85c609fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  walkSpeed: 6
-  runSpeed: 9
-  acceleration: 9
-  jumpHeight: 1.2
+  moveSpeed: 7
   velocity: {x: 0, y: 0, z: 0}
   groundCheck: {fileID: 7161751573505596589}
   checkRange: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 7874487024315147800}
   serializedVersion: 2
@@ -2272,6 +2269,9 @@ Transform:
   m_Father: {fileID: 4335867251367837049}
   m_LocalEulerAnglesHint: {x: 1.2193372, y: -1.821708, z: -0.41918862}
 >>>>>>> d468c0aa4f0c0b0bbbba73c8a3e3e85da886693b
+=======
+  jumpHeight: 1.2
+>>>>>>> 0bdfcec (Revert "1. 공허의 방 구현")
 --- !u!4 &1271274020541226825
 Transform:
   m_ObjectHideFlags: 0
@@ -2848,10 +2848,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   thePlayer: {fileID: 7595182402019352015}
 =======
   thePlayer: {fileID: 7405015004225074118}
 >>>>>>> d468c0aa4f0c0b0bbbba73c8a3e3e85da886693b
+=======
+  thePlayer: {fileID: 0}
+>>>>>>> 0bdfcec (Revert "1. 공허의 방 구현")
   fader: {fileID: 14609530}
   sequenceText: {fileID: 8395771319350200702}
   sequence01: "\uBB50\uC2DC\uC5EC"
@@ -5672,10 +5676,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 107e4a1d-b029-43c9-90ff-4548f2f0cc00
-    m_ActionName: 'Player/Run[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
