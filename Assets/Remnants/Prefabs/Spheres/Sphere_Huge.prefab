@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 3669851483877432186}
   - component: {fileID: 6204447721691776729}
   - component: {fileID: -585747721799699893}
-  m_Layer: 0
+  - component: {fileID: 4414782812801543453}
+  m_Layer: 9
   m_Name: Sphere_Huge
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.8299, y: 18.156, z: 37.74}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,5 +151,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushDistance: 200
-  pushSpeed: 20
+  pushSpeed: 500
   isPushing: 0
+--- !u!114 &4414782812801543453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019634567838723108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a53b4378d7aa84ea37805df776b9f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionUI: {fileID: 0}
+  actionKey: {fileID: 0}
+  actionText: {fileID: 0}
+  extraCross: {fileID: 0}
+  unInteractive: 0
+  action: BREAK!!
+  actionDistance: 5
+  requireMultiplePress: 1
+  requiredPressCount: 5

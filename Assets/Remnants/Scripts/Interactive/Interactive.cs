@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Remnants
 {
@@ -11,6 +12,7 @@ namespace Remnants
 
         //액션 UI
         public GameObject actionUI;
+        public TextMeshProUGUI actionKey;
         public TextMeshProUGUI actionText;
 
         public GameObject extraCross;       //커서 올렸을 때 그 오브젝트에 콜라이더가 붙어있다면
@@ -21,6 +23,25 @@ namespace Remnants
 
         [SerializeField]
         protected string action = "Do Interactive Action";
+
+        [SerializeField]
+        private float actionDistance = 2f;
+
+        private KeyCode[] currentKey = new KeyCode[] { KeyCode.E };
+        #endregion
+
+        #region Property
+        public virtual KeyCode[] CurrentKey
+        {
+            get
+            {
+                return currentKey;
+            }
+            set
+            {
+                currentKey = value;
+            }
+        }
         #endregion
 
         #region Unity Event Method
@@ -33,23 +54,34 @@ namespace Remnants
         {
             extraCross.SetActive(true);
 
-            if (theDistance <= 2f)
+            if (theDistance <= actionDistance)
             {
                 ShowActionUI();
 
             }
-            //키입력 체크
-            if (Input.GetKeyDown(KeyCode.E))
+            else
             {
-                //
-                extraCross.SetActive(false);
-
                 //UI 숨기기
                 HideActionUI();
-
-                //액션
-                DoAction();
             }
+                //키입력 체크
+                foreach (KeyCode key in CurrentKey)
+                {
+                    if (Input.GetKeyDown(key))
+                    {
+                        //
+                        extraCross.SetActive(false);
+
+                        //UI 숨기기
+                        HideActionUI();
+
+                        //액션
+                        DoAction();
+
+                        break;
+                    }
+                }
+            
         }
         private void OnMouseExit()
         {
@@ -63,6 +95,19 @@ namespace Remnants
         {
             actionUI.SetActive(true);
             actionText.text = action;
+
+            if (CurrentKey != null && CurrentKey.Length > 0)
+            {
+
+                if(CurrentKey[0] == KeyCode.Semicolon)
+                {
+                    actionKey.text = "[;]";
+                }
+                else
+                {
+                    actionKey.text = "[" + CurrentKey[0] + "]";
+                }
+            }
         }
 
         //Action UI 숨기기

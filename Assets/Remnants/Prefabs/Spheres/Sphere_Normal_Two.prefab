@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4255148136308780524}
   - component: {fileID: 2835897237031263001}
   - component: {fileID: -2010090192651568224}
-  m_Layer: 0
+  - component: {fileID: -7633489208866045164}
+  m_Layer: 9
   m_Name: Sphere_Normal_Two
   m_TagString: Sphere
   m_Icon: {fileID: 0}
@@ -150,5 +151,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushDistance: 30
-  pushSpeed: 20
+  pushSpeed: 500
   isPushing: 0
+--- !u!114 &-7633489208866045164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526253089098716984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a53b4378d7aa84ea37805df776b9f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionUI: {fileID: 0}
+  actionKey: {fileID: 0}
+  actionText: {fileID: 0}
+  extraCross: {fileID: 0}
+  unInteractive: 0
+  action: BREAK!!
+  actionDistance: 5
