@@ -20,9 +20,23 @@ namespace Remnants
         public TextMeshProUGUI whoIsSayingText;
         // 펫 오브젝트
         public GameObject thePet;
+        // 시퀀스 UI
+        public GameObject sequenceUI;
+        // 선택지 UI
+        public GameObject selectUI;
+        // 문 열림 애니메이션
+        public Animator happyEndingAnimator;
+        public Animator badEndingAnimator;
 
         // 누가 말하고 있는지 (0 : 없음, 1 : 플레이어, 2 : 펫)
         private int whoIsSaying;
+
+        // 대사 여부
+        private bool isSequencePlaying = true;
+
+        // 분기 결정
+        private bool isHappy = false;
+        private bool isBad = false;
 
         // 대사 정보를 담는 구조체
         private struct Dialogue
@@ -41,15 +55,20 @@ namespace Remnants
 
         // 실제 재생할 대사 목록
         private List<Dialogue> sequence = new List<Dialogue>();
+        private List<Dialogue> happySequence = new List<Dialogue>();
+        private List<Dialogue> badSequence = new List<Dialogue>();
+
+        private bool skipTriggered = false;
+
         #endregion
 
         #region Unity Event Method
         // 연출 시작
         private void Start()
         {
-            //커서 제어
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            // 초기화
+            isHappy = false;
+            isBad = false;
 
             //오프닝 연출 시작
             StartCoroutine(SequencePlay());
@@ -85,7 +104,7 @@ namespace Remnants
                 new Dialogue(2, "정확히 말하면,", 4f),
                 new Dialogue(2, "그 아이의 슬픔, 외로움, 분노.", 4f),
                 new Dialogue(2, "그 감정들이 모여 만든 존재이지.", 4f),
-                new Dialogue(2, "넌 날 해친 적 없다고 믿었지.", 4f),
+                new Dialogue(2, "넌 날 해친 적 없다고 믿었겠지.", 4f),
                 new Dialogue(2, "하지만 그 침묵이...", 4f),
                 new Dialogue(2, "나를 여기까지 오게 만들었어.", 4f),
 
@@ -101,13 +120,56 @@ namespace Remnants
                 new Dialogue(2, "아니면...", 4f),
                 new Dialogue(2, "여기에 남아 모든 걸 잊고 평생 죄책감을 짊어지고 살아갈 건지.", 4f),
                 new Dialogue(2, "판단은 너의 몫이야.", 4f),
+            };
 
-                new Dialogue(1, "잠... 잠깐만!!!", 4f)
+            happySequence = new List<Dialogue>
+            {
+                new Dialogue(1, "결심했어, 난...", 4f),
+                new Dialogue(1, "현실로 돌아갈 거야.", 4f),
+
+                new Dialogue(2, "결국... 기억났구나.", 4f),
+                new Dialogue(2, "그날, 내가 얼마나 무서웠는지.", 4f),
+
+                new Dialogue(1, "그래... 처음엔 그냥 장난인 줄로만 생각했어,", 4f),
+                new Dialogue(1, "하지만, 그때 너의 표정을 살짝 보면서...", 4f),
+                new Dialogue(1, "진짜... 많이 힘들고 아팠겠다라는 생각도 들었어...", 4f),
+
+                new Dialogue(2, "그럼, 이젠 외면하고 도망치지 않을 수 있겠어?", 4f),
+
+                new Dialogue(1, "응. 이제야 제대로 마주할 수 있을 것 같아...", 4f),
+                new Dialogue(1, "고맙고, 미안해...", 4f),
+            };
+
+            badSequence = new List<Dialogue>
+            {
+                new Dialogue(1, "난 그냥 여기에 남아 있을래...", 4f),
+
+                new Dialogue(2, "여기에... 남는다고?", 4f),
+                new Dialogue(2, "정말이야?", 4f),
+                new Dialogue(2, "마지막으로 날 바라봐 줄 수도 없는 거야?", 4f),
+
+                new Dialogue(1, "너한텐 미안하지만...", 4f),
+                new Dialogue(1, "난 돌아갈 용기가 없어...", 4f),
+                new Dialogue(1, "널 보면... 내가 얼마나 비겁했는지 다시 떠올라...", 4f),
+
+                new Dialogue(2, "괜찮아, 난 널 미워하지 않아, 정말로!", 4f),
+
+                new Dialogue(1, "그래서 더 힘든 것 같아...", 4f),
+                new Dialogue(1, "난... 그냥 여기 남을게.", 4f),
+                new Dialogue(1, "그래야 너한테 덜 미안할 것 같아...", 4f),
+
+                new Dialogue(2, "...", 4f),
+                new Dialogue(2, "그렇게라도 네 마음이 편해진다면, 말리지 않을게.", 4f),
+
+                new Dialogue(1, "정말 미안해...", 4f),
             };
         }
 
         private void Update()
         {
+            if (!isSequencePlaying)
+                return;
+
             // 누가 말하고 있는지 체크
             switch (whoIsSaying)
             {
@@ -127,14 +189,34 @@ namespace Remnants
         #endregion
 
         #region Custom Method
+        // 돌아가기 선택했을 때
+        public void OnHappyButtonClick()
+        {
+            // 선택지 숨기고 대사 처리
+            whoIsSaying = 0;
+            selectUI.SetActive(false);
+            StartCoroutine(PlaySelectedSequence(happySequence, 1.5f));
+            isHappy = true;
+        }
+
+        // 남기 선택했을 때
+        public void OnBadButtonClick()
+        {
+            // 선택지 숨기고 대사 처리
+            whoIsSaying = 0;
+            selectUI.SetActive(false);
+            StartCoroutine(PlaySelectedSequence(badSequence, 1.5f));
+            isBad = true;
+        }
+
         // 오프닝 연출 코루틴 함수
         IEnumerator SequencePlay()
         {
-            // 0. 플레이 캐릭터 비활성화
+            // 플레이 캐릭터 비활성화
             PlayerInput input = thePlayer.GetComponent<PlayerInput>();
             input.enabled = false;
 
-            //1. 페이드 인 연출
+            // 페이드 인 연출
             fader.FadeStart(17f);
 
             // 대사 순서대로 출력
@@ -143,6 +225,49 @@ namespace Remnants
                 whoIsSaying = line.speaker;
                 sequenceText.text = line.line;
                 yield return new WaitForSeconds(line.waitTime);
+            }
+
+            isSequencePlaying = false;
+
+            // 대사 텍스트 및 누가 말하는지 숨기기
+            sequenceText.text = "";
+            whoIsSayingText.text = "";
+
+            // 선택지 보이기
+            selectUI.SetActive(true);
+        }
+
+        // 선택지 연출
+        IEnumerator PlaySelectedSequence(List<Dialogue> selectedSequence, float delay)
+        {
+            isSequencePlaying = true;
+
+            // 선택 직후 잠시 기다림
+            yield return new WaitForSeconds(delay);
+
+            foreach (var line in selectedSequence)
+            {
+                whoIsSaying = line.speaker;
+                sequenceText.text = line.line;
+                yield return new WaitForSeconds(line.waitTime);
+            }
+
+            // 대사 숨김
+            isSequencePlaying = false;
+            sequenceText.text = "";
+
+            whoIsSayingText.gameObject.SetActive(false);
+
+            if (happyEndingAnimator != null && badEndingAnimator != null)
+            {
+                if(isHappy)
+                {
+                    happyEndingAnimator.SetTrigger("Happy");
+                }
+                else if(isBad)
+                {
+                    badEndingAnimator.SetTrigger("Bad");
+                }
             }
         }
         #endregion
