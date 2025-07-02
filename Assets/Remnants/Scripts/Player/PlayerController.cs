@@ -113,7 +113,7 @@ namespace Remnants
             Vector3 move = transform.TransformDirection(moveDir) * currentSpeed;
 
             //이동
-            controller.Move(moveDir * Time.deltaTime * walkSpeed);
+            controller.Move(moveDir * Time.deltaTime * currentSpeed);
 
             //중력에 따른 y축 이동
             velocity.y += gravity * Time.deltaTime;

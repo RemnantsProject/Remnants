@@ -1275,8 +1275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7966399893627839431}
   walkSpeed: 6
-  runSpeed: 9
-  acceleration: 9
+  runSpeed: 10
+  acceleration: 10
   jumpHeight: 1
   velocity: {x: 0, y: 0, z: 0}
   groundCheck: {fileID: 409917869109369865}
