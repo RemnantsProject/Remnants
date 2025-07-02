@@ -1,8 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Remnants
 {
@@ -27,6 +27,12 @@ namespace Remnants
         // 문 열림 애니메이션
         public Animator happyEndingAnimator;
         public Animator badEndingAnimator;
+        // 문 앞에 빛 애니메이션
+        public Animator happyLightAnimator;
+        public Animator badLightAnimator;
+        // 트리거 오브젝트
+        public GameObject happyEndingTrigger;
+        public GameObject badEndingTrigger;
 
         // 누가 말하고 있는지 (0 : 없음, 1 : 플레이어, 2 : 펫)
         private int whoIsSaying;
@@ -58,8 +64,6 @@ namespace Remnants
         private List<Dialogue> happySequence = new List<Dialogue>();
         private List<Dialogue> badSequence = new List<Dialogue>();
 
-        private bool skipTriggered = false;
-
         #endregion
 
         #region Unity Event Method
@@ -69,6 +73,9 @@ namespace Remnants
             // 초기화
             isHappy = false;
             isBad = false;
+
+            happyEndingTrigger.SetActive(false);
+            badEndingTrigger.SetActive(false);
 
             //오프닝 연출 시작
             StartCoroutine(SequencePlay());
@@ -257,18 +264,21 @@ namespace Remnants
             sequenceText.text = "";
 
             whoIsSayingText.gameObject.SetActive(false);
+            PlayerInput input = thePlayer.GetComponent<PlayerInput>();
+            input.enabled = true;
 
-            if (happyEndingAnimator != null && badEndingAnimator != null)
-            {
                 if(isHappy)
                 {
                     happyEndingAnimator.SetTrigger("Happy");
+                    happyLightAnimator.SetTrigger("HLight");
+                    happyEndingTrigger.SetActive(true);
                 }
                 else if(isBad)
                 {
                     badEndingAnimator.SetTrigger("Bad");
+                    badLightAnimator.SetTrigger("BLight");
+                    badEndingTrigger.SetActive(true);
                 }
-            }
         }
         #endregion
     }
