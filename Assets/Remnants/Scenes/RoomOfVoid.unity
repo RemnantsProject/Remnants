@@ -27497,10 +27497,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionUI: {fileID: 715922890232668283}
+  actionKey: {fileID: 0}
   actionText: {fileID: 6746373046101839936}
   extraCross: {fileID: 1663472014708902291}
   unInteractive: 0
   action: "\uB5A0\uB098\uAE30"
+  actionDistance: 2
   fader: {fileID: 6610848851455816590}
   loadToScene: Lobby
 --- !u!65 &3460042254641080338

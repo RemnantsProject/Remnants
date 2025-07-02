@@ -22,6 +22,8 @@ namespace Remnants
         private void Start()
         {
             RandomKeyCode();
+
+            globalCooldown = 1.5f;
         }
         #endregion
 

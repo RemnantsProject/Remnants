@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e69a529e406294419245162c733fca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushDistance: 30
+  pushDistance: 10
   pushSpeed: 500
   isPushing: 0
 --- !u!114 &-7633489208866045164
@@ -171,4 +171,6 @@ MonoBehaviour:
   extraCross: {fileID: 0}
   unInteractive: 0
   action: BREAK!!
-  actionDistance: 5
+  actionDistance: 3
+  requireMultiplePress: 0
+  requiredPressCount: 5

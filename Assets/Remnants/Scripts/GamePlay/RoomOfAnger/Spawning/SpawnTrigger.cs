@@ -18,15 +18,15 @@ namespace Remnants
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && manager != null)
+            if (other.gameObject.layer == 7 && manager != null)
             {
                 if (!isFinalTrigger)
                 {
-                    manager.StartSpawning();
+                    manager?.StartSpawning();
                 }
                 else
                 {
-                    manager.StopAndSpawnFinal();
+                    manager?.StopAndSpawnFinal();
                 }
 
                 GetComponent<Collider>().enabled = false;

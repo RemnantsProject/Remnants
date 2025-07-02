@@ -557,15 +557,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cef1c58e9f8f44da4b64ed7ecc414a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionUI: {fileID: 0}
-  actionText: {fileID: 0}
-  extraCross: {fileID: 0}
+  actionUI: {fileID: 6236867024872083019}
+  actionKey: {fileID: 5117048588155137673}
+  actionText: {fileID: 4554882535827476375}
+  extraCross: {fileID: 1736888650693371105}
   unInteractive: 0
   action: "\uB9CC\uC9C0\uAE30"
+  actionDistance: 2
   fakePicture: {fileID: 1299005056}
   realPicture: {fileID: 1806967735}
   nextPicture: {fileID: 0}
-  fader: {fileID: 0}
+  fader: {fileID: 2102406558802271886}
   loadToScene: RoomOfFear
 --- !u!65 &1047385083
 BoxCollider:
@@ -1360,15 +1362,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cef1c58e9f8f44da4b64ed7ecc414a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionUI: {fileID: 0}
-  actionText: {fileID: 0}
-  extraCross: {fileID: 0}
+  actionUI: {fileID: 6236867024872083019}
+  actionKey: {fileID: 5117048588155137673}
+  actionText: {fileID: 4554882535827476375}
+  extraCross: {fileID: 1736888650693371105}
   unInteractive: 0
   action: "\uB9CC\uC9C0\uAE30"
+  actionDistance: 2
   fakePicture: {fileID: 8935790912274495981}
   realPicture: {fileID: 466479024699193223}
   nextPicture: {fileID: 8856369086690440720}
-  fader: {fileID: 0}
+  fader: {fileID: 2102406558802271886}
   loadToScene: RoomOfSorrow
 --- !u!114 &81605525567102862
 MonoBehaviour:
@@ -2644,9 +2648,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePlayer: {fileID: 649960046}
-  fader: {fileID: 0}
-  sequenceText: {fileID: 0}
-  sequence01: "\uBB50\uC2DC\uC5EC"
+  fader: {fileID: 2102406558802271886}
+  sequenceText: {fileID: 1332989593491483406}
+  sequence01: "\uBBF8\uC220\uAD00"
 --- !u!23 &1855606567936257811
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2847,6 +2851,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6557539462667805231, guid: 9a744b9a039f01f49a13d453d8e9bf3e, type: 3}
   m_PrefabInstance: {fileID: 2102406558802271884}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2102406558802271886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 277797047588657419, guid: 9a744b9a039f01f49a13d453d8e9bf3e, type: 3}
+  m_PrefabInstance: {fileID: 2102406558802271884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52094814e7b87c46bc9d7533016750a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &2200476415678399922
 Light:
   m_ObjectHideFlags: 0
@@ -3513,15 +3528,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cef1c58e9f8f44da4b64ed7ecc414a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionUI: {fileID: 0}
-  actionText: {fileID: 0}
-  extraCross: {fileID: 0}
+  actionUI: {fileID: 6236867024872083019}
+  actionKey: {fileID: 5117048588155137673}
+  actionText: {fileID: 4554882535827476375}
+  extraCross: {fileID: 1736888650693371105}
   unInteractive: 0
   action: "\uB9CC\uC9C0\uAE30"
+  actionDistance: 2
   fakePicture: {fileID: 4179017066732762879}
   realPicture: {fileID: 1900247489955232807}
   nextPicture: {fileID: 1453910332581680987}
-  fader: {fileID: 0}
+  fader: {fileID: 2102406558802271886}
   loadToScene: RoomOfVoid
 --- !u!108 &2915378865285758556
 Light:
@@ -4718,15 +4735,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cef1c58e9f8f44da4b64ed7ecc414a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionUI: {fileID: 0}
-  actionText: {fileID: 0}
-  extraCross: {fileID: 0}
+  actionUI: {fileID: 6236867024872083019}
+  actionKey: {fileID: 5117048588155137673}
+  actionText: {fileID: 4554882535827476375}
+  extraCross: {fileID: 1736888650693371105}
   unInteractive: 0
   action: "\uB9CC\uC9C0\uAE30"
+  actionDistance: 2
   fakePicture: {fileID: 4796023825565969634}
   realPicture: {fileID: 2526230935023920055}
   nextPicture: {fileID: 0}
-  fader: {fileID: 0}
+  fader: {fileID: 2102406558802271886}
   loadToScene: RoomOfAnger
 --- !u!1 &4796023825565969634
 GameObject:
@@ -5629,15 +5648,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cef1c58e9f8f44da4b64ed7ecc414a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionUI: {fileID: 0}
-  actionText: {fileID: 0}
-  extraCross: {fileID: 0}
+  actionUI: {fileID: 6236867024872083019}
+  actionKey: {fileID: 5117048588155137673}
+  actionText: {fileID: 4554882535827476375}
+  extraCross: {fileID: 1736888650693371105}
   unInteractive: 0
   action: "\uB9CC\uC9C0\uAE30"
+  actionDistance: 2
   fakePicture: {fileID: 2478975291835069142}
   realPicture: {fileID: 5805504081881304151}
   nextPicture: {fileID: 4630253265625520731}
-  fader: {fileID: 0}
+  fader: {fileID: 2102406558802271886}
   loadToScene: RoomOfRegret
 --- !u!108 &6303765129871674495
 Light:

@@ -28,6 +28,9 @@ namespace Remnants
         private float actionDistance = 2f;
 
         private KeyCode[] currentKey = new KeyCode[] { KeyCode.E };
+
+        protected static float globalCooldown = 0f; // 기본값 0초
+        protected static float lastGlobalActionTime = -Mathf.Infinity;
         #endregion
 
         #region Property
@@ -64,28 +67,29 @@ namespace Remnants
                 //UI 숨기기
                 HideActionUI();
             }
-                //키입력 체크
-                foreach (KeyCode key in CurrentKey)
+            //키입력 체크
+            foreach (KeyCode key in CurrentKey)
+            {
+                if (Input.GetKeyDown(key))
                 {
-                    if (Input.GetKeyDown(key))
-                    {
-                        //
-                        extraCross.SetActive(false);
+                    if (Time.time - lastGlobalActionTime < globalCooldown)
+                        return; // 전역 쿨타임 중이면 무시
 
-                        //UI 숨기기
-                        HideActionUI();
+                    lastGlobalActionTime = Time.time;
 
-                        //액션
-                        DoAction();
-
-                        break;
-                    }
+                    extraCross.SetActive(false);
+                    HideActionUI();
+                    DoAction();
+                    break;
                 }
-            
+            }
+
+
         }
         private void OnMouseExit()
         {
             extraCross.SetActive(false);
+            HideActionUI();
         }
         #endregion
 
@@ -98,15 +102,7 @@ namespace Remnants
 
             if (CurrentKey != null && CurrentKey.Length > 0)
             {
-
-                if(CurrentKey[0] == KeyCode.Semicolon)
-                {
-                    actionKey.text = "[;]";
-                }
-                else
-                {
-                    actionKey.text = "[" + CurrentKey[0] + "]";
-                }
+                actionKey.text = "[" + CurrentKey[0] + "]";               
             }
         }
 

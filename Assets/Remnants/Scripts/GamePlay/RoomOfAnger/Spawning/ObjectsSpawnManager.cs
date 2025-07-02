@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,43 +12,25 @@ namespace Remnants
         [Header("스폰 위치 및 프리팹")]
         public List<Transform> spawnPoints;
         public List<GameObject> spheres;
+        public GameObject finalShpere;
 
         [Header("UI 연결")]
         public GameObject actionUI;
         public TextMeshProUGUI actionText;
         public TextMeshProUGUI actionKey;
         public GameObject extraCross;
+        public TextMeshProUGUI sequenceText;
 
         [Header("설정")]
         [SerializeField] private float spawnInterval = 3f;
         [SerializeField] private bool finalTrigger = false;
         [SerializeField] private float finalDestroyAfter = 5f;
+        private string sequenceOne = "내가 그 아이에게 했던 말들이야...";
+        private string sequenceTwo = "난 그 말들을 받아들이며 속죄해야해...";
 
         #endregion
 
         #region Unity Event Method
-
-        private void OnTriggerEnter(Collider other)
-        {
-            // Layer 7번: Player
-            if (other.gameObject.layer == 7)
-            {
-                if (!finalTrigger)
-                {
-                    // 반복 소환 시작
-                    InvokeRepeating(nameof(SpawnRandomSphere), 0f, spawnInterval);
-                }
-                else
-                {
-                    // 반복 소환 중단 + 한 번만 소환
-                    CancelInvoke(nameof(SpawnRandomSphere));
-                    Invoke(nameof(SpawnFinalSphere), 0f);
-                }
-
-                // 이 트리거는 한 번만 작동하게
-                GetComponent<BoxCollider>().enabled = false;
-            }
-        }
 
         #endregion
 
@@ -55,6 +38,7 @@ namespace Remnants
         public void StartSpawning()
         {
             InvokeRepeating(nameof(SpawnRandomSphere), 0f, spawnInterval);
+            StartCoroutine(StartTrigger());
         }
 
         public void StopAndSpawnFinal()
@@ -84,7 +68,7 @@ namespace Remnants
 
             // 마지막 구체는 마지막 위치에서 소환 (가장 끝에 위치한 스폰포인트로 지정 가능)
             Transform spawnPoint = spawnPoints[spawnPoints.Count - 1];
-            GameObject instance = Instantiate(spheres[spheres.Count - 1], spawnPoint.position, Quaternion.identity);
+            GameObject instance = Instantiate(finalShpere, spawnPoint.position, Quaternion.identity);
 
             AssignUIToSphere(instance);
 
@@ -104,6 +88,18 @@ namespace Remnants
             }
         }
 
+        IEnumerator StartTrigger()
+        {
+            sequenceText.text = sequenceOne;
+
+            yield return new WaitForSeconds(2f);
+
+            sequenceText.text = sequenceTwo;
+
+            yield return new WaitForSeconds(2f);
+
+            sequenceText.text = "";
+        }
         #endregion
     }
 }

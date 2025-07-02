@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 712216339237688127}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 9010426971957775187}
   - component: {fileID: 6663521940967203817}
   - component: {fileID: -3309785843945257645}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2588541951737996086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8672302775210047432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4479861977981038043}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 590657413600227803}
   - component: {fileID: 1355384589575906843}
   - component: {fileID: 8710667029139422765}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Angel_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4952594596748514983}
   - component: {fileID: 6105810682408849794}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Little_Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3827614281359203313}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JNTs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4228606582941646079}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6496172279630277251}
   - component: {fileID: 5407722558683274655}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Little_ghost_ANIMATOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

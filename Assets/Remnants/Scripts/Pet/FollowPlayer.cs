@@ -27,7 +27,7 @@ namespace Remnants
         //태그가 Player인 오브젝트를 따라가는 코드
         private void FollowToPlayer()
         {
-            target = GameObject.Find("Player");
+            target = GameObject.FindGameObjectWithTag("Player");
 
             //target(플레이어)가 null이 아니라면
             if (target != null)
