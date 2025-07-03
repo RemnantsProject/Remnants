@@ -6474,7 +6474,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 40
   orthographic: 0
@@ -34073,7 +34073,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   IgnoreTag: 
-  AimDistance: 200
+  AimDistance: 20
   NoiseCancellation: 1
 --- !u!114 &1296961353
 MonoBehaviour:
@@ -34127,7 +34127,7 @@ MonoBehaviour:
   Lens:
     FieldOfView: 40
     OrthographicSize: 5
-    NearClipPlane: 0.3
+    NearClipPlane: 0.1
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -76256,10 +76256,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionUI: {fileID: 139501355567517788}
+  actionKey: {fileID: 0}
   actionText: {fileID: 8470839401174809739}
   extraCross: {fileID: 4814088983331159629}
   unInteractive: 0
   action: Do Interactive Action
+  actionDistance: 2
   teleportTarget: {fileID: 410634678}
   urpVolume: {fileID: 1102062916}
 --- !u!1 &4439937515134703513
@@ -112200,8 +112202,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 267922517}
-  - {fileID: 1102062917}
   - {fileID: 1296961355}
+  - {fileID: 1102062917}
   - {fileID: 3946788602434076957}
   - {fileID: 543450651896062547}
   - {fileID: 1756579717}
