@@ -719,14 +719,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e6001a9fdea8a4d8026afd85c609fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  animator: {fileID: 0}
+  walkSpeed: 6
+  runSpeed: 9
+  acceleration: 9
+  jumpHeight: 1
   velocity: {x: 0, y: 0, z: 0}
   groundCheck: {fileID: 1606486010}
   checkRange: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpHeight: 1
 --- !u!143 &487376842
 CharacterController:
   m_ObjectHideFlags: 0
