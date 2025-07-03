@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 // 문 열린 후 페이드 아웃 효과 부모 클래스
 namespace Remnants
@@ -17,6 +18,17 @@ namespace Remnants
         // 페이드 아웃 지속 시간
         [SerializeField]
         protected float fadeDuration = 2f;
+
+        // 엔딩 대사 (배열 처리)
+        public TextMeshProUGUI[] endingLines;
+
+        // 대사 한 줄 페이드 효과 지속 시간
+        [SerializeField]
+        private float textFadeDuration = 1f;
+
+        // 대사 한 줄 유지 시간
+        [SerializeField]
+        private float textDisplayDuration = 2f;
         #endregion
 
         #region Property
@@ -40,11 +52,11 @@ namespace Remnants
         #region Custom Method
         IEnumerator SequencePlayer()
         {
-            // 1. 플레이 캐릭터 비활성화(플레이 멈춤)
+            // 플레이 캐릭터 비활성화(플레이 멈춤)
             PlayerInput input = thePlayer.GetComponent<PlayerInput>();
             input.enabled = false;
 
-            // 흰색으로 페이드 아웃 효과 연출
+            // 페이드 아웃 효과 연출
             yield return StartCoroutine(FadeOutImage(FadeColor, fadeDuration));
         }
 
