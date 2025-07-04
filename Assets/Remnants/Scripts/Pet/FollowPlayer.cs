@@ -16,6 +16,13 @@ namespace Remnants
         {
             //참조
             navMeshAgent = this.GetComponent<NavMeshAgent>();
+
+            // Player 태그를 가진 오브젝트를 찾아서 target에 할당
+            target = GameObject.FindWithTag("Player");
+
+            if (target == null)
+                Debug.LogError("Player 레이어를 가진 오브젝트를 찾을 수 없습니다!");
+
         }
         private void Update()
         {
@@ -24,14 +31,15 @@ namespace Remnants
         #endregion
 
         #region Custom Method
-        //태그가 Player인 오브젝트를 따라가는 코드
+        //레이어가 Player인 오브젝트를 따라가는 코드
         private void FollowToPlayer()
         {
-            target = GameObject.FindGameObjectWithTag("Player");
-
             //target(플레이어)가 null이 아니라면
-            if (target != null)
-                navMeshAgent.SetDestination(target.transform.position);
+            if (target == null)
+                return;
+
+            //목표물 따라가기
+            navMeshAgent.SetDestination(target.transform.position);
         }
         #endregion
     }
