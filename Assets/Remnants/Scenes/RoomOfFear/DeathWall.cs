@@ -11,15 +11,21 @@ namespace Remnants
         [SerializeField]private float moveSpeed = 6f;     // 벽의 전진 속도
         [SerializeField]private float stopZ = 430f;       // 벽이 멈출 위치 (선택)
         private DeathWallTrigger deathWallTrigger;
+        private float gameStartTime;
         #endregion
 
         #region Unity Method
         private void Start()
         {
+            gameStartTime = Time.time;
             deathWallTrigger = GetComponentInChildren<DeathWallTrigger>();
         }
         private void Update()
         {
+            if (Time.time - gameStartTime < 2f)
+            {
+                return;
+            }
             // z축으로만 전진
             Vector3 pos = transform.position;
             pos.z += moveSpeed * Time.deltaTime;

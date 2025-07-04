@@ -13,13 +13,16 @@ namespace Remnants
         public Transform player;
         private float gameStartTime;
 
-        public int width = 3;          // 가로 큐브 개수 (보통 3)
-        public float cubeSizeX = 2f;   // 가로 큐브 간격
-        public float cubeSizeZ = 5f;   // 세로 큐브 간격
-        public int preGenerateLines = 200;
+        private int width = 3;          // 가로 큐브 개수 (보통 3)
+        private float cubeSizeX = 2f;   // 가로 큐브 간격
+        private float cubeSizeZ = 2f;   // 세로 큐브 간격
+        [SerializeField]
+        private int preGenerateLines = 200;
 
-        public float maxZLimit = 490f;
-        public float dropTriggerDistance = 3f;
+        [SerializeField]
+        private float maxZLimit = 600f;
+        [SerializeField]
+        private float dropTriggerDistance = 3f;
 
         private int lastLineGenerated = -1;
         private Dictionary<int, List<GameObject>> floorLines = new Dictionary<int, List<GameObject>>();
@@ -38,10 +41,10 @@ namespace Remnants
         }
         private void Update()
         {
-            //if (Time.time - gameStartTime < 1.5f)
-            //{
-            //    return;
-            //}
+            if (Time.time - gameStartTime < 1.5f)
+            {
+                return;
+            }
             int playerLine = Mathf.FloorToInt(player.position.z / cubeSizeZ);
 
             // 종점 까지 생성

@@ -23,6 +23,8 @@ namespace Remnants
         [SerializeField]
         private string sequence02 = "I need get out of here";
 
+        [SerializeField]
+        private string sequence03 = " ";
         //배경음
         //public AudioSource bgm01;
 
@@ -53,31 +55,26 @@ namespace Remnants
         //오프닝 연출 코루틴 함수
         IEnumerator SequencePlay()
         {
-            //0.플레이 캐릭터 비 활성화
-            //thePlayer.SetActive(false);
-            //PlayerInput input = thePlayer.GetComponent<PlayerInput>();
-            //input.enabled = false;
+            //1. 페이드인 연출 
+            fader.FadeStart(2f);
+            yield return new WaitForSeconds(2f);
 
-            //1. 페이드인 연출 (1초 대기후 페인드인 효과)
-            fader.FadeStart(1f);
-
-            //2.화면 하단에 시나리오 텍스트 화면 출력(3초)
             sequenceText.text = sequence01;
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
 
             sequenceText.text = sequence02;
             
             yield return new WaitForSeconds(0.5f);
-            //3. 3초후에 시나리오 텍스트 없어진다
+
+            sequenceText.text = sequence03;
+
+            yield return new WaitForSeconds(0.5f);
+            //2. 3초후에 시나리오 텍스트 없어진다
             sequenceText.text = "";
 
             //배경음 플레이 시작
             //bgm01.Play();
-
-            //4.플레이 캐릭터 활성화
-            //thePlayer.SetActive(true);
-            //input.enabled = true;
         }
         #endregion
 

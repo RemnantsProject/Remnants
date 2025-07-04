@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: b4a39bc5ad8c0f447815ac4264632dca
   - enabled: 1
     path: Assets/Remnants/Scenes/RoomOfVoid.unity
-    guid: c106181a53b561b4aa8f41ec55e3ecda
+    guid: 3e41e73e6f2546a43a373e63f1e8ce02
   - enabled: 1
     path: Assets/Remnants/Scenes/RoomOfSorrow.unity
     guid: dd669b8db7fe6c94b87e529544eb59a9
@@ -18,11 +18,11 @@ EditorBuildSettings:
     path: Assets/Remnants/Scenes/RoomOfAnger.unity
     guid: 27a6a45845480f04c8192a9ab6528dfb
   - enabled: 1
-    path: Assets/Remnants/Scenes/RoomOfEnding.unity
-    guid: 48b0cd8f23664dc4d980193809cebe16
-  - enabled: 1
     path: Assets/Remnants/Scenes/RoomOfFear.unity
     guid: 1f34e0e2f627e7d488a9e46a36d9c165
+  - enabled: 1
+    path: Assets/Remnants/Scenes/RoomOfEnding.unity
+    guid: 48b0cd8f23664dc4d980193809cebe16
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

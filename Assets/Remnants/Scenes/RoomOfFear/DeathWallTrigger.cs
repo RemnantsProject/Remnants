@@ -5,6 +5,13 @@ namespace Remnants
     //벽 충돌박스
     public class DeathWallTrigger : MonoBehaviour
     {
+        #region Variables
+        public SceneFader fader;
+        [SerializeField]
+        private string loadToScene = "Lobby";
+
+        #endregion
+
         #region Property
         public bool IsCatch { get; private set; }
         #endregion
@@ -23,6 +30,7 @@ namespace Remnants
                 Debug.Log("Game Over: 벽에 닿음");
                 IsCatch = true;
 
+                fader.FadeTo(loadToScene);
                 // 게임 오버 처리
                 // Time.timeScale = 0f;
                 // GameManager.Instance.GameOver(); 가능
