@@ -1,0 +1,11 @@
+diff a/Assets/Remnants/Scenes/RoomOfAnger.unity b/Assets/Remnants/Scenes/RoomOfAnger.unity	(rejected hunks)
+@@ -8830,7 +8830,8 @@
+   m_isRightToLeft: 0
+   m_fontAsset: {fileID: 11400000, guid: 5426031ab82dbff4a90e184091d8752c, type: 2}
+   m_sharedMaterial: {fileID: 4544797774413841701, guid: 5426031ab82dbff4a90e184091d8752c, type: 2}
+-  m_fontSharedMaterials: []
++  m_fontSharedMaterials:
++  - {fileID: 4544797774413841701, guid: 5426031ab82dbff4a90e184091d8752c, type: 2}
+   m_fontMaterial: {fileID: 0}
+   m_fontMaterials: []
+   m_fontColor32:
