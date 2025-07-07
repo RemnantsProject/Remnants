@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Remnants/Scenes/MainMenu.unity
+    guid: df9c7277b8684d347a6622133488f52e
+  - enabled: 1
     path: Assets/Remnants/Scenes/Lobby.unity
     guid: b4a39bc5ad8c0f447815ac4264632dca
   - enabled: 1
