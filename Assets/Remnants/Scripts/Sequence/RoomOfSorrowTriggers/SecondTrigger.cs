@@ -39,7 +39,7 @@ namespace Remnants
             Quaternion targetRotation = Quaternion.Euler(0f, lookRotationEuler.y, 0f);
 
             // 회전에 걸릴 시간
-            float duration = 1.5f;
+            float duration = 0.5f;
             float elapsed = 0f;
 
             // ▷ 부드럽게 플레이어 회전 (현재 → 목표)
@@ -56,7 +56,7 @@ namespace Remnants
 
             // ▷ 텍스트 출력 (3초 동안)
             sequenceText.text = sequence;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             sequenceText.text = "";
 
             // ▷ 다시 원래 방향으로 천천히 회전 복구
