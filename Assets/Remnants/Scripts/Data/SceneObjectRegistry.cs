@@ -33,11 +33,11 @@ namespace Remnants
             if (!string.IsNullOrEmpty(obj.objectID) && !objects.ContainsKey(obj.objectID))
             {
                 objects.Add(obj.objectID, obj.gameObject);
-                Debug.Log($"[SceneObjectRegistry] Registered object: {obj.objectID}");
+                //Debug.Log($"[SceneObjectRegistry] Registered object: {obj.objectID}");
             }
             else
             {
-                Debug.LogWarning($"[SceneObjectRegistry] Duplicate or invalid objectID: {obj.objectID}");
+                //Debug.LogWarning($"[SceneObjectRegistry] Duplicate or invalid objectID: {obj.objectID}");
             }
         }
         // 등록된 ID로 오브젝트

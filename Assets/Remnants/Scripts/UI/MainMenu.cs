@@ -29,6 +29,7 @@ namespace Remnants
 
         public Slider bgmSlider;
         public Slider sfxSlider;
+        public Slider masterSlider;
 
         //게임 데이터
         private int sceneNumber;
@@ -87,16 +88,16 @@ namespace Remnants
             //PlayerPrefs 모드
             //sceneNumber = PlayerPrefs.GetInt("SceneNumber", -1);
             //FileSystem 모드
-            PlayData playData = SaveLoad.LoadData();
-            PlayerDataManager.Instance.InitPlayerData(playData);
-            sceneNumber = PlayerDataManager.Instance.SceneNumber;
+            //PlayData playData = SaveLoad.LoadData();
+            //PlayerDataManager.Instance.InitPlayerData(playData);
+            //sceneNumber = PlayerDataManager.Instance.SceneNumber;
         }
 
         public void NewGame()
         {
             //메뉴 선택 사운드
-            audioManager.StopBgm();
-            audioManager.Play("MenuSelect");
+            //audioManager.StopBgm();
+            //audioManager.Play("MenuSelect");
 
             //새게임 하러 가기
             fader.FadeTo(loadToScene);
@@ -105,8 +106,8 @@ namespace Remnants
         public void LoadGame()
         {
             //메뉴 선택 사운드
-            audioManager.StopBgm();
-            audioManager.Play("MenuSelect");
+            //audioManager.StopBgm();
+            //audioManager.Play("MenuSelect");
 
             //새게임 하러 가기
             fader.FadeTo(sceneNumber);
@@ -115,7 +116,7 @@ namespace Remnants
         public void Options()
         {
             //메뉴 선택 사운드
-            audioManager.Play("MenuSelect");
+            //audioManager.Play("MenuSelect");
 
             //옵션 UI 보여주기
             isShowOption = true;
@@ -161,6 +162,15 @@ namespace Remnants
             audioMixer.SetFloat("Sfx", value);
         }
 
+        public void SetMasterVolume(float value)
+        {
+            //볼륨값 저장
+            PlayerPrefs.SetFloat("Master", value);
+
+            //볼륨 조절
+            audioMixer.SetFloat("Master", value);
+        }
+
         //옵션 저장값들을 가져와서 게임에 적용한다
         private void LoadOptions()
         {
@@ -178,6 +188,12 @@ namespace Remnants
             //UI에 적용
             sfxSlider.value = sfxVolume;
 
+            //효과음 볼륨값 가져오기
+            float masterVolume = PlayerPrefs.GetFloat("Master", 0f);
+            //오디오 믹서에 적용
+            SetMasterVolume(masterVolume);
+            //UI에 적용
+            masterSlider.value = masterVolume;
             //기타...
         }
         #endregion
