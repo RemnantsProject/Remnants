@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace Remnants
@@ -9,6 +10,10 @@ namespace Remnants
         public SceneFader whiteFader;
         [SerializeField]
         private string loadToScene = "RoomOfSorrow_2";
+
+        public TextMeshProUGUI sequenceText;
+        [SerializeField]
+        private string sequence = "Sequence";
         #endregion
 
         #region Unity Event Method
@@ -23,9 +28,11 @@ namespace Remnants
 
         IEnumerator LoadScene()
         {
+            sequenceText.text = sequence;
 
+            yield return new WaitForSeconds(2f);
 
-            yield return new WaitForSeconds(1f);
+            sequenceText.text = "";
 
             whiteFader.FadeTo(loadToScene, true);
         }

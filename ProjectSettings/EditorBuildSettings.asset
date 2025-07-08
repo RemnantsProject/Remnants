@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Remnants/Scenes/RoomOfSorrow_2.unity
     guid: 30a92f09db1386349aea141e1ae20f99
   - enabled: 1
+    path: Assets/Remnants/Scenes/RoomOfSorrow_3.unity
+    guid: a1ad2403de052dc488fd5a2dcc5a3254
+  - enabled: 1
     path: Assets/Remnants/Scenes/RoomOfRegret.unity
     guid: 5cb55149d9fa41a4890a6df7bb3c0f76
   - enabled: 1
