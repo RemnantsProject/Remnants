@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 108978823}
   - component: {fileID: 108978822}
   - component: {fileID: 108978825}
+  - component: {fileID: 108978826}
   m_Layer: 0
   m_Name: SM_Toy_06
   m_TagString: Untagged
@@ -356,8 +357,21 @@ MonoBehaviour:
   action: "\uC7A5\uB09C\uAC10\uC744 \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
+--- !u!114 &108978826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108978820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &120889393
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +461,7 @@ MonoBehaviour:
   Lens:
     FieldOfView: 40
     OrthographicSize: 5
-    NearClipPlane: 0.1
+    NearClipPlane: 0.2
     FarClipPlane: 200
     Dutch: 0
     ModeOverride: 0
@@ -479,6 +493,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &141965197
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428633503272968590, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773477632440126901, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cad587b9df9690849a340b37321c471c, type: 3}
 --- !u!1001 &278980789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -569,7 +640,7 @@ GameObject:
   - component: {fileID: 298297909}
   - component: {fileID: 298297908}
   - component: {fileID: 298297907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Playground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +995,7 @@ MonoBehaviour:
   whiteFader: {fileID: 1539712093}
   loadToScene: Lobby
   sequenceText: {fileID: 3718605317944121253}
-  sequence: "\uC774\uC81C \uC815\uB9D0 \uB3CC\uC544\uAC00\uC790..."
+  sequence: "\uC774 \uAF43\uC740 **\uC5D0\uAC8C \uC8FC\uC5C8\uB358..."
 --- !u!64 &384013693
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1009,7 +1080,7 @@ Transform:
   m_GameObject: {fileID: 384013691}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000021855696, y: 0.00000004371139, z: -0.00000004371139, w: 1}
-  m_LocalPosition: {x: -33.51, y: 0.1, z: 0.63}
+  m_LocalPosition: {x: 31.84, y: 0.1, z: 1.92}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1890,6 +1961,7 @@ GameObject:
   - component: {fileID: 1203655011}
   - component: {fileID: 1203655010}
   - component: {fileID: 1203655013}
+  - component: {fileID: 1203655014}
   m_Layer: 0
   m_Name: SM_Swings_01
   m_TagString: Untagged
@@ -2006,8 +2078,21 @@ MonoBehaviour:
   action: "\uC2DC\uC18C\uB97C \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
+--- !u!114 &1203655014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203655008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &1255704421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,6 +2106,7 @@ GameObject:
   - component: {fileID: 1255704424}
   - component: {fileID: 1255704423}
   - component: {fileID: 1255704426}
+  - component: {fileID: 1255704427}
   m_Layer: 0
   m_Name: SM_Toy_03
   m_TagString: Untagged
@@ -2137,8 +2223,21 @@ MonoBehaviour:
   action: "\uC7A5\uB09C\uAC10\uC744 \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
+--- !u!114 &1255704427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255704421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &1322005265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2597,7 @@ GameObject:
   - component: {fileID: 1421149392}
   - component: {fileID: 1421149395}
   - component: {fileID: 1421149394}
+  - component: {fileID: 1421149396}
   m_Layer: 0
   m_Name: SM_Swings_02
   m_TagString: Untagged
@@ -2593,7 +2693,7 @@ MonoBehaviour:
   action: "\uD68C\uC804\uC758\uC790\uB97C \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
 --- !u!64 &1421149395
 MeshCollider:
@@ -2617,6 +2717,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1156589607928357512, guid: 53f449f1bac3cb44896f1c793eb6604d, type: 3}
+--- !u!114 &1421149396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421149389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &1502703734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,7 +3143,7 @@ GameObject:
   - component: {fileID: 1615748049}
   - component: {fileID: 1615748048}
   - component: {fileID: 1615748047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8235,7 +8348,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.2
   far clip plane: 200
   field of view: 40
   orthographic: 0
@@ -8489,6 +8602,7 @@ GameObject:
   - component: {fileID: 1783186825}
   - component: {fileID: 1783186828}
   - component: {fileID: 1783186827}
+  - component: {fileID: 1783186829}
   m_Layer: 0
   m_Name: SM_Crossbar_Stairs_01
   m_TagString: Untagged
@@ -8584,7 +8698,7 @@ MonoBehaviour:
   action: "\uCCA0\uBD09\uC744 \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
 --- !u!64 &1783186828
 MeshCollider:
@@ -8608,6 +8722,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8428183765798700512, guid: 74b50884c070cde44ad6f8905fcdef97, type: 3}
+--- !u!114 &1783186829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783186817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &1817108623
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,6 +8748,7 @@ GameObject:
   - component: {fileID: 1817108628}
   - component: {fileID: 1817108631}
   - component: {fileID: 1817108630}
+  - component: {fileID: 1817108632}
   m_Layer: 0
   m_Name: SM_Playground_04
   m_TagString: Untagged
@@ -8716,7 +8844,7 @@ MonoBehaviour:
   action: "\uC6D0\uC22D\uC774 \uCCA0\uBD09\uC744 \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
 --- !u!64 &1817108631
 MeshCollider:
@@ -8740,6 +8868,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2198192305029278513, guid: d277ba48b401c59458e3067c376d6129, type: 3}
+--- !u!114 &1817108632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817108623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &1841504921
 GameObject:
   m_ObjectHideFlags: 0
@@ -8804,6 +8945,7 @@ GameObject:
   - component: {fileID: 1857114257}
   - component: {fileID: 1857114256}
   - component: {fileID: 1857114259}
+  - component: {fileID: 1857114260}
   m_Layer: 0
   m_Name: SM_Toy_05
   m_TagString: Untagged
@@ -8920,8 +9062,21 @@ MonoBehaviour:
   action: "\uC7A5\uB09C\uAC10\uC744 \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
+--- !u!114 &1857114260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857114254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &1918922445
 GameObject:
   m_ObjectHideFlags: 0
@@ -9092,6 +9247,7 @@ MonoBehaviour:
   fader: {fileID: 1539712093}
   sequenceText: {fileID: 3718605317944121253}
   sequence01: "\uD558\uC580 \uACF5\uAC04..?"
+  isWhite: 1
 --- !u!114 &1958770566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9105,6 +9261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitFlower: {fileID: 384013691}
+  sequenceText: {fileID: 3718605317944121253}
+  sequence: "\uC5B4\uB518\uAC00\uC5D0 \uAF43\uC774 \uC0DD\uACBC\uC744\uAC70\uC57C"
 --- !u!1 &2043955072
 GameObject:
   m_ObjectHideFlags: 0
@@ -9745,6 +9903,7 @@ GameObject:
   - component: {fileID: 2136537618}
   - component: {fileID: 2136537617}
   - component: {fileID: 2136537620}
+  - component: {fileID: 2136537621}
   m_Layer: 0
   m_Name: SM_Toy_01
   m_TagString: Untagged
@@ -9861,8 +10020,21 @@ MonoBehaviour:
   action: "\uACF5\uC744 \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
+--- !u!114 &2136537621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136537615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!224 &48446518304011479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9933,7 +10105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068884d362585d448a056a3a7eb202cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fader: {fileID: 0}
+  fader: {fileID: 1539712093}
   pauseUI: {fileID: 4377889112749164232}
   playerInput: {fileID: 278980791}
 --- !u!1 &528322697703643556
@@ -10413,8 +10585,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 829411971e3063e40aee5d7a04f3512f, type: 2}
   m_sharedMaterial: {fileID: -2944679432385068695, guid: 829411971e3063e40aee5d7a04f3512f, type: 2}
-  m_fontSharedMaterials:
-  - {fileID: -2944679432385068695, guid: 829411971e3063e40aee5d7a04f3512f, type: 2}
+  m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -10718,6 +10889,7 @@ GameObject:
   - component: {fileID: 6779897245784492457}
   - component: {fileID: 8787648593838390628}
   - component: {fileID: 8787648593838390629}
+  - component: {fileID: 8787648593838390630}
   m_Layer: 0
   m_Name: SM_Trash_02
   m_TagString: Untagged
@@ -11025,6 +11197,7 @@ GameObject:
   - component: {fileID: 5387753780223615889}
   - component: {fileID: 7863798204782860124}
   - component: {fileID: 7863798204782860125}
+  - component: {fileID: 7863798204782860126}
   m_Layer: 0
   m_Name: SM_Sandbox_02
   m_TagString: Untagged
@@ -11325,7 +11498,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d26653261fd014a4388956425a2f459e, type: 2}
+  - {fileID: 2100000, guid: c9523eca4dd574145903e29cd37426d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11576,8 +11749,21 @@ MonoBehaviour:
   action: "\uBAA8\uB798\uC0C1\uC790\uB97C \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC544\uB2CC \uAC83 \uAC19\uC544"
   isClue: 0
+--- !u!114 &7863798204782860126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5892355330717811268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &7916664006680234799
 GameObject:
   m_ObjectHideFlags: 0
@@ -11591,6 +11777,7 @@ GameObject:
   - component: {fileID: 8565107105976314618}
   - component: {fileID: 8565107105976314619}
   - component: {fileID: 8565107105976314620}
+  - component: {fileID: 8565107105976314621}
   m_Layer: 0
   m_Name: SM_Playground_02
   m_TagString: Untagged
@@ -11621,7 +11808,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d26653261fd014a4388956425a2f459e, type: 2}
+  - {fileID: 2100000, guid: c9523eca4dd574145903e29cd37426d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11704,6 +11891,7 @@ GameObject:
   - component: {fileID: 8042443218981736283}
   - component: {fileID: 9211923524866290741}
   - component: {fileID: 9211923524866290742}
+  - component: {fileID: 9211923524866290743}
   m_Layer: 0
   m_Name: SM_Swings_04
   m_TagString: Untagged
@@ -11764,7 +11952,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d26653261fd014a4388956425a2f459e, type: 2}
+  - {fileID: 2100000, guid: c9523eca4dd574145903e29cd37426d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11828,8 +12016,21 @@ MonoBehaviour:
   action: "\uB180\uC774\uD130\uB97C \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC774\uC0C1\uD574"
   isClue: 1
+--- !u!114 &8565107105976314621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916664006680234799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!114 &8575087716528031253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12012,8 +12213,21 @@ MonoBehaviour:
   action: "\uC4F0\uB808\uAE30\uD1B5\uC744 \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC774\uC0C1\uD574"
   isClue: 1
+--- !u!114 &8787648593838390630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978717222866118780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!114 &8808726594951316516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12366,8 +12580,21 @@ MonoBehaviour:
   action: "\uC758\uC790\uADF8\uB124\uB97C \uB9CC\uC9C4\uB2E4"
   actionDistance: 2
   sequenceText: {fileID: 3718605317944121253}
-  sequence: Find Clue
+  sequence: "\uC774 \uAE30\uAD6C\uB294 \uC774\uC0C1\uD574"
   isClue: 1
+--- !u!114 &9211923524866290743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402735105466461838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b71f4491c704cbc4634397ea81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -12376,6 +12603,7 @@ SceneRoots:
   - {fileID: 120889397}
   - {fileID: 1918922447}
   - {fileID: 1958770564}
+  - {fileID: 141965197}
   - {fileID: 7848301131519312674}
   - {fileID: 539567902}
   - {fileID: 278980789}

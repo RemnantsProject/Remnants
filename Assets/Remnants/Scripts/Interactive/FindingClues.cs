@@ -8,7 +8,11 @@ namespace Remnants
     public class FindingClues : Interactive
     {
         #region Variables
+        //참조
+        private DisapperEffect disapperEffect;
+
         public TextMeshProUGUI sequenceText;
+
         [SerializeField]
         private string sequence = "Find Clue";
         private string notClueText = "이게 아니야..";
@@ -28,7 +32,10 @@ namespace Remnants
         #endregion
 
         #region Unity Event Method
-
+        private void Start()
+        {
+            disapperEffect = this.GetComponent<DisapperEffect>();
+        }
         #endregion
 
         #region Custom Method
@@ -51,11 +58,15 @@ namespace Remnants
                 yield return new WaitForSeconds(3f);
                 sequenceText.text = "";
 
-                //임시 삭제 코드
-                Destroy(this.gameObject);
+                if (disapperEffect != null)
+                {
+                    disapperEffect.StartDisapper();
+                }
             }
-            
+
         }
+
+
         #endregion
     }
 

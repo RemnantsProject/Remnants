@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,8 +9,11 @@ namespace Remnants
     {
         #region Variables
         public GameObject exitFlower;
+        public TextMeshProUGUI sequenceText;
 
         private FindingClues[] allClues;
+        [SerializeField]
+        private string sequence = "sequence Text";
         #endregion
 
         #region Unity Event Method
@@ -39,6 +43,13 @@ namespace Remnants
                 if (!hasAnyRealClue && exitFlower != null)
                 {
                     exitFlower.SetActive(true);
+
+                    yield return new WaitForSeconds(1f);
+                    sequenceText.text = sequence;
+
+                    yield return new WaitForSeconds(2f);
+                    sequenceText.text = "";
+
                     yield break; // 조건 만족했으면 코루틴 종료
                 }
 

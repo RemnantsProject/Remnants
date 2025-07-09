@@ -63,17 +63,20 @@ namespace Remnants
 
         private void SpawnFinalSphere()
         {
-            if (spawnPoints.Count == 0 || spheres.Count == 0)
-                return;
+            if (finalTrigger)
+            {
+                if (spawnPoints.Count == 0 || spheres.Count == 0)
+                    return;
 
-            // 마지막 구체는 마지막 위치에서 소환 (가장 끝에 위치한 스폰포인트로 지정 가능)
-            Transform spawnPoint = spawnPoints[spawnPoints.Count - 1];
-            GameObject instance = Instantiate(finalShpere, spawnPoint.position, Quaternion.identity);
+                // 마지막 구체는 마지막 위치에서 소환 (가장 끝에 위치한 스폰포인트로 지정 가능)
+                Transform spawnPoint = spawnPoints[spawnPoints.Count - 1];
+                GameObject instance = Instantiate(finalShpere, spawnPoint.position, Quaternion.identity);
 
-            AssignUIToSphere(instance);
+                AssignUIToSphere(instance);
 
-            // 일정 시간 후 파괴
-            Destroy(instance, finalDestroyAfter);
+                // 일정 시간 후 파괴
+                Destroy(instance, finalDestroyAfter);
+            } 
         }
 
         private void AssignUIToSphere(GameObject instance)

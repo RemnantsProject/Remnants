@@ -22,7 +22,7 @@ namespace Remnants
             playerController = FindFirstObjectByType<PlayerController>();
         }
         #endregion
-
+        
         #region Custom Method
         protected override IEnumerator StartTrigger()
         {
@@ -39,7 +39,7 @@ namespace Remnants
             Quaternion targetRotation = Quaternion.Euler(0f, lookRotationEuler.y, 0f);
 
             // 회전에 걸릴 시간
-            float duration = 1.5f;
+            float duration = 0.5f;
             float elapsed = 0f;
 
             // ▷ 부드럽게 플레이어 회전 (현재 → 목표)

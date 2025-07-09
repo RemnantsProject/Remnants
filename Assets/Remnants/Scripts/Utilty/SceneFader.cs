@@ -16,8 +16,11 @@ namespace Remnants
         public AnimationCurve curve;
 
         //페이드인 딜레이 타임
-       // [SerializeField]
-       // private float fadeInDelay = 5f;
+        // [SerializeField]
+        // private float fadeInDelay = 5f;
+
+        [SerializeField]
+        private bool isWhite = false;
         #endregion
 
         private void Start()
@@ -32,7 +35,7 @@ namespace Remnants
         //코루틴으로 구현
         //delayTime : 매개변수로 딜레이 타임받아 딜레이 후 페이드 효과
         //FadeIn : 1초동안 : 검정에서 완전 투명으로 (이미지 알파값 a:1 -> a:0)
-        IEnumerator FadeIn(float delayTime = 0f)
+        IEnumerator FadeIn(float delayTime = 0f, bool white = false)
         {
             //delayTime 지연
             if(delayTime > 0)
@@ -46,31 +49,23 @@ namespace Remnants
             {
                 t -= Time.deltaTime;
                 float a = curve.Evaluate(t);
-                img.color = new Color(0f, 0f, 0f, a);
+                if (!white)
+                {
+                    img.color = new Color(0f, 0f, 0f, a);
+                }
+                else
+                {
+                    img.color = new Color(1f, 1f, 1f, a);
+                }
 
                 yield return 0f;    //한프레임 지연
             }
         }
 
         //페이드인 외부에서 호출
-        public void FadeStart(float delayTime = 0f)
+        public void FadeStart(float delayTime = 0f, bool white = false)
         {
-            StartCoroutine(FadeIn(delayTime));
-        }
-
-        //FadeOut : 1초동안 : 투명에서 완전 검정으로 (이미지 알파값 a:0 -> a:1)
-        IEnumerator FadeOut()
-        {
-            float t = 0f;
-
-            while(t < 1f)
-            {
-                t += Time.deltaTime;
-                float a = curve.Evaluate(t);
-                img.color = new Color(0f, 0f, 0f, a);
-
-                yield return 0f;
-            }
+            StartCoroutine(FadeIn(delayTime, white));
         }
 
         //FadeOut 효과 후 매개변수로 받은 씬이름으로 LoadScene으로 이동
@@ -83,9 +78,16 @@ namespace Remnants
             {
                 t += Time.deltaTime;
                 float a = curve.Evaluate(t);
-                img.color = new Color(0f, 0f, 0f, a);
+                if (!isWhite)
+                {
+                    img.color = new Color(0f, 0f, 0f, a);
+                }
+                else
+                {
+                    img.color = new Color(1f, 1f, 1f, a);
+                }
 
-                yield return 0f;
+                    yield return 0f;
             }
 
             //씬이동
@@ -105,7 +107,14 @@ namespace Remnants
             {
                 t += Time.deltaTime;
                 float a = curve.Evaluate(t);
-                img.color = new Color(0f, 0f, 0f, a);
+                if (!isWhite)
+                {
+                    img.color = new Color(0f, 0f, 0f, a);
+                }
+                else
+                {
+                    img.color = new Color(1f, 1f, 1f, a);
+                }
 
                 yield return 0f;
             }

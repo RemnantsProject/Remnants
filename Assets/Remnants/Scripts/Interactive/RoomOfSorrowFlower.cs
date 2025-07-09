@@ -34,7 +34,7 @@ namespace Remnants
 
             sequenceText.text = "";
 
-           // whiteFader.FadeTo(loadToScene, true);
+            whiteFader.FadeTo(loadToScene);
         }
         #endregion
     }

@@ -33,6 +33,9 @@ namespace Remnants
             StartCoroutine(SequencePlay());
         }
         #endregion
+        #region MyRegion
+
+        #endregion
 
         #region Custom Method
         //오프닝 연출 코루틴 함수

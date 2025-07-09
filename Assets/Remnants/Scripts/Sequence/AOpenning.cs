@@ -20,7 +20,8 @@ namespace Remnants
         [SerializeField]
         private string sequence01 = "여기가 어디야?";
 
-
+        [SerializeField]
+        private bool isWhite = false;
         #endregion
 
         #region Unity Event Method
@@ -46,7 +47,7 @@ namespace Remnants
             input.enabled = false;
 
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
-            fader.FadeStart(1f);
+            fader.FadeStart(1f, isWhite);
             //2.화면 하단에 시나리오 텍스트 화면 출력
             sequenceText.text = sequence01;
             yield return new WaitForSeconds(3f);
