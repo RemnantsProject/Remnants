@@ -30,24 +30,29 @@ namespace Remnants
         #endregion
 
         #region Custom Method
+        private SceneData GetOrCreateSceneData(string sceneName)
+        {
+            if (!savedScenes.TryGetValue(sceneName, out var data))
+            {
+                data = new SceneData();
+                savedScenes[sceneName] = data;
+            }
+            return data;
+        }
+
         public void MarkObjectActivated(string sceneName, string objectName)
         {
-            if (!savedScenes.ContainsKey(sceneName))
-                savedScenes[sceneName] = new SceneData();
-
-            if (!savedScenes[sceneName].activatedObjectNames.Contains(objectName))
-                savedScenes[sceneName].activatedObjectNames.Add(objectName);
+            var data = GetOrCreateSceneData(sceneName);
+            if (!data.activatedObjectNames.Contains(objectName))
+                data.activatedObjectNames.Add(objectName);
         }
 
-        public void SavePlayerState(string sceneName, Vector3 position, Quaternion rotation)
+        public void SavePlayerState(string sceneName, Vector3 pos, Quaternion rot)
         {
-            if (!savedScenes.ContainsKey(sceneName))
-                savedScenes[sceneName] = new SceneData();
-
-            savedScenes[sceneName].playerPosition = position;
-            savedScenes[sceneName].playerRotation = rotation;
+            var data = GetOrCreateSceneData(sceneName);
+            data.playerPosition = pos;
+            data.playerRotation = rot;
         }
-
         public SceneData GetSceneData(string sceneName)
         {
             if (savedScenes.ContainsKey(sceneName))

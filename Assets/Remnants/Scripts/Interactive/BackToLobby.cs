@@ -10,21 +10,24 @@ namespace Remnants
         public SceneFader fader;
         [SerializeField]
         private string loadToScene = "Lobby";
+        private Animator animator;
         #endregion
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
         protected override void DoAction()
         {
-            if (!TeleportState.Instance.HasVisitedRoom)
-            {
+            Debug.Log("[BackToLobby] HasVisitedRoom = " + TeleportState.Instance.HasVisitedRoom);
+                if (!TeleportState.Instance.HasVisitedRoom)
                 return;
-            }
-
             StartCoroutine(OpenDoor());
         }
 
         #region Custom Method
         IEnumerator OpenDoor()
-        {          
-           
+        {
+            animator.SetTrigger("Open");
             yield return new WaitForSeconds(1f);
             fader.FadeTo(loadToScene);
         }

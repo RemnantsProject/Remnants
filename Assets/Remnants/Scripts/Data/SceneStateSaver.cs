@@ -41,7 +41,8 @@ namespace Remnants
                 GameStateManager.Instance.SavePlayerState(sceneName, player.transform.position, player.transform.rotation);
                 Debug.Log($"[SceneStateSaver] 플레이어 위치 저장됨: {player.transform.position}");
             }
-            #endregion
+            
         }
+        #endregion
     }
 }

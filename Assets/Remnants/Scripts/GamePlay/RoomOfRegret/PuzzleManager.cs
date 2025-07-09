@@ -6,6 +6,7 @@ namespace Remnants
 {
     public class PuzzleManager : MonoBehaviour
     {
+        #region Variables
         public static PuzzleManager Instance;
 
         public GameObject puzzlePanel;              // 퍼즐 UI
@@ -21,15 +22,27 @@ namespace Remnants
         private Coroutine hideTextCoroutine;
         private int[] collectedFlags;
         private int collectedCount = 0;
+       
+        #endregion
 
+        #region Unity Event Method
         private void Awake()
         {
-            if (Instance == null) Instance = this;
-            else Destroy(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
 
             collectedFlags = new int[mirrorPieces.Length];
+          
         }
+        #endregion
 
+        #region Custom Method
         public void CollectPiece(int index)
         {
             if (index < 0 || index >= collectedFlags.Length) return;
@@ -37,7 +50,6 @@ namespace Remnants
 
             collectedFlags[index] = 1;
             collectedCount++;
-
             ShowRegretLine(index);
 
             if (collectedCount >= mirrorPieces.Length)
@@ -49,6 +61,7 @@ namespace Remnants
 
         private IEnumerator DelayedStartPuzzle()
         {
+
             yield return new WaitForSeconds(1f);
             StartCoroutine(AnimatePuzzleAssembly());
         }
@@ -58,6 +71,7 @@ namespace Remnants
             puzzlePanel.SetActive(true);
             brokenMirrorRoot.SetActive(false);
             completeMirror.SetActive(false);
+
 
             for (int i = 0; i < mirrorPieces.Length; i++)
             {
@@ -104,5 +118,6 @@ namespace Remnants
             brokenMirrorRoot.SetActive(false);
             puzzlePanel.SetActive(false);
         }
+        #endregion
     }
 }
