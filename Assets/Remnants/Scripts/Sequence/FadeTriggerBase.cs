@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 // 문 열린 후 페이드 아웃 효과 부모 클래스
 namespace Remnants
@@ -29,6 +30,11 @@ namespace Remnants
         // 대사 한 줄 유지 시간
         [SerializeField]
         private float textDisplayDuration = 2f;
+
+        // 메인 메뉴 신으로 가기
+        public SceneFader fader;
+        [SerializeField]
+        private string loadToScene = "MainMenu";
         #endregion
 
         #region Property
@@ -37,6 +43,17 @@ namespace Remnants
         #endregion
 
         #region Unity Event Method
+        private void Awake()
+        {
+            // 모든 텍스트 비활성화 + 알파값 0
+            foreach (var line in endingLines)
+            {
+                line.gameObject.SetActive(false);
+                Color c = line.color;
+                c.a = 0f;
+                line.color = c;
+            }
+        }
         private void OnTriggerEnter(Collider other)
         {
             // 플레이어 체크
@@ -58,6 +75,9 @@ namespace Remnants
 
             // 페이드 아웃 효과 연출
             yield return StartCoroutine(FadeOutImage(FadeColor, fadeDuration));
+
+            // 대사 표시 코루틴 시작
+            yield return StartCoroutine(PlayEndingLines());
         }
 
         IEnumerator FadeOutImage(Color color, float duration)
@@ -86,6 +106,62 @@ namespace Remnants
 
             // 최종 색상
             fadeImage.color = endColor;
+        }
+
+        // 엔딩 대사 플레이
+        IEnumerator PlayEndingLines()
+        {
+            foreach (var line in endingLines)
+            {
+                // 이전 대사 비활성화
+                foreach (var l in endingLines)
+                {
+                    l.gameObject.SetActive(false);
+                }
+
+                yield return StartCoroutine(FadeTextInOut(line));
+            }
+
+            fader.FadeTo(loadToScene);
+        }
+
+        // 엔딩 대사 나타나기, 숨기기
+        IEnumerator FadeTextInOut(TextMeshProUGUI text)
+        {
+            // 시작 전 모든 텍스트 숨김
+            text.gameObject.SetActive(true);
+
+            Color color = text.color;
+            color.a = 0f;
+            text.color = color;
+
+            // 대사 나타나기
+            float elapsed = 0f;
+            while (elapsed < textFadeDuration)
+            {
+                color.a = Mathf.Lerp(0f, 1f, (elapsed / textFadeDuration));
+                text.color = color;
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            color.a = 1f;
+            text.color = color;
+
+            // 유지 시간
+            yield return new WaitForSeconds(textDisplayDuration);
+
+            // 대사 사라지기
+            elapsed = 0f;
+            while (elapsed < textFadeDuration)
+            {
+                color.a = Mathf.Lerp(1f, 0f, (elapsed / textFadeDuration));
+                text.color = color;
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            color.a = 0f;
+            text.color = color;
+            text.gameObject.SetActive(false);
         }
         #endregion
     }
