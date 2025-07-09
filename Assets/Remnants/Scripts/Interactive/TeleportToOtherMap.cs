@@ -24,14 +24,16 @@ namespace Remnants
 
         [SerializeField] private TextMeshProUGUI sequenceText;
 
+        [SerializeField] private FullscreenCrackEffect crackEffect;
+
         private static bool goToOtherMap = true;
         private bool hasUsed = false;
         #endregion
 
         private void Awake()
         {
-            urpVolume.profile.TryGet(out colorAdjustments);
-            colorAdjustments.saturation.overrideState = true;
+            if (urpVolume != null && urpVolume.profile.TryGet(out colorAdjustments))
+                colorAdjustments.saturation.overrideState = true;
         }
 
         #region Custom Method
@@ -51,16 +53,20 @@ namespace Remnants
 
         private IEnumerator TeleportRoutine()
         {
-            // 1) 크랙 연출
+            // 크랙 연출
             yield return PlayCrackSequence();
 
-            // 2) 화면 블랙아웃
+            if (crackEffect != null)
+                crackEffect.PlayFullScreenCrack();
+
+
+            // 화면 블랙아웃
             yield return Fade(0, 1);
 
-            // 3) 순간이동
+            // 순간이동
             TeleportPlayer();
 
-            // 4) 흑백 or 컬러 복귀
+            // 흑백 or 컬러 복귀
             if (goToOtherMap)
             {
                 // 첫 호출: 흑백
@@ -72,14 +78,14 @@ namespace Remnants
                 yield return FadeToColor();
             }
 
-            // 5) 플래그 토글
+            //  플래그 토글
             goToOtherMap = !goToOtherMap;
 
-            // 6) 화면 원복
+            // 화면 원복
             yield return Fade(1, 0);
             fadePanel.gameObject.SetActive(false);
 
-            // 7) 두 번째 호출(돌아올 때)이 끝난 뒤에만 비활성화
+            //  두 번째 호출(돌아올 때)이 끝난 뒤에만 비활성화
             if (goToOtherMap)
                 gameObject.SetActive(false);
         }
