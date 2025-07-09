@@ -21,7 +21,6 @@ namespace Remnants
         public float fadeDuration = 2f;
 
         private bool isTriggered = false;
-        private bool isFading = false;
 
         #endregion
 
@@ -63,7 +62,6 @@ namespace Remnants
         }
         IEnumerator FadeToWhiteAndLoad()
         {
-            isFading = true;
             float timer = 0f;
             Color color = fadeImage.color;
 

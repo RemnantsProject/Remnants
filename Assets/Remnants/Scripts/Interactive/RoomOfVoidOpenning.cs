@@ -23,8 +23,8 @@ namespace Remnants
         [SerializeField]
         private string sequence02 = "I need get out of here";
 
-        [SerializeField]
-        private string sequence03 = "";
+        //[SerializeField]
+        //private string sequence03 = "";
 
         //배경음
         //public AudioSource bgm01;
