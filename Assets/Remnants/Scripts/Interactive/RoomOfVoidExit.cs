@@ -9,20 +9,20 @@ namespace Remnants
         [SerializeField]
         private string loadToScene = "Lobby";
         
-
-        //public AudioSource doorBang;    //문여는 소리
-        //public AudioSource bgm01;       //배경음
+        public AudioSource bgm01;       //배경음
         #endregion
 
         #region Custom Method
+        private void Start()
+        {
+            bgm01.Play();
+        }
         protected override void DoAction()
         {
 
             //배경음 종료
-            //bgm01.Stop();
-            //문여는 소리 플레이
-            //doorBang.Play();
-
+            bgm01.Stop();
+            
             //씬 종료시 처리할 내용 구현
             //....
 

@@ -58,7 +58,7 @@ namespace Remnants
             fader.FadeStart();
 
             //메뉴 배경음 플레이
-            audioManager.PlayBgm("MenuMusic");
+            audioManager.PlayBgm("TitleBgm");
 
             //초기화
             isShowOption = false;
@@ -96,8 +96,8 @@ namespace Remnants
         public void NewGame()
         {
             //메뉴 선택 사운드
-            //audioManager.StopBgm();
-            //audioManager.Play("MenuSelect");
+            audioManager.StopBgm();
+            audioManager.Play("ButtonClick");
 
             //새게임 하러 가기
             fader.FadeTo(loadToScene);
@@ -106,8 +106,8 @@ namespace Remnants
         public void LoadGame()
         {
             //메뉴 선택 사운드
-            //audioManager.StopBgm();
-            //audioManager.Play("MenuSelect");
+            audioManager.StopBgm();
+            audioManager.Play("ButtonClick");
 
             //새게임 하러 가기
             fader.FadeTo(sceneNumber);
@@ -116,7 +116,7 @@ namespace Remnants
         public void Options()
         {
             //메뉴 선택 사운드
-            //audioManager.Play("MenuSelect");
+            audioManager.Play("ButtonClick");
 
             //옵션 UI 보여주기
             isShowOption = true;
@@ -161,7 +161,7 @@ namespace Remnants
             //볼륨 조절
             audioMixer.SetFloat("Sfx", value);
         }
-
+        //Master 볼륨 조절
         public void SetMasterVolume(float value)
         {
             //볼륨값 저장
@@ -189,7 +189,7 @@ namespace Remnants
             sfxSlider.value = sfxVolume;
 
             //효과음 볼륨값 가져오기
-            float masterVolume = PlayerPrefs.GetFloat("Master", 0f);
+            float masterVolume = PlayerPrefs.GetFloat("AudioMaster", 0f);
             //오디오 믹서에 적용
             SetMasterVolume(masterVolume);
             //UI에 적용

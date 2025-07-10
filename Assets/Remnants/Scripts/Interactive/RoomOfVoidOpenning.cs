@@ -23,8 +23,8 @@ namespace Remnants
         [SerializeField]
         private string sequence02 = "I need get out of here";
 
-        //[SerializeField]
-        //private string sequence03 = "";
+        [SerializeField]
+        private string sequence03 = "";
 
         //배경음
         //public AudioSource bgm01;
@@ -70,6 +70,8 @@ namespace Remnants
 
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f);
+            sequenceText.text = sequence03;
+            yield return new WaitForSeconds(1.5f);
 
             //2.화면 하단에 시나리오 텍스트 화면 출력(3초)
             sequenceText.text = sequence01;

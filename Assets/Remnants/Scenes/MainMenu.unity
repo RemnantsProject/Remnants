@@ -6569,7 +6569,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7708867e031164d4bb7c946935610b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 3d6afec884ccac7488578d351e0a3b49, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TitleBgm
+    clip: {fileID: 8300000, guid: 6edd45a6d7c5a784ea361393b8e29426, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
 --- !u!1 &1703630419
 GameObject:
@@ -8743,6 +8755,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  isWhite: 0
 --- !u!4 &4952594597819743203
 Transform:
   m_ObjectHideFlags: 0

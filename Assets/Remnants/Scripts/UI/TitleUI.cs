@@ -10,6 +10,8 @@ namespace Remnants
     public class TitleUI : MonoBehaviour
     {
         #region Variables
+        //참조
+        private AudioManager audioManager;
         public Animator doorAnimator;
         public Transform cameraTarget;
         public TextMeshProUGUI titleText;
@@ -27,6 +29,11 @@ namespace Remnants
         #region Unity Event Method
         private void Start()
         {
+            //참조
+            audioManager = AudioManager.Instance;
+            //배경음 플레이
+            audioManager.PlayBgm("TitleBgm");
+
             StartCoroutine(StartText());
         }
         private void Update()
@@ -68,6 +75,7 @@ namespace Remnants
             yield return new WaitForSeconds(0.7f);
             isTriggered = true;
 
+            audioManager.PlayBgm("TitleLight");
             // 2초에 걸쳐 알파 증가
             while (timer < fadeDuration)
             {
@@ -81,9 +89,9 @@ namespace Remnants
 
                 yield return null;
             }
-
+            
             yield return new WaitForSeconds(0.5f); // 약간의 여유
-
+            audioManager.StopBgm();
             SceneManager.LoadScene("MainMenu");
         }
         #endregion

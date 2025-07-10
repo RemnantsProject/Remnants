@@ -3143,6 +3143,7 @@ MonoBehaviour:
   fader: {fileID: 2102406558802271886}
   sequenceText: {fileID: 1332989593491483406}
   sequence01: "\uBBF8\uC220\uAD00"
+  isWhite: 0
 --- !u!23 &1855606567936257811
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3954,7 +3955,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 630bf02b524c84b4bb5ae59266660514, type: 2}
+  - {fileID: 2100000, guid: 68f0639e11dacff448520e92e9f4be8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
