@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Remnants
 {
@@ -16,8 +17,6 @@ namespace Remnants
         public SceneFader fader;
         // 시나리오 대사 처리
         public TextMeshProUGUI sequenceText;
-        // 누가 말하고 있는지 보여 주는 텍스트
-        public TextMeshProUGUI whoIsSayingText;
         // 펫 오브젝트
         public GameObject thePet;
         // 시퀀스 UI
@@ -191,14 +190,11 @@ namespace Remnants
             switch (whoIsSaying)
             {
                 case 0:
-                    whoIsSayingText.text = "";
                     break;
                 case 1:
-                    whoIsSayingText.text = "플레이어";
-                    sequenceText.color = Color.white;
+                    sequenceText.color = new Color32(255, 230, 0, 255);
                     break;
                 case 2:
-                    whoIsSayingText.text = "펫";
                     sequenceText.color = Color.cyan;
                     break;
             }
@@ -249,7 +245,6 @@ namespace Remnants
 
             // 대사 텍스트 및 누가 말하는지 숨기기
             sequenceText.text = "";
-            whoIsSayingText.text = "";
 
             // 선택지 보이기
             selectUI.SetActive(true);
@@ -274,7 +269,6 @@ namespace Remnants
             isSequencePlaying = false;
             sequenceText.text = "";
 
-            whoIsSayingText.gameObject.SetActive(false);
             PlayerInput input = thePlayer.GetComponent<PlayerInput>();
             input.enabled = true;
 
@@ -294,6 +288,12 @@ namespace Remnants
 
                 audioSource.PlayOneShot(doorOpenSound);
             }
+        }
+
+        // Main Menu 버튼을 눌렀을 때 호출되는 함수
+        public void GoToMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
         }
         #endregion
     }

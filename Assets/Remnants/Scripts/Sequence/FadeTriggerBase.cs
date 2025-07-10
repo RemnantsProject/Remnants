@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 // 문 열린 후 페이드 아웃 효과 부모 클래스
 namespace Remnants
@@ -31,10 +30,11 @@ namespace Remnants
         [SerializeField]
         private float textDisplayDuration = 2f;
 
-        // 메인 메뉴 신으로 가기
-        public SceneFader fader;
-        [SerializeField]
-        private string loadToScene = "MainMenu";
+        // Main Menu Button
+        public GameObject mainMenuButton;
+
+        // 버튼 페이드용 캔버스 그룹
+        public CanvasGroup menuButtonCanvasGroup;
         #endregion
 
         #region Property
@@ -111,19 +111,29 @@ namespace Remnants
         // 엔딩 대사 플레이
         IEnumerator PlayEndingLines()
         {
-            foreach (var line in endingLines)
+            for (int i = 0; i < endingLines.Length; i++) 
             {
-                // 이전 대사 비활성화
-                foreach (var l in endingLines)
-                {
-                    l.gameObject.SetActive(false);
+                    // 이전 대사 비활성화
+                    foreach (var l in endingLines)
+                    {
+                        l.gameObject.SetActive(false);
+                    }
+
+                    // 마지막 대사만 페이드 인만 하고 유지
+                    if(i == endingLines.Length - 1)
+                    {
+                        yield return StartCoroutine(FadeTextIn(endingLines[i]));
+
+                        // 메인 메뉴 버튼 보여주기
+                        menuButtonCanvasGroup.gameObject.SetActive(true);
+                        yield return StartCoroutine(FadeInButton(menuButtonCanvasGroup, 1.2f));
+                    }
+                    else
+                    {
+                        yield return StartCoroutine(FadeTextInOut(endingLines[i]));
+                    } 
                 }
-
-                yield return StartCoroutine(FadeTextInOut(line));
             }
-
-            fader.FadeTo(loadToScene);
-        }
 
         // 엔딩 대사 나타나기, 숨기기
         IEnumerator FadeTextInOut(TextMeshProUGUI text)
@@ -162,6 +172,53 @@ namespace Remnants
             color.a = 0f;
             text.color = color;
             text.gameObject.SetActive(false);
+        }
+
+        // 대사 나타나기만
+        IEnumerator FadeTextIn(TextMeshProUGUI text)
+        {
+            // 시작 전 모든 텍스트 숨김
+            text.gameObject.SetActive(true);
+
+            Color color = text.color;
+            color.a = 0f;
+            text.color = color;
+
+            // 대사 나타나기
+            float elapsed = 0f;
+            while (elapsed < textFadeDuration)
+            {
+                color.a = Mathf.Lerp(0f, 1f, (elapsed / textFadeDuration));
+                text.color = color;
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            color.a = 1f;
+            text.color = color;
+        }
+
+        // 버튼 페이드 인
+        IEnumerator FadeInButton(CanvasGroup canvasGroup, float duration)
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                float t = elapsed / duration;
+                float smoothAlpha = Mathf.SmoothStep(0f, 1f, t);
+                canvasGroup.alpha = smoothAlpha;
+
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            canvasGroup.alpha = 1f;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
         }
         #endregion
     }
