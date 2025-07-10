@@ -9754,7 +9754,7 @@ GameObject:
   - component: {fileID: 1091869774}
   - component: {fileID: 1091869775}
   m_Layer: 0
-  m_Name: Enviroments
+  m_Name: Enviroment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9947,6 +9947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fader: {fileID: 346477888}
+  loadToScene: MainMenu
   pauseUI: {fileID: 1986944402}
   playerInput: {fileID: 1431938987385694450}
 --- !u!4 &1145848551
@@ -10433,7 +10434,6 @@ MonoBehaviour:
   extraCross: {fileID: 733604369}
   sequenceText: {fileID: 1614669732}
   spawnInterval: 0.7
-  finalTrigger: 0
   finalDestroyAfter: 5
 --- !u!1 &1206454994
 GameObject:
@@ -11863,7 +11863,8 @@ MonoBehaviour:
   thePlayer: {fileID: 3855227298586041024}
   fader: {fileID: 346477888}
   sequenceText: {fileID: 1614669732}
-  sequence01: "\uB2E4\uC74C \uBC29\uC778\uAC00.."
+  sequence01: "\uC65C \uBCF5\uB3C4\uAC00 \uAE30\uC6B8\uC5B4\uC838 \uC788\uC9C0..?"
+  isWhite: 0
 --- !u!1 &1481841539
 GameObject:
   m_ObjectHideFlags: 0
@@ -13863,7 +13864,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 829411971e3063e40aee5d7a04f3512f, type: 2}
   m_sharedMaterial: {fileID: -2944679432385068695, guid: 829411971e3063e40aee5d7a04f3512f, type: 2}
@@ -13873,8 +13876,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+    rgba: 4278249215
+  m_fontColor: {r: 1, g: 0.90196085, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19270,6 +19273,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 107e4a1d-b029-43c9-90ff-4548f2f0cc00
     m_ActionName: 'Player/Run[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1145848550}
+        m_TargetAssemblyTypeName: Remnants.PauseUI, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 96aa9dbd-61af-455f-a8ee-6c78b6fe64d6
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

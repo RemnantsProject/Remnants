@@ -22,8 +22,7 @@ namespace Remnants
         public TextMeshProUGUI sequenceText;
 
         [Header("설정")]
-        [SerializeField] private float spawnInterval = 3f;
-        [SerializeField] private bool finalTrigger = false;
+        [SerializeField] private float spawnInterval = 3f;        
         [SerializeField] private float finalDestroyAfter = 5f;
         private string sequenceOne = "내가 그 아이에게 했던 말들이야...";
         private string sequenceTwo = "난 그 말들을 받아들이며 속죄해야해...";
@@ -63,21 +62,19 @@ namespace Remnants
 
         private void SpawnFinalSphere()
         {
-            if (finalTrigger)
-            {
-                if (spawnPoints.Count == 0 || spheres.Count == 0)
-                    return;
+            if (spawnPoints.Count == 0 || spheres.Count == 0)
+                return;
 
-                // 마지막 구체는 마지막 위치에서 소환 (가장 끝에 위치한 스폰포인트로 지정 가능)
-                Transform spawnPoint = spawnPoints[spawnPoints.Count - 1];
-                GameObject instance = Instantiate(finalShpere, spawnPoint.position, Quaternion.identity);
+            // 마지막 구체는 마지막 위치에서 소환 (가장 끝에 위치한 스폰포인트로 지정 가능)
+            Transform spawnPoint = spawnPoints[spawnPoints.Count - 1];
+            GameObject instance = Instantiate(finalShpere, spawnPoint.position, Quaternion.identity);
 
-                AssignUIToSphere(instance);
+            AssignUIToSphere(instance);
 
-                // 일정 시간 후 파괴
-                Destroy(instance, finalDestroyAfter);
-            } 
+            // 일정 시간 후 파괴
+            Destroy(instance, finalDestroyAfter);
         }
+
 
         private void AssignUIToSphere(GameObject instance)
         {

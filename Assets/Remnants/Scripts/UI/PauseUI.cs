@@ -8,7 +8,7 @@ namespace Remnants
         #region Variables
         public SceneFader fader;
         [SerializeField]
-        //private string loadToScene = "MainMenu";
+        private string loadToScene = "MainMenu";
 
         public GameObject pauseUI;
         public PlayerInput playerInput;
@@ -51,7 +51,7 @@ namespace Remnants
         //메뉴가기 버튼 호출  
         public void Menu()
         {
-            //fader.FadeTo(loadToScene);
+            fader.FadeTo(loadToScene);
         }
         #endregion
     }
