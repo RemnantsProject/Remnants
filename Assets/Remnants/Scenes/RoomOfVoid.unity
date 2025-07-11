@@ -6700,6 +6700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22c310cd6c39e04a920b680c0e736d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetText: {fileID: 2176079000690729816}
+  typingSpeed: 0.05
   sequenceText: {fileID: 2176079000690729816}
   sequence01: "\uADF8\uB9BC\uC5D0\uC11C \uC74C\uC545\uC774.."
   sequence02: "\uCD9C\uAD6C\uC77C\uC9C0\uB3C4 \uBAB0\uB77C "
@@ -10168,6 +10170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7358e4c09cbb3cd418625188d3e1e6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetText: {fileID: 2176079000690729816}
+  typingSpeed: 0.05
   sequenceText: {fileID: 2176079000690729816}
   lastTrigger: {fileID: 921917583}
   sequence01: "\uC5B4\uB514\uC11C \uC74C\uC545\uC18C\uB9AC\uAC00 \uB098\uACE0\uC788\uC5B4"
@@ -11263,6 +11267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893111335}
   - component: {fileID: 1893111334}
+  - component: {fileID: 1893111336}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -11303,6 +11308,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1893111336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893111333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba05a70224acb954198daeea41a4561b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 2176079000690729816}
+  typingSpeed: 0.05
 --- !u!1 &1941636238
 GameObject:
   m_ObjectHideFlags: 0
@@ -14571,21 +14590,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5324264418094660072}
   m_Mesh: {fileID: 4300000, guid: 30c7d746eca660a4eb9b41467d3588f8, type: 3}
---- !u!4 &428633501629711945
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773477633076750962}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &429777823162807697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22253,7 +22257,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -33241,20 +33245,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4598469637145249404}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4685099973504150445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773477633076750962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7708867e031164d4bb7c946935610b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds: []
-  audioMixer: {fileID: 24100000, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
 --- !u!4 &4692640780277524081
 Transform:
   m_ObjectHideFlags: 0
@@ -33551,23 +33541,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4773477633076750962
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 428633501629711945}
-  - component: {fileID: 4685099973504150445}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!23 &4774374879336597196
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42428,7 +42401,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -45267,7 +45240,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -54426,7 +54399,6 @@ SceneRoots:
   - {fileID: 1505636914969079856}
   - {fileID: 6207797258773504210}
   - {fileID: 1689917684961889944}
-  - {fileID: 428633501629711945}
   - {fileID: 2075948595}
   - {fileID: 1893111335}
   - {fileID: 1444360381}

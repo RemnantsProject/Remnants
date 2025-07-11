@@ -5,12 +5,9 @@ using System.Collections;
 namespace Remnants
 {
     //출구 를 발견할때 생기는 다사 트리거
-    public class LastTrigger : MonoBehaviour
+    public class LastTrigger : TypewriterEffect
     {
         #region Variables
-        //시나리오 대사 처리
-        public TextMeshProUGUI sequenceText;
-
         [SerializeField]
         private string sequence01 = "";
         [SerializeField]
@@ -33,10 +30,13 @@ namespace Remnants
         #region Custom Method
         IEnumerator SequencePlayer()
         {
-            sequenceText.text = sequence01;
-            yield return new WaitForSeconds(1f);
-            sequenceText.text = sequence02;
-            yield return new WaitForSeconds(1.8f);
+            StartTyping(sequence01);
+            yield return new WaitForSeconds(sequence01.Length * typingSpeed + 2f);
+
+            StartTyping(sequence02);
+            yield return new WaitForSeconds(sequence02.Length * typingSpeed + 2f);
+
+            ClearText();
         }
         #endregion
     }

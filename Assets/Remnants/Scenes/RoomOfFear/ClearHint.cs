@@ -4,18 +4,14 @@ using System.Collections;
 
 namespace Remnants
 {
-    public class ClearHint : MonoBehaviour
+    public class ClearHint : TypewriterEffect
     {
         #region Variables  
-        //시나리오 대사 처리
-        public TextMeshProUGUI sequenceText;
+        [SerializeField]
+        private string sequence01 = "앞에 더이상 길이 없어!!";
 
         [SerializeField]
-        private string sequence01 = "...Where am I?";
-
-        [SerializeField]
-        private string sequence02 = "I need get out of here";
-
+        private string sequence02 = "고민하지마! 벽쪽으로 힘것 뛰어!";
         #endregion
 
         #region Unity Event Method
@@ -25,25 +21,20 @@ namespace Remnants
             {
                 StartCoroutine(GameClearHint());
             }
-
         }
-
         #endregion
 
         #region Custom Method
         IEnumerator GameClearHint()
         {
-            //화면 하단에 시나리오 텍스트 화면 출력(1초)
-            sequenceText.text = sequence01;
-            yield return new WaitForSeconds(1.5f);
+            StartTyping(sequence01);
+            yield return new WaitForSeconds(sequence01.Length * typingSpeed + 2f);
 
-            sequenceText.text = sequence02;
-            yield return new WaitForSeconds(1.5f);
+            StartTyping(sequence02);
+            yield return new WaitForSeconds(sequence02.Length * typingSpeed + 2f);
 
-            //1.5초후에 시나리오 텍스트 없어진다
-            sequenceText.text = "";
+            ClearText();
         }
-
         #endregion
     }
 }

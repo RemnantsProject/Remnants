@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -16,6 +15,7 @@ namespace Remnants
 
         //시나리오 대사 처리
         public TextMeshProUGUI sequenceText;
+        private TypewriterEffect typewriterEffect;
 
         [SerializeField]
         private string sequence01 = "...Where am I?";
@@ -26,26 +26,13 @@ namespace Remnants
         [SerializeField]
         private string sequence03 = "";
 
-        //배경음
-        //public AudioSource bgm01;
-
-        //대사 음성
-        //public AudioSource line01;
-        //public AudioSource line02;
         #endregion
 
         #region Unity Event Method
         private void Start()
         {
-            //게임 데이터(씬 번호) 저장
-            /* PlayerPrefs 모드
-            int sceneNumber = SceneManager.GetActiveScene().buildIndex;            
-            PlayerPrefs.SetInt("SceneNumber", sceneNumber);
-            */
-            //File System 모드
-            //PlayerDataManager.Instance.SceneNumber = SceneManager.GetActiveScene().buildIndex;
-            //SaveLoad.SaveData();
-
+            typewriterEffect = this.GetComponent<TypewriterEffect>();
+            
             //커서 제어
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -59,39 +46,19 @@ namespace Remnants
         //오프닝 연출 코루틴 함수
         IEnumerator SequencePlay()
         {
-            //0.플레이 캐릭터 비 활성화
-            //thePlayer.SetActive(false);
-            PlayerInput input = thePlayer.GetComponent<PlayerInput>();
-            input.enabled = false;
-
-            //4.플레이 캐릭터 활성화
-            //thePlayer.SetActive(true);
-            input.enabled = true;
-
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f);
-            sequenceText.text = sequence03;
+            typewriterEffect.StartTyping(sequence03);
             yield return new WaitForSeconds(1.5f);
 
-            //2.화면 하단에 시나리오 텍스트 화면 출력(3초)
-            sequenceText.text = sequence01;
-            //line01.Play();
+            typewriterEffect.StartTyping(sequence01);
             yield return new WaitForSeconds(3f);
 
-            sequenceText.text = sequence02;
-            //line02.Play();
+            typewriterEffect.StartTyping(sequence02);
             yield return new WaitForSeconds(3f);
 
-            //sequenceText.text = sequence03;
-            //line02.Play();
-            //yield return new WaitForSeconds(3f);
-            //3. 3초후에 시나리오 텍스트 없어진다
-            sequenceText.text = "";
+            typewriterEffect.ClearText();
 
-            //배경음 플레이 시작
-            //bgm01.Play();
-
-            
         }
         #endregion
     }

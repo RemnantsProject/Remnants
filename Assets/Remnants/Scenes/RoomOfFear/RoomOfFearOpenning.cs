@@ -1,46 +1,34 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using TMPro;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 namespace Remnants
 {
-    public class RoomOfFearOpenning : MonoBehaviour
+    public class RoomOfFearOpenning : TypewriterEffect
     {
         #region Variables
+        //참조
+        private AudioManager audioManager;
         //플레이어 오브젝트
         public GameObject thePlayer;
         //페이더 객체
         public SceneFader fader;
-
-        //시나리오 대사 처리
-        public TextMeshProUGUI sequenceText;
-
         [SerializeField]
         private string sequence01 = "...Where am I?";
-
         [SerializeField]
         private string sequence02 = "I need get out of here";
-
         [SerializeField]
         private string sequence03 = " ";
-        //배경음
-        //public AudioSource bgm01;
-
+        
+        
         #endregion
 
         #region Unity Event Method
         private void Start()
         {
-            //게임 데이터(씬 번호) 저장
-            /* PlayerPrefs 모드
-            int sceneNumber = SceneManager.GetActiveScene().buildIndex;            
-            PlayerPrefs.SetInt("SceneNumber", sceneNumber);
-            */
-            //File System 모드
-            //PlayerDataManager.Instance.SceneNumber = SceneManager.GetActiveScene().buildIndex;
-            //SaveLoad.SaveData();
+            //참조
+            audioManager = AudioManager.Instance;
+            //메뉴 배경음 플레이
+            audioManager.PlayBgm("FearBgm");
 
             //커서 제어
             Cursor.lockState = CursorLockMode.Locked;
@@ -57,24 +45,16 @@ namespace Remnants
         {
             //1. 페이드인 연출 
             fader.FadeStart(2f);
-            yield return new WaitForSeconds(2f);
+            StartTyping(sequence01);
+            yield return new WaitForSeconds(sequence01.Length * typingSpeed + 2f);
 
-            sequenceText.text = sequence01;
-            
-            yield return new WaitForSeconds(1f);
+            StartTyping(sequence02);
+            yield return new WaitForSeconds(sequence02.Length * typingSpeed + 2f);
 
-            sequenceText.text = sequence02;
-            
-            yield return new WaitForSeconds(0.5f);
+            StartTyping(sequence03);
+            yield return new WaitForSeconds(sequence03.Length * typingSpeed + 2f);
 
-            sequenceText.text = sequence03;
-
-            yield return new WaitForSeconds(0.5f);
-            //2. 3초후에 시나리오 텍스트 없어진다
-            sequenceText.text = "";
-
-            //배경음 플레이 시작
-            //bgm01.Play();
+            ClearText();
         }
         #endregion
 

@@ -27,7 +27,7 @@ namespace Remnants
         private void GameClear()
         {
             //씬 클리어 처리
-            //AudioManager.Instance.StopBgm();
+            AudioManager.Instance.StopBgm();
 
             //커서제어
             //Cursor.lockState = CursorLockMode.None;

@@ -1,18 +1,13 @@
 using UnityEngine;
 using System.Collections;
-using TMPro;
 
 namespace Remnants
 {
     //공허의방 출구에 가까워지면 발생하는 Trigger
-    public class SoundTrigger : MonoBehaviour
+    public class SoundTrigger : TypewriterEffect
     {
         #region Variables
-        //시나리오 대사 처리
-        public TextMeshProUGUI sequenceText;
-
         public GameObject lastTrigger;
-        //public GameObject Exit;
 
         [SerializeField]
         private string sequence01 = "";
@@ -24,7 +19,6 @@ namespace Remnants
         private void Start()
         {
             lastTrigger.SetActive(false);
-            //Exit.SetActive(false);
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -33,6 +27,7 @@ namespace Remnants
             {
                 //트리거 해제
                 this.GetComponent<SphereCollider>().enabled = false;
+                lastTrigger.SetActive(true);
                 StartCoroutine(SequencePlayer());
             }
         }
@@ -41,12 +36,13 @@ namespace Remnants
         #region Custom Method
         IEnumerator SequencePlayer()
         {
-            sequenceText.text = sequence01;
-            yield return new WaitForSeconds(2f);
-            sequenceText.text = sequence02;
-            yield return new WaitForSeconds(2f);
-            lastTrigger.SetActive(true);
-            //Exit.SetActive(true);
+            StartTyping(sequence01);
+            yield return new WaitForSeconds(sequence01.Length * typingSpeed + 2f);
+
+            StartTyping(sequence02);
+            yield return new WaitForSeconds(sequence02.Length * typingSpeed + 2f);
+
+            ClearText();
         }
         #endregion
 
