@@ -24,7 +24,7 @@ namespace Remnants
 
         [SerializeField] private TextMeshProUGUI sequenceText;
 
-        [SerializeField] private FullscreenCrackEffect crackEffect;
+ 
 
         private static bool goToOtherMap = true;
         private bool hasUsed = false;
@@ -53,12 +53,7 @@ namespace Remnants
 
         private IEnumerator TeleportRoutine()
         {
-            // 크랙 연출
-            yield return PlayCrackSequence();
-
-            if (crackEffect != null)
-                crackEffect.PlayFullScreenCrack();
-
+            Debug.Log("[Teleport] Crack Trigger!");
 
             // 화면 블랙아웃
             yield return Fade(0, 1);
@@ -88,39 +83,6 @@ namespace Remnants
             //  두 번째 호출(돌아올 때)이 끝난 뒤에만 비활성화
             if (goToOtherMap)
                 gameObject.SetActive(false);
-        }
-
-        private IEnumerator PlayCrackSequence()
-        {
-            if (crackImages == null || crackImages.Length == 0)
-            {
-                Debug.LogWarning("[PlayCrackSequence] crackImages가 할당되지 않았거나 길이가 0입니다.");
-                yield break;
-            }
-            // 1) 모든 크랙 이미지 비활성화
-            foreach (var img in crackImages)
-                img.gameObject.SetActive(false);
-
-            // 2) 단계별로 한 장씩 켜기
-            for (int i = 0; i < crackImages.Length; i++)
-            {
-                // 이전 이미지 끄기
-                if (i > 0)
-                    crackImages[i - 1].gameObject.SetActive(false);
-
-                // 현재 이미지 켜기
-                crackImages[i].transform.SetAsLastSibling();
-                crackImages[i].gameObject.SetActive(true);
-
-                // 일정 시간 대기
-                yield return new WaitForSeconds(stageInterval);
-            }
-
-            // 3) 마지막 스테이지 잠깐 유지
-            yield return new WaitForSeconds(finalHold);
-
-            // 4) 마지막 이미지도 끄기
-            crackImages[crackImages.Length - 1].gameObject.SetActive(false);
         }
 
         private IEnumerator Fade(float from, float to)
