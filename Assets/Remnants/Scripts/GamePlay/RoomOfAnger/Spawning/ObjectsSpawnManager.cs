@@ -19,13 +19,10 @@ namespace Remnants
         public TextMeshProUGUI actionText;
         public TextMeshProUGUI actionKey;
         public GameObject extraCross;
-        public TextMeshProUGUI sequenceText;
 
         [Header("설정")]
         [SerializeField] private float spawnInterval = 3f;        
         [SerializeField] private float finalDestroyAfter = 5f;
-        private string sequenceOne = "내가 그 아이에게 했던 말들이야...";
-        private string sequenceTwo = "난 그 말들을 받아들이며 속죄해야해...";
 
         #endregion
 
@@ -37,7 +34,6 @@ namespace Remnants
         public void StartSpawning()
         {
             InvokeRepeating(nameof(SpawnRandomSphere), 0f, spawnInterval);
-            StartCoroutine(StartTrigger());
         }
 
         public void StopAndSpawnFinal()
@@ -86,19 +82,6 @@ namespace Remnants
                 if (actionKey != null) interactive.actionKey = actionKey;
                 if (extraCross != null) interactive.extraCross = extraCross;
             }
-        }
-
-        IEnumerator StartTrigger()
-        {
-            sequenceText.text = sequenceOne;
-
-            yield return new WaitForSeconds(2f);
-
-            sequenceText.text = sequenceTwo;
-
-            yield return new WaitForSeconds(2f);
-
-            sequenceText.text = "";
         }
         #endregion
     }

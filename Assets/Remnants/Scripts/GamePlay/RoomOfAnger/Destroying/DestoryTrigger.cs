@@ -13,8 +13,7 @@ namespace Remnants
         {
             
             if (other.tag == "Sphere")
-            {
-                Debug.Log("응애");
+            {                
                 Destroy(other.gameObject);
             }
         }

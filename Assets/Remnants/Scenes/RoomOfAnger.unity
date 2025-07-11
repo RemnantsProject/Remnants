@@ -10432,7 +10432,6 @@ MonoBehaviour:
   actionText: {fileID: 1547649574}
   actionKey: {fileID: 951239378}
   extraCross: {fileID: 733604369}
-  sequenceText: {fileID: 1614669732}
   spawnInterval: 0.7
   finalDestroyAfter: 5
 --- !u!1 &1206454994
@@ -11826,6 +11825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1470047848}
   - component: {fileID: 1470047849}
+  - component: {fileID: 1470047850}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -11862,9 +11862,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thePlayer: {fileID: 3855227298586041024}
   fader: {fileID: 346477888}
-  sequenceText: {fileID: 1614669732}
   sequence01: "\uC65C \uBCF5\uB3C4\uAC00 \uAE30\uC6B8\uC5B4\uC838 \uC788\uC9C0..?"
   isWhite: 0
+--- !u!114 &1470047850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470047847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba05a70224acb954198daeea41a4561b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1614669732}
+  typingSpeed: 0.05
 --- !u!1 &1481841539
 GameObject:
   m_ObjectHideFlags: 0
@@ -13333,6 +13346,7 @@ GameObject:
   - component: {fileID: 1587337766}
   - component: {fileID: 1587337768}
   - component: {fileID: 1587337769}
+  - component: {fileID: 1587337770}
   m_Layer: 0
   m_Name: StartSpawn
   m_TagString: Untagged
@@ -13390,6 +13404,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFinalTrigger: 0
   manager: {fileID: 1182002713}
+--- !u!114 &1587337770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587337765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8291e19311a0dbe42bfe579d1896109b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1614669732}
+  typingSpeed: 0.05
+  sequenceOne: "\uB0B4\uAC00 \uADF8 \uC544\uC774\uC5D0\uAC8C \uD588\uB358 \uB9D0\uB4E4\uC774\uC57C..."
+  petSequenceOne: "\uC720\uB839: \uC815\uC2E0\uCC28\uB824! \uB10C \uB098\uC544\uAC00\uC57C\uD574."
+  petSequenceTwo: "\uC720\uB839: \uBB3C\uCCB4\uB294 [Q]\uC640[E]\uB97C \uB20C\uB7EC
+    \uBD80\uC2E4 \uC218 \uC788\uC5B4!"
 --- !u!1001 &1591632730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20359,8 +20391,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6207797258345381792}
   - component: {fileID: 8662794427868259249}
-  - component: {fileID: 8662794427868259250}
   - component: {fileID: 8662794427868259251}
+  - component: {fileID: 8662794427868259250}
+  - component: {fileID: 8662794427868259252}
   m_Layer: 7
   m_Name: ShadowPlayer
   m_TagString: Untagged
@@ -22474,7 +22507,6 @@ MonoBehaviour:
   fader: {fileID: 346477888}
   loadToScene: Lobby
   animator: {fileID: 8662794427868259251}
-  sequnceText: {fileID: 1614669732}
   sequnce: "\uB098\uB294 \uADF8 \uC8C4\uB97C \uBAA8\uB450 \uAE30\uC5B5\uD558\uACE0,
     \uB0B4 \uC548\uC5D0\uC11C \uAEF4\uC548\uAE30\uB85C \uD588\uB2E4"
 --- !u!95 &8662794427868259251
@@ -22499,6 +22531,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8662794427868259252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855227297638609606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba05a70224acb954198daeea41a4561b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1614669732}
+  typingSpeed: 0.05
 --- !u!1 &8707273951325376725
 GameObject:
   m_ObjectHideFlags: 0
@@ -22819,10 +22865,10 @@ SceneRoots:
   - {fileID: 1351600236}
   - {fileID: 825287109}
   - {fileID: 99278846}
+  - {fileID: 1470047848}
   - {fileID: 1145848551}
   - {fileID: 6207797257684555686}
   - {fileID: 1956092522}
   - {fileID: 1091869774}
-  - {fileID: 1470047848}
   - {fileID: 1182002712}
   - {fileID: 1984204947}

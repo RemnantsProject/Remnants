@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace Remnants
 {
-    public class SecondTrigger : Trigger
+    public class SecondTrigger : TypewriterEffect
     {
         #region Variables
         //참조
-        private PlayerController playerController;        
+        private PlayerController playerController;
 
+        [SerializeField]
+        private string sequence;
         [SerializeField]
         private Vector3 lookRotationEuler;
         private Quaternion originTransfrom;
@@ -21,10 +23,17 @@ namespace Remnants
         {
             playerController = FindFirstObjectByType<PlayerController>();
         }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                StartCoroutine(StartTrigger());
+            }
+        }
         #endregion
-        
+
         #region Custom Method
-        protected override IEnumerator StartTrigger()
+        IEnumerator StartTrigger()
         {
             // 플레이어 트랜스폼 참조
             Transform playerTransform = playerController.transform;
@@ -55,9 +64,12 @@ namespace Remnants
             playerTransform.rotation = targetRotation;
 
             // ▷ 텍스트 출력 (3초 동안)
-            sequenceText.text = sequence;
-            yield return new WaitForSeconds(3f);
-            sequenceText.text = "";
+            // 연출용 텍스트 출력
+            StartTyping(sequence);
+
+            // 연출 시간 대기
+            yield return new WaitForSeconds(sequence.Length * typingSpeed + 2f);
+            ClearText();
 
             // ▷ 다시 원래 방향으로 천천히 회전 복구
             elapsed = 0f;

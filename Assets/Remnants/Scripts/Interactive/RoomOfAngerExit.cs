@@ -12,14 +12,18 @@ namespace Remnants
         private string loadToScene = "Lobby";
 
         public Animator animator;
-        public TextMeshProUGUI sequnceText;
 
         [SerializeField]
         private string sequnce = "나는 그 죄를 모두 기억하고, 내 안에서 껴안기로 했다";
+
+        private TypewriterEffect typewriterEffect;
         #endregion
 
         #region Unity Event Method
-
+        private void Start()
+        {
+            typewriterEffect = this.GetComponent<TypewriterEffect>();
+        }
         #endregion
 
         #region Custom Method
@@ -30,21 +34,19 @@ namespace Remnants
 
         IEnumerator Clear()
         {
-            sequnceText.text = sequnce;
+            typewriterEffect.StartTyping(sequnce);
 
             this.GetComponent<CapsuleCollider>().enabled = false;
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(sequnce.Length * typewriterEffect.typingSpeed + 2f);
 
-            sequnceText.text = "";
+            typewriterEffect.ClearText();
 
             animator.SetBool("IsClear", true);
 
             yield return new WaitForSeconds(1f);
 
             fader.FadeTo(loadToScene);
-
-            
         }
         #endregion
     }
