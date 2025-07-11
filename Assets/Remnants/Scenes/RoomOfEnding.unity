@@ -10871,6 +10871,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133283490}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1141109454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141109456}
+  - component: {fileID: 1141109455}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1141109455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141109454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7708867e031164d4bb7c946935610b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: EndingRoomBgm
+    clip: {fileID: 8300000, guid: 80064fbb7d05d294fa3f9525987cc3cc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EndingOpenDoor
+    clip: {fileID: 8300000, guid: 266bf89c95933e84fa330ce77f715755, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+--- !u!4 &1141109456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141109454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234174884
 GameObject:
   m_ObjectHideFlags: 0
@@ -11677,8 +11735,6 @@ MonoBehaviour:
   happyEndingTrigger: {fileID: 789632359}
   badEndingTrigger: {fileID: 257878868}
   fog: {fileID: 531286994}
-  audioSource: {fileID: 1490675023}
-  doorOpenSound: {fileID: 8300000, guid: 266bf89c95933e84fa330ce77f715755, type: 3}
 --- !u!4 &1490675022
 Transform:
   m_ObjectHideFlags: 0
@@ -13704,6 +13760,7 @@ GameObject:
   - component: {fileID: 1978303514}
   - component: {fileID: 1978303516}
   - component: {fileID: 1978303515}
+  - component: {fileID: 1978303517}
   m_Layer: 5
   m_Name: SequenceText
   m_TagString: Untagged
@@ -13830,6 +13887,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978303513}
   m_CullTransparentMesh: 1
+--- !u!114 &1978303517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978303513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba05a70224acb954198daeea41a4561b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1978303515}
+  typingSpeed: 0.1
 --- !u!1 &1997826415
 GameObject:
   m_ObjectHideFlags: 0
@@ -17266,6 +17337,7 @@ SceneRoots:
   - {fileID: 437950156}
   - {fileID: 410087041}
   - {fileID: 1490675022}
+  - {fileID: 1141109456}
   - {fileID: 401262825}
   - {fileID: 832575519}
   - {fileID: 991886854}

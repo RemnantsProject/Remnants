@@ -34,9 +34,8 @@ namespace Remnants
         public GameObject badEndingTrigger;
         // 안개 효과
         public GameObject fog;
-        // 문 열리는 소리
-        public AudioSource audioSource;
-        public AudioClip doorOpenSound;
+        // Bgm, Sfx
+        private AudioManager audioManager;
 
         // 누가 말하고 있는지 (0 : 없음, 1 : 플레이어, 2 : 펫)
         private int whoIsSaying;
@@ -47,6 +46,9 @@ namespace Remnants
         // 분기 결정
         private bool isHappy = false;
         private bool isBad = false;
+
+        // 타이핑 효과
+        private TypewriterEffect typeWritter;
 
         // 대사 정보를 담는 구조체
         private struct Dialogue
@@ -82,6 +84,10 @@ namespace Remnants
 
             happyEndingTrigger.SetActive(false);
             badEndingTrigger.SetActive(false);
+
+            //참조
+            audioManager = AudioManager.Instance;
+            typeWritter = sequenceText.GetComponent<TypewriterEffect>();
 
             //오프닝 연출 시작
             StartCoroutine(SequencePlay());
@@ -229,19 +235,21 @@ namespace Remnants
             PlayerInput input = thePlayer.GetComponent<PlayerInput>();
             input.enabled = false;
 
-            // 페이드 인, 안개 연출
+            // 페이드 인, 안개 연출, Bgm 재생
             fader.FadeStart(17f);
             fog.SetActive(true);
+            audioManager.PlayBgm("EndingRoomBgm");
 
             // 대사 순서대로 출력
             foreach (var line in sequence)
             {
                 whoIsSaying = line.speaker;
-                sequenceText.text = line.line;
+                typeWritter.StartTyping(line.line);
                 yield return new WaitForSeconds(line.waitTime);
             }
 
             isSequencePlaying = false;
+            typeWritter.ClearText();
 
             // 대사 텍스트 및 누가 말하는지 숨기기
             sequenceText.text = "";
@@ -278,7 +286,7 @@ namespace Remnants
                 happyLightAnimator.SetTrigger("HLight");
                 happyEndingTrigger.SetActive(true);
 
-                audioSource.PlayOneShot(doorOpenSound);
+                audioManager.Play("EndingOpenDoor");
             }
             else if (isBad)
             {
@@ -286,7 +294,7 @@ namespace Remnants
                 badLightAnimator.SetTrigger("BLight");
                 badEndingTrigger.SetActive(true);
 
-                audioSource.PlayOneShot(doorOpenSound);
+                audioManager.Play("EndingOpenDoor");
             }
         }
 

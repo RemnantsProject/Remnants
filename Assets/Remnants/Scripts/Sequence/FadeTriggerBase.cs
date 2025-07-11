@@ -35,6 +35,9 @@ namespace Remnants
 
         // 버튼 페이드용 캔버스 그룹
         public CanvasGroup menuButtonCanvasGroup;
+
+        // 참조
+        private AudioManager audioManager;
         #endregion
 
         #region Property
@@ -43,6 +46,11 @@ namespace Remnants
         #endregion
 
         #region Unity Event Method
+        private void Start()
+        {
+            // 참조
+            audioManager = AudioManager.Instance;
+        }
         private void Awake()
         {
             // 모든 텍스트 비활성화 + 알파값 0
@@ -62,6 +70,9 @@ namespace Remnants
                 // 트리거 해제
                 this.GetComponent<BoxCollider>().enabled = false;
                 StartCoroutine(SequencePlayer());
+
+                // 소리 멈춤
+                audioManager.StopBgm();
             }
         }
         #endregion
