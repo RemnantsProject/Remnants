@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Remnants
@@ -11,13 +12,17 @@ namespace Remnants
         [SerializeField]
         private string loadToScene = "RoomOfSorrow_2";
 
-        public TextMeshProUGUI sequenceText;
         [SerializeField]
         private string sequence = "Sequence";
+
+        private TypewriterEffect typewriterEffect;
         #endregion
 
         #region Unity Event Method
-
+        private void Start()
+        {
+            typewriterEffect = this.GetComponent<TypewriterEffect>();
+        }
         #endregion
 
         #region Custom Method
@@ -28,11 +33,11 @@ namespace Remnants
 
         IEnumerator LoadScene()
         {
-            sequenceText.text = sequence;
+            typewriterEffect.StartTyping(sequence);
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(sequence.Length * typewriterEffect.typingSpeed + 2f);
 
-            sequenceText.text = "";
+            typewriterEffect.ClearText();
 
             whiteFader.FadeTo(loadToScene);
         }

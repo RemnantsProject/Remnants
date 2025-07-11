@@ -5,11 +5,10 @@ using UnityEngine;
 
 namespace Remnants
 {
-    public class ClueManager : MonoBehaviour
+    public class ClueManager : TypewriterEffect
     {
         #region Variables
         public GameObject exitFlower;
-        public TextMeshProUGUI sequenceText;
 
         private FindingClues[] allClues;
         [SerializeField]
@@ -45,10 +44,10 @@ namespace Remnants
                     exitFlower.SetActive(true);
 
                     yield return new WaitForSeconds(1f);
-                    sequenceText.text = sequence;
+                    StartTyping(sequence);
 
-                    yield return new WaitForSeconds(2f);
-                    sequenceText.text = "";
+                    yield return new WaitForSeconds(sequence.Length * typingSpeed + 2f);
+                    ClearText();
 
                     yield break; // 조건 만족했으면 코루틴 종료
                 }

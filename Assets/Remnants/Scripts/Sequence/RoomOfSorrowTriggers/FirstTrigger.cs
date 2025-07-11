@@ -18,6 +18,8 @@ namespace Remnants
         [SerializeField]
         private string sequence;
 
+        [SerializeField]
+        private bool IsStop = false;
         // 펫을 활성화할지 여부를 설정하는 변수 (Inspector에서 설정 가능)
         [SerializeField]
         private bool enabledPet = false;
@@ -43,7 +45,7 @@ namespace Remnants
         IEnumerator StartTrigger()
         {
             // 플레이어가 존재할 경우
-            if (player != null)
+            if (IsStop)
             {
                 // 플레이어 비활성화 (트리거 연출 중 조작 방지)
                 player.enabled = false;

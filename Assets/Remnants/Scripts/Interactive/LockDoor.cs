@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Remnants
@@ -7,15 +8,19 @@ namespace Remnants
     public class LockDoor : Interactive
     {
         #region Variables
-        public TextMeshProUGUI sequenceText;
         //public AudioManager audioManager;
 
         [SerializeField]
-        protected string sequence = "";
+        private string sequence = "";
+
+        private TypewriterEffect typewriterEffect;
         #endregion
 
         #region Unity Event Method
-
+        private void Start()
+        {
+            typewriterEffect = this.GetComponent<TypewriterEffect>();
+        }
         #endregion
 
         #region Custom Method
@@ -26,11 +31,11 @@ namespace Remnants
 
         IEnumerator StartTrigger()
         {
-            sequenceText.text = sequence;
+            typewriterEffect.StartTyping(sequence);
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(sequence.Length * typewriterEffect.typingSpeed + 2f);
 
-            sequenceText.text = "";
+            typewriterEffect.ClearText();
         }
         #endregion
     }

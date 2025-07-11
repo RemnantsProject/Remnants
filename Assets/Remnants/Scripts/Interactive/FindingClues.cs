@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Remnants
@@ -11,14 +12,14 @@ namespace Remnants
         //참조
         private DisapperEffect disapperEffect;
 
-        public TextMeshProUGUI sequenceText;
-
         [SerializeField]
         private string sequence = "Find Clue";
         private string notClueText = "이게 아니야..";
 
         [SerializeField]
         private bool isClue = false;
+
+        private TypewriterEffect typewriterEffect;
         #endregion
 
         #region Property
@@ -35,6 +36,7 @@ namespace Remnants
         private void Start()
         {
             disapperEffect = this.GetComponent<DisapperEffect>();
+            typewriterEffect = this.GetComponent<TypewriterEffect>();
         }
         #endregion
 
@@ -48,15 +50,15 @@ namespace Remnants
         {
             if (!IsClue)
             {
-                sequenceText.text = notClueText;
-                yield return new WaitForSeconds(3f);
-                sequenceText.text = "";
+                typewriterEffect.StartTyping(notClueText);
+                yield return new WaitForSeconds(notClueText.Length * typewriterEffect.typingSpeed + 3f);
+                typewriterEffect.ClearText();
             }
             else
             {
-                sequenceText.text = sequence;
-                yield return new WaitForSeconds(3f);
-                sequenceText.text = "";
+                typewriterEffect.StartTyping(sequence);
+                yield return new WaitForSeconds(sequence.Length * typewriterEffect.typingSpeed + 3f);
+                typewriterEffect.ClearText();
 
                 if (disapperEffect != null)
                 {
