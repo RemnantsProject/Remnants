@@ -1,7 +1,7 @@
 using System.Collections;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -10,84 +10,98 @@ namespace Remnants
 {
     public class TeleportToOtherMap : Interactive
     {
-        #region Variables
+        [Header("=== References ===")]
         [SerializeField] private Transform otherMap;
         [SerializeField] private Volume urpVolume;
-        private ColorAdjustments colorAdjustments;
-
         [SerializeField] private Image[] crackImages;
-        [SerializeField] private float stageInterval = 0.5f;
-        [SerializeField] private float finalHold = 0.5f;
-
-        [SerializeField] private CanvasGroup fadePanel;   // Fade 용 CanvasGroup
-        [SerializeField] private float fadeDuration = 1f; // 페이드 인/아웃 시간
-
+        [SerializeField] private CanvasGroup fadePanel;
         [SerializeField] private TextMeshProUGUI sequenceText;
 
- 
+        [Header("=== Timing ===")]
+        [SerializeField] private float overlayInterval = 0.02f;
+        [SerializeField] private float overlayHold = 0.5f;
+        [SerializeField] private float fallDelay = 0.05f;
+        [SerializeField] private float fallDistance = 300f;
+        [SerializeField] private float fallTime = 1f;
+        [SerializeField] private float fadeDuration = 1f;
 
-        private static bool goToOtherMap = true;
-        private bool hasUsed = false;
-        #endregion
+        private ColorAdjustments _colorAdjustments;
+        private static bool _goToOtherMap = true;
+        private bool _hasUsed;
 
         private void Awake()
         {
-            if (urpVolume != null && urpVolume.profile.TryGet(out colorAdjustments))
-                colorAdjustments.saturation.overrideState = true;
+         
+            if (urpVolume != null && urpVolume.profile.TryGet(out _colorAdjustments))
+                _colorAdjustments.saturation.overrideState = true;
+
+         
+            foreach (var img in crackImages)
+            {
+                var sprite = img.sprite;
+                img.SetNativeSize();
+                var rt = img.rectTransform;
+                rt.anchorMin = rt.anchorMax = Vector2.zero;
+                rt.pivot = Vector2.zero;
+                rt.anchoredPosition = new Vector2(sprite.rect.x, sprite.rect.y);
+                img.gameObject.SetActive(false);
+            }
         }
 
-        #region Custom Method
         protected override void DoAction()
         {
-            if (!hasUsed || hasUsed && !goToOtherMap)
+            if (!_hasUsed || (_hasUsed && !_goToOtherMap))
             {
-                hasUsed = true;
+                _hasUsed = true;
                 TeleportState.Instance.HasVisitedRoom = true;
-                StartCoroutine(TeleportRoutine());
-                var col = GetComponent<Collider>();
-                if (col != null) col.enabled = false;
-               
-            }
-        
-        }
+                StartCoroutine(MirrorBreakThenTeleport());
 
+                if (TryGetComponent<Collider>(out var col)) col.enabled = false;
+            }
+        }
+        private IEnumerator MirrorBreakThenTeleport()
+        {
+            //  크랙 오버레이
+            yield return CrackOverlayRoutine();    // 이 코루틴이 끝날 때까지 대기
+
+            //  잠시 홀드
+            yield return new WaitForSeconds(0.3f);
+
+            StartCoroutine(CrackFallRoutine());
+            yield return new WaitForSeconds(fallDelay * crackImages.Length + fallTime);
+
+            //  원래 TeleportRoutine 실행
+            yield return TeleportRoutine();
+        }
         private IEnumerator TeleportRoutine()
         {
-            Debug.Log("[Teleport] Crack Trigger!");
-
-            // 화면 블랙아웃
+            //  화면 블랙아웃
             yield return Fade(0, 1);
 
-            // 순간이동
+            //  순간이동
             TeleportPlayer();
 
-            // 흑백 or 컬러 복귀
-            if (goToOtherMap)
+            // 컬러 ↔ 흑백
+            if (_goToOtherMap)
             {
-                // 첫 호출: 흑백
-                colorAdjustments.saturation.value = -100f;
+                _colorAdjustments.saturation.value = -100f;
             }
             else
             {
-                // 두 번째 호출: 컬러로 서서히 복귀
                 yield return FadeToColor();
             }
 
-            //  플래그 토글
-            goToOtherMap = !goToOtherMap;
-
-            // 화면 원복
+            //  화면 원복
             yield return Fade(1, 0);
             fadePanel.gameObject.SetActive(false);
 
-            //  두 번째 호출(돌아올 때)이 끝난 뒤에만 비활성화
-            if (goToOtherMap)
+            _goToOtherMap = !_goToOtherMap;
+            if (_goToOtherMap)
                 gameObject.SetActive(false);
         }
 
         private IEnumerator Fade(float from, float to)
         {
-            // 페이드 패널 활성화 & 초기 알파
             fadePanel.gameObject.SetActive(true);
             fadePanel.alpha = from;
             float t = 0;
@@ -100,26 +114,54 @@ namespace Remnants
             fadePanel.alpha = to;
         }
 
-        private void TeleportPlayer()
-        {
-            var p = GameObject.FindWithTag("Player");
-            var cc = p.GetComponent<CharacterController>();
-            if (cc) cc.enabled = false;
-            p.transform.position = otherMap.position + Vector3.up * .5f;
-            if (cc) cc.enabled = true;
-        }
         private IEnumerator FadeToColor()
         {
-            float start = colorAdjustments.saturation.value;
+            float start = _colorAdjustments.saturation.value;
             float t = 0, dur = 2f;
             while (t < dur)
             {
                 t += Time.deltaTime;
-                colorAdjustments.saturation.value = Mathf.Lerp(start, 0, t / dur);
+                _colorAdjustments.saturation.value = Mathf.Lerp(start, 0, t / dur);
                 yield return null;
             }
-            colorAdjustments.saturation.value = 0;
+            _colorAdjustments.saturation.value = 0;
         }
-        #endregion
+
+        private void TeleportPlayer()
+        {
+            var player = GameObject.FindWithTag("Player");
+            var cc = player.GetComponent<CharacterController>();
+            if (cc) cc.enabled = false;
+            player.transform.position = otherMap.position + Vector3.up * .5f;
+            if (cc) cc.enabled = true;
+        }
+
+        private IEnumerator CrackOverlayRoutine()
+        {
+            // 순차적으로 각 조각 켜기
+            for (int i = 0; i < crackImages.Length; i++)
+            {
+                crackImages[i].gameObject.SetActive(true);
+                yield return new WaitForSeconds(overlayInterval);
+            }
+        }
+
+        private IEnumerator CrackFallRoutine()
+        {
+            for (int i = 0; i < crackImages.Length; i++)
+            {
+                var img = crackImages[i];
+                var rt = img.rectTransform;
+
+                // 짧게 지연을 두고
+                yield return new WaitForSeconds(fallDelay);
+
+                // 아래로 떨어뜨리며 알파 페이드아웃, 살짝 회전
+                rt.DOAnchorPosY(rt.anchoredPosition.y - fallDistance, fallTime).SetEase(Ease.InQuad);
+                img.DOFade(0, fallTime);
+                float angle = Random.Range(-30f, 30f);
+                rt.DOLocalRotate(new Vector3(0, 0, angle), fallTime);
+            }
+        }
     }
 }

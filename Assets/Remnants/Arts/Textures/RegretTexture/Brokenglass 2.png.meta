@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c8e2df93152ebc43943d62aafb18d12
+guid: de480c35dd23e1146b6133d2b5209efd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,27 +110,59 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: glass_0
+      name: Brokenglass 2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 709
-        height: 703
+        width: 614
+        height: 613
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: 354.5, y: 351.5}
-        - {x: -354.5, y: 351.5}
-        - {x: -354.5, y: -351.5}
-        - {x: 354.5, y: -351.5}
-      physicsShape: []
+      - - {x: 89, y: -290.5}
+        - {x: 291, y: -290.5}
+        - {x: 291, y: -151.5}
+        - {x: 89, y: -151.5}
+      physicsShape:
+      - - {x: 307, y: -306.5}
+        - {x: 100, y: -306.5}
+        - {x: 55, y: -181.5}
+        - {x: 62, y: -181.5}
+        - {x: 108, y: -123.5}
+        - {x: 124, y: -93.5}
+        - {x: 148, y: -71.5}
+        - {x: 159, y: -42.5}
+        - {x: 168, y: -34.5}
+        - {x: 200, y: -46.5}
+        - {x: 229, y: -42.5}
+        - {x: 307, y: -51.5}
+      - - {x: 164, y: 216.5}
+        - {x: 125, y: 156.5}
+        - {x: 135, y: 133.5}
+        - {x: 135, y: 103.5}
+        - {x: 136, y: 88.5}
+        - {x: 145, y: 69.5}
+        - {x: 143, y: 48.5}
+        - {x: 152, y: 23.5}
+        - {x: 152, y: -0.5}
+        - {x: 168, y: -32.5}
+        - {x: 201, y: -46.5}
+        - {x: 229, y: -42.5}
+        - {x: 307, y: -51.5}
+        - {x: 307, y: 306.5}
+        - {x: 219, y: 306.5}
+      - - {x: 140, y: 280.5}
+        - {x: 164, y: 269.5}
+        - {x: 186, y: 249.5}
+        - {x: 219, y: 306.5}
+        - {x: 103, y: 306.5}
       tessellationDetail: 1
       bones: []
-      spriteID: e11cedb965a8b854ab7ade6f0f4de237
-      internalID: 1227320786
+      spriteID: 2403626c43ba29d4eb33104c0ab1d14c
+      internalID: -240175704
       vertices: []
       indices: 
       edges: []
@@ -139,7 +171,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 408e2ebee17f57048bae42569e8ad5cb
     internalID: 0
     vertices: []
     indices: 
@@ -149,7 +181,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      glass_0: 1227320786
+      Brokenglass 2_0: -240175704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
