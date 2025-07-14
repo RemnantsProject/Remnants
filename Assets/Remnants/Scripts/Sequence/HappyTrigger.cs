@@ -7,6 +7,9 @@ namespace Remnants
     {
         // 흰색 페이드
         protected override Color FadeColor => Color.white;
+
+        // BGM
+        protected override string EndingBgmName => "HappyEndingBgm";
     }
 }
 
