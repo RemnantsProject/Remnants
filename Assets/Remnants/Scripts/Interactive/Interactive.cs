@@ -31,6 +31,8 @@ namespace Remnants
 
         protected static float globalCooldown = 0f; // 기본값 0초
         protected static float lastGlobalActionTime = -Mathf.Infinity;
+
+        public static bool IsUIOpened = false;
         #endregion
 
         #region Property
@@ -55,6 +57,9 @@ namespace Remnants
         }
         private void OnMouseOver()
         {
+            if (IsUIOpened)
+                return;
+
             extraCross.SetActive(true);
 
             if (theDistance <= actionDistance)

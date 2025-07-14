@@ -13,8 +13,6 @@ namespace Remnants
         //페이더 객체
         public SceneFader fader;
 
-        //시나리오 대사 처리
-        public TextMeshProUGUI sequenceText;
         private TypewriterEffect typewriterEffect;
 
         [SerializeField]
@@ -22,9 +20,6 @@ namespace Remnants
 
         [SerializeField]
         private string sequence02 = "I need get out of here";
-
-        [SerializeField]
-        private string sequence03 = "";
 
         #endregion
 
@@ -48,8 +43,6 @@ namespace Remnants
         {
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f);
-            typewriterEffect.StartTyping(sequence03);
-            yield return new WaitForSeconds(1.5f);
 
             typewriterEffect.StartTyping(sequence01);
             yield return new WaitForSeconds(3f);

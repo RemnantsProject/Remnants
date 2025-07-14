@@ -51,10 +51,13 @@ namespace Remnants
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f, isWhite);
             //2.화면 하단에 시나리오 텍스트 화면 출력
-            typewriterEffect.StartTyping(sequence01);
-            yield return new WaitForSeconds(sequence01.Length * typewriterEffect.typingSpeed + 3f);
-
-            typewriterEffect.ClearText();
+            if(sequence01 != "")
+            {
+                typewriterEffect.StartTyping(sequence01);
+                yield return new WaitForSeconds(sequence01.Length * typewriterEffect.typingSpeed + 3f);
+                typewriterEffect.ClearText();
+            }
+            
             //4.플레이 캐릭터 활성화
             //thePlayer.SetActive(true);
             input.enabled = true;

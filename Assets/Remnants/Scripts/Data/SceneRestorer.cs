@@ -10,7 +10,7 @@ namespace Remnants
         {
             SceneObjectRegistry.Instance.RegisterAllInScene();
 
-            Debug.Log("[SceneRestorer] Start() 호출됨");
+            //Debug.Log("[SceneRestorer] Start() 호출됨");
             if (SceneObjectRegistry.Instance == null)
             {
                 Debug.LogError("SceneObjectRegistry.Instance 가 null 입니다!");
@@ -24,10 +24,10 @@ namespace Remnants
                 Debug.LogWarning("등록된 오브젝트 ID가 하나도 없습니다!");
             }
 
-            foreach (var key in allIDs)
-            {
-                Debug.Log($"등록된 오브젝트 ID: {key}");
-            }
+            //foreach (var key in allIDs)
+            //{
+            //    //Debug.Log($"등록된 오브젝트 ID: {key}");
+            //}
             string sceneName = SceneManager.GetActiveScene().name;
 
             SceneData data = GameStateManager.Instance.GetSceneData(sceneName);

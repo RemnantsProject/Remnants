@@ -30,10 +30,12 @@ namespace Remnants
         private void StoryOpen()
         {
             storyUI.SetActive(true);
+            IsUIOpened = true;
         }
         private void StoryClose()
         {
             storyUI.SetActive(false);
+            IsUIOpened = false;
         }
         #endregion
     }

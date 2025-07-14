@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Remnants
@@ -13,7 +14,10 @@ namespace Remnants
         public Material smileMaterial;
         public Material scaryMaterial;
 
-        private bool isStroke = false;
+        [SerializeField]
+        private float revertDelay = 10f;
+
+        private Coroutine revertCoroutine;
         #endregion
 
         #region Unity Event Method
@@ -23,20 +27,30 @@ namespace Remnants
         #region Custom Method
         protected override void DoAction()
         {
-            isStroke = !isStroke;
+            if (targetRenderer == null)
+                return;
 
-            if (targetRenderer != null)
+            if (revertCoroutine != null)
             {
-                targetRenderer.material = smileMaterial;
-                angelRing.SetActive(true);
-                blade.SetActive(false);
+                StopCoroutine(RevertToScary());
             }
-            else
-            {
-                targetRenderer.material = scaryMaterial;
-                angelRing.SetActive(false);
-                blade.SetActive(true);
-            }
+
+            targetRenderer.material = smileMaterial;
+            angelRing.SetActive(true);
+            blade.SetActive(false);
+
+            revertCoroutine = StartCoroutine(RevertToScary());
+        }
+
+        IEnumerator RevertToScary()
+        {
+            yield return new WaitForSeconds(revertDelay);
+
+            targetRenderer.material = scaryMaterial;
+            angelRing.SetActive(false);
+            blade.SetActive(true);
+
+            revertCoroutine = null;
         }
         #endregion
     }

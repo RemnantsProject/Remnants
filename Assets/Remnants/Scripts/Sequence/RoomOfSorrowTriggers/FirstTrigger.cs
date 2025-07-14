@@ -63,9 +63,6 @@ namespace Remnants
                 if (enabledPet && pet != null)
                 {
                     pet.SetActive(true);
-
-                    // 펫 활성화를 위해 잠깐 시간 추가
-                    yield return new WaitForSeconds(2f);
                 }
 
                 // 연출 텍스트 제거
