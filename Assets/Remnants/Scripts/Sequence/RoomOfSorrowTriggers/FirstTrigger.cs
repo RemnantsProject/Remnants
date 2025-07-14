@@ -50,6 +50,9 @@ namespace Remnants
                 // 플레이어 비활성화 (트리거 연출 중 조작 방지)
                 player.enabled = false;
 
+                // 트리거 재실행 방지
+                DisableAllColliders();
+
                 // 연출용 텍스트 출력
                 StartTyping(sequence);
 
@@ -67,13 +70,13 @@ namespace Remnants
 
                 // 연출 텍스트 제거
                 ClearText();
-
-                // 트리거 재실행 방지를 위해 콜라이더 비활성화
-                DisableAllColliders();
             }
             else
             {
                 // 플레이어가 존재하지 않을 경우에도 연출은 진행됨
+
+                // 트리거 재실행 방지
+                DisableAllColliders();
 
                 // 연출용 텍스트 출력
                 StartTyping(sequence);
@@ -81,11 +84,14 @@ namespace Remnants
                 // 연출 시간 대기
                 yield return new WaitForSeconds(sequence.Length * typingSpeed + 2f);
 
+                // 펫 활성화 설정이 true이고, pet 오브젝트가 존재하면 활성화
+                if (enabledPet && pet != null)
+                {
+                    pet.SetActive(true);
+                }
+
                 // 연출 텍스트 제거
                 ClearText();
-
-                // 트리거 재실행 방지
-                DisableAllColliders();
             }
         }
 

@@ -150,9 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e69a529e406294419245162c733fca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 277797047588657419, guid: 9a744b9a039f01f49a13d453d8e9bf3e, type: 3}
+  loadToScene: RoomOfAnger
+  finalSphere: 0
   pushDistance: 5
-  pushSpeed: 500
-  isPushing: 0
+  pushDuration: 0.3
 --- !u!114 &3415174636148496548
 MonoBehaviour:
   m_ObjectHideFlags: 0

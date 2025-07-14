@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Sphere
+  - Story
   layers:
   - Default
   - TransparentFX

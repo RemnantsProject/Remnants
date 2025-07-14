@@ -63,6 +63,8 @@ namespace Remnants
             // 마지막 프레임에서 목표 회전값 정확히 고정
             playerTransform.rotation = targetRotation;
 
+            DisableAllColliders();
+
             // ▷ 텍스트 출력 (3초 동안)
             // 연출용 텍스트 출력
             StartTyping(sequence);
@@ -85,6 +87,21 @@ namespace Remnants
 
             // ▷ 플레이어 컨트롤러 다시 활성화
             playerController.enabled = true;
+        }
+
+        /// <summary>
+        /// 이 트리거에 붙은 모든 BoxCollider를 비활성화하는 함수 (재진입 방지용)
+        /// </summary>
+        private void DisableAllColliders()
+        {
+            // 해당 게임 오브젝트에 있는 모든 BoxCollider 가져오기
+            BoxCollider[] colliders = GetComponents<BoxCollider>();
+
+            // 각각 비활성화
+            foreach (BoxCollider collider in colliders)
+            {
+                collider.enabled = false;
+            }
         }
         #endregion
     }

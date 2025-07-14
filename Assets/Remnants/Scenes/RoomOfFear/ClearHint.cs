@@ -12,6 +12,9 @@ namespace Remnants
 
         [SerializeField]
         private string sequence02 = "고민하지마! 벽쪽으로 힘것 뛰어!";
+
+        [SerializeField]
+        private string sequence03 = "한번 확인해봐!";
         #endregion
 
         #region Unity Event Method
@@ -28,10 +31,13 @@ namespace Remnants
         IEnumerator GameClearHint()
         {
             StartTyping(sequence01);
-            yield return new WaitForSeconds(sequence01.Length * typingSpeed + 2f);
+            yield return new WaitForSeconds(sequence01.Length * typingSpeed + 1.5f);
 
             StartTyping(sequence02);
-            yield return new WaitForSeconds(sequence02.Length * typingSpeed + 2f);
+            yield return new WaitForSeconds(sequence02.Length * typingSpeed + 1.5f);
+
+            StartTyping(sequence03);
+            yield return new WaitForSeconds(sequence02.Length * typingSpeed + 1.5f);
 
             ClearText();
         }

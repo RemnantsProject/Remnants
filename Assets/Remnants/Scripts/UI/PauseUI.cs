@@ -19,7 +19,7 @@ namespace Remnants
         public void OnPause(InputAction.CallbackContext context)
         {
             if (context.started)
-            {
+            {              
                 Toggle();
             }
         }
@@ -27,6 +27,13 @@ namespace Remnants
         //esc키 누르면 UI 활성화, 다시 esc 키 누르면 UI 비활성화 - 토글키
         public void Toggle()
         {
+            // "Story" 태그가 붙은 오브젝트가 현재 활성화되어 있다면 PauseUI를 띄우지 않음
+            GameObject storyObject = GameObject.FindGameObjectWithTag("Story");
+            if (storyObject != null && storyObject.activeInHierarchy)
+            {
+                return; // 그냥 빠져나감
+            }
+
             pauseUI.SetActive(!pauseUI.activeSelf);
 
             if (pauseUI.activeSelf)  //창이 열린 상태

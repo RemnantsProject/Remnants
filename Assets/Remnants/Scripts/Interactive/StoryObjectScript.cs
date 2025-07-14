@@ -14,8 +14,9 @@ namespace Remnants
         #region Unity Event Method
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (IsUIOpened && Input.GetKeyDown(KeyCode.Escape))
             {
+                //Debug.Log($"{gameObject.name} ESC 눌림");
                 StoryClose();
             }
         }
@@ -24,7 +25,11 @@ namespace Remnants
         #region Custom Method
         protected override void DoAction()
         {
-            StoryOpen();
+            if (!IsUIOpened)
+            {
+                StoryOpen();
+            }
+            
         }
 
         private void StoryOpen()
