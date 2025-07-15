@@ -240,6 +240,7 @@ namespace Remnants
             fog.SetActive(true);
             audioManager.PlayBgm("EndingRoomBgm");
 
+
             // 대사 순서대로 출력
             foreach (var line in sequence)
             {
