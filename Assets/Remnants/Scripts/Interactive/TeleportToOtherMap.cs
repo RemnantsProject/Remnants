@@ -19,7 +19,7 @@ namespace Remnants
 
         [Header("=== Timing ===")]
         [SerializeField] private float overlayInterval = 0.02f;
-        [SerializeField] private float overlayHold = 0.5f;
+        //[SerializeField] private float overlayHold = 0.5f;    //사용하지 않음
         [SerializeField] private float fallDelay = 0.05f;
         [SerializeField] private float fallDistance = 300f;
         [SerializeField] private float fallTime = 1f;
