@@ -40,8 +40,11 @@ namespace Remnants
             {
                 player = other.GetComponent<PlayerInput>();
                 StartCoroutine(StartTrigger());
-                if (soundsObjects == null)
+                if (soundsObjects == null || soundsObjects.Count < 2)
+                {
+                    Debug.LogWarning($"soundsObjects 리스트가 비어있거나 충분하지 않습니다. 현재 Count: {soundsObjects?.Count ?? 0}");
                     return;
+                }
                 DistanceBgm stopSounds = soundsObjects[0].GetComponent<DistanceBgm>();
                 foreach (var stopSound in stopSounds.sounds)
                 {

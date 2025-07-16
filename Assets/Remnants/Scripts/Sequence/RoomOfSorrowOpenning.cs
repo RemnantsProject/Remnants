@@ -17,6 +17,8 @@ namespace Remnants
 
         [SerializeField]
         private string sequence01 = "여기가 어디야?";
+        [SerializeField]
+        private string bgmName = "RoomOfSorrow_2Bgm";
         #endregion
 
         #region Unity Event Method
@@ -48,6 +50,9 @@ namespace Remnants
 
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f);
+
+            AudioManager.Instance.PlayBgm(bgmName);
+
             //2.화면 하단에 시나리오 텍스트 화면 출력
             StartTyping(sequence01);
             yield return new WaitForSeconds(sequence01.Length * typingSpeed + 3f);

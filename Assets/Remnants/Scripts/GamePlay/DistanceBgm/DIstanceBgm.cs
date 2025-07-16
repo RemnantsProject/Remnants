@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -13,9 +14,6 @@ namespace Remnants
         public List<string> sounds;
 
         [SerializeField]
-        private string mixerVolumeParam = "Sfx"; // AudioMixer 파라미터 이름
-        
-        [SerializeField]
         private float maxDistance = 10f;
 
         private bool isPlaying = false;
@@ -30,7 +28,7 @@ namespace Remnants
             float t = Mathf.Clamp01(1 - distance / maxDistance);
             float volume = Mathf.Lerp(-80f, 0f, t);
 
-            audioMixer.SetFloat(mixerVolumeParam, volume);
+            audioMixer.SetFloat(audioManager.sfxGroup.ToString(), volume);
 
             if (!isPlaying)
             {
