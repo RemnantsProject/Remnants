@@ -98,8 +98,8 @@ namespace Remnants
                     Debug.Log("Cannot Find " + name + " Sound");
                     return;
                 }
-
-                sound.source.Stop();
+            Debug.Log("Playing sound: " + name);
+            sound.source.Stop();
             }
 
             //배경음 플레이

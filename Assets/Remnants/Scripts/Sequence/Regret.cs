@@ -40,6 +40,7 @@ namespace Remnants
         //오프닝 연출 코루틴 함수
         IEnumerator SequencePlay()
         {
+            AudioManager.Instance.PlayBgm("Bgm");
             //0.플레이 캐릭터 비 활성화
             //thePlayer.SetActive(false);
             PlayerInput input = thePlayer.GetComponent<PlayerInput>();

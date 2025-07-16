@@ -27,8 +27,9 @@ namespace Remnants
         #region Custom Method
         IEnumerator OpenDoor()
         {
+            AudioManager.Instance.Play("OpenDoor");
+            yield return new WaitForSeconds(0.5f);
             animator.SetTrigger("Open");
-            yield return new WaitForSeconds(1f);
             fader.FadeTo(loadToScene);
         }
         #endregion

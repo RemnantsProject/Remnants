@@ -1,8 +1,10 @@
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -29,12 +31,12 @@ namespace Remnants
         private static bool _goToOtherMap = true;
         private bool _hasUsed;
 
-
         private void Awake()
         {
          
             if (urpVolume != null && urpVolume.profile.TryGet(out _colorAdjustments))
                 _colorAdjustments.saturation.overrideState = true;
+
         }
 
         protected override void DoAction()
@@ -60,6 +62,14 @@ namespace Remnants
             //  잠시 홀드
             yield return new WaitForSeconds(0.3f);
 
+            if (_goToOtherMap)
+            {
+                AudioManager.Instance.Play("Mirrorbreaking");
+            }
+            else
+            {
+                
+            }
             // 컬러 ↔ 흑백
             if (_goToOtherMap)
             {
