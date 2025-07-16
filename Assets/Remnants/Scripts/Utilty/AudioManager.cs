@@ -36,7 +36,6 @@ namespace Remnants
                    s.source.volume = s.volume;
                    s.source.pitch = s.pitch;
                    s.source.loop = s.loop;
-                   s.source.spatialBlend = s.spitalBlend ? 1f : 0f;
 
                     s.source.playOnAwake = false;
 

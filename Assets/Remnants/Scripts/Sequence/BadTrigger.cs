@@ -6,9 +6,6 @@ namespace Remnants
 {
         // 검은색 페이드
         protected override Color FadeColor => Color.gray;
-
-        // BGM
-        protected override string EndingBgmName => "BadEndingBgm";
     }
 }
 

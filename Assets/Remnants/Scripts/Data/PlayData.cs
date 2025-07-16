@@ -12,6 +12,7 @@ namespace Remnants
         public PlayData()
         {
             sceneNumber = PlayerDataManager.Instance.SceneNumber;
+
         }
     }
 }

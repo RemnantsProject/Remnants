@@ -240,7 +240,6 @@ namespace Remnants
             fog.SetActive(true);
             audioManager.PlayBgm("EndingRoomBgm");
 
-
             // 대사 순서대로 출력
             foreach (var line in sequence)
             {
@@ -267,11 +266,10 @@ namespace Remnants
             // 선택 직후 잠시 기다림
             yield return new WaitForSeconds(delay);
 
-            // 분기별 대사 출력
             foreach (var line in selectedSequence)
             {
                 whoIsSaying = line.speaker;
-                typeWritter.StartTyping(line.line);
+                sequenceText.text = line.line;
                 yield return new WaitForSeconds(line.waitTime);
             }
 

@@ -17,8 +17,6 @@ namespace Remnants
         public float pitch;     //사운드 재생속도 
         public bool loop;       //사운드 반복 실행 여부
 
-        public bool spitalBlend;   //사운드 위치 설정
-
         //위의 속성값을 재생할 오디오소스
         public AudioSource source;
     }

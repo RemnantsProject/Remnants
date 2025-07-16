@@ -1,53 +1,36 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
 namespace Remnants
 {
-    public class DistanceBgm : MonoBehaviour
+    public class DIstanceBgm : MonoBehaviour
     {
         #region Variables
         public Transform player;
         public AudioMixer audioMixer;
-        public AudioManager audioManager;
-        public List<string> sounds;
-
         [SerializeField]
-        private string mixerVolumeParam = "Sfx"; // AudioMixer 파라미터 이름
-        
+        private string FamilySfx_1 = "FamilySfx_1";
         [SerializeField]
-        private float maxDistance = 10f;
-
-        private bool isPlaying = false;
+        private float maxDistance =10f;
         #endregion
 
         #region Unity Event Method
         private void Update()
         {
-            if (player == null) return;
+            if (player == false)
+                return;
 
-            float distance = Vector3.Distance(player.position, transform.position);
+            float distance = Vector3.Distance(player.position, this.transform.position);
             float t = Mathf.Clamp01(1 - distance / maxDistance);
-            float volume = Mathf.Lerp(-80f, 0f, t);
+            float voluem = Mathf.Lerp(-80f, 0f, t);
 
-            audioMixer.SetFloat(mixerVolumeParam, volume);
-
-            if (!isPlaying)
-            {
-                foreach (var soundName in sounds)
-                {
-                    audioManager.Play(soundName);
-                } 
-                isPlaying = true;
-            }
+            audioMixer.SetFloat(FamilySfx_1, voluem);
         }
         #endregion
 
         #region Custom Method
-        public void FalsePlaying()
-        {
-            isPlaying = false;
-        }
+
         #endregion
     }
+
 }

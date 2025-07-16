@@ -22,8 +22,6 @@ namespace Remnants
         #region Unity Event Method
         private void Start()
         {
-            PlayerDataManager.Instance.SceneNumber = SceneManager.GetActiveScene().buildIndex;
-            SaveLoad.SaveData();
 
             //커서 제어
             Cursor.lockState = CursorLockMode.Locked;

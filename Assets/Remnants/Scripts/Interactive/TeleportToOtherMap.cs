@@ -1,5 +1,6 @@
-using System.Collections;
 using DG.Tweening;
+using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,16 +11,15 @@ namespace Remnants
 {
     public class TeleportToOtherMap : Interactive
     {
-        [Header("=== References ===")]
         [SerializeField] private Transform otherMap;
         [SerializeField] private Volume urpVolume;
         [SerializeField] private Image[] crackImages;
         [SerializeField] private CanvasGroup fadePanel;
         [SerializeField] private TextMeshProUGUI sequenceText;
 
-        [Header("=== Timing ===")]
+
         [SerializeField] private float overlayInterval = 0.02f;
-        //[SerializeField] private float overlayHold = 0.5f;    //사용하지 않음
+        [SerializeField] private float overlayHold = 0.5f;
         [SerializeField] private float fallDelay = 0.05f;
         [SerializeField] private float fallDistance = 300f;
         [SerializeField] private float fallTime = 1f;
@@ -29,23 +29,12 @@ namespace Remnants
         private static bool _goToOtherMap = true;
         private bool _hasUsed;
 
+
         private void Awake()
         {
          
             if (urpVolume != null && urpVolume.profile.TryGet(out _colorAdjustments))
                 _colorAdjustments.saturation.overrideState = true;
-
-         
-            foreach (var img in crackImages)
-            {
-                var sprite = img.sprite;
-                img.SetNativeSize();
-                var rt = img.rectTransform;
-                rt.anchorMin = rt.anchorMax = Vector2.zero;
-                rt.pivot = Vector2.zero;
-                rt.anchoredPosition = new Vector2(sprite.rect.x, sprite.rect.y);
-                img.gameObject.SetActive(false);
-            }
         }
 
         protected override void DoAction()
@@ -54,6 +43,7 @@ namespace Remnants
             {
                 _hasUsed = true;
                 TeleportState.Instance.HasVisitedRoom = true;
+
                 StartCoroutine(MirrorBreakThenTeleport());
 
                 if (TryGetComponent<Collider>(out var col)) col.enabled = false;
@@ -61,25 +51,14 @@ namespace Remnants
         }
         private IEnumerator MirrorBreakThenTeleport()
         {
-            //  크랙 오버레이
-            yield return CrackOverlayRoutine();    // 이 코루틴이 끝날 때까지 대기
 
+            // 모든 조각을 한 번에 켜기
+            for (int i = 0; i < crackImages.Length; i++)
+            {
+                crackImages[i].gameObject.SetActive(true);
+            }
             //  잠시 홀드
             yield return new WaitForSeconds(0.3f);
-
-            StartCoroutine(CrackFallRoutine());
-            yield return new WaitForSeconds(fallDelay * crackImages.Length + fallTime);
-
-            //  원래 TeleportRoutine 실행
-            yield return TeleportRoutine();
-        }
-        private IEnumerator TeleportRoutine()
-        {
-            //  화면 블랙아웃
-            yield return Fade(0, 1);
-
-            //  순간이동
-            TeleportPlayer();
 
             // 컬러 ↔ 흑백
             if (_goToOtherMap)
@@ -90,6 +69,21 @@ namespace Remnants
             {
                 yield return FadeToColor();
             }
+
+            //  원래 TeleportRoutine 실행
+            yield return TeleportRoutine();
+
+            StartCoroutine(CrackFallRoutine());
+            yield return new WaitForSeconds(fallDelay * crackImages.Length + fallTime);
+
+        }
+        private IEnumerator TeleportRoutine()
+        {
+
+
+            //  순간이동
+            TeleportPlayer();
+          
 
             //  화면 원복
             yield return Fade(1, 0);
@@ -136,32 +130,46 @@ namespace Remnants
             if (cc) cc.enabled = true;
         }
 
-        private IEnumerator CrackOverlayRoutine()
-        {
-            // 순차적으로 각 조각 켜기
-            for (int i = 0; i < crackImages.Length; i++)
-            {
-                crackImages[i].gameObject.SetActive(true);
-                yield return new WaitForSeconds(overlayInterval);
-            }
-        }
 
         private IEnumerator CrackFallRoutine()
         {
-            for (int i = 0; i < crackImages.Length; i++)
+            // crackImages 인덱스 리스트를 랜덤하게 섞기
+            var indices = Enumerable.Range(0, crackImages.Length).ToList();
+            for (int i = 0; i < indices.Count; i++)
             {
-                var img = crackImages[i];
+                int j = Random.Range(i, indices.Count);
+                // swap
+                var tmp = indices[i];
+                indices[i] = indices[j];
+                indices[j] = tmp;
+            }
+
+            //  셔플된 순서대로 각각 랜덤 낙하
+            foreach (int idx in indices)
+            {
+                var img = crackImages[idx];
                 var rt = img.rectTransform;
 
-                // 짧게 지연을 두고
-                yield return new WaitForSeconds(fallDelay);
+                //  랜덤한 짧은 지연 
+                yield return new WaitForSeconds(Random.Range(0f, fallDelay));
 
-                // 아래로 떨어뜨리며 알파 페이드아웃, 살짝 회전
-                rt.DOAnchorPosY(rt.anchoredPosition.y - fallDistance, fallTime).SetEase(Ease.InQuad);
-                img.DOFade(0, fallTime);
-                float angle = Random.Range(-30f, 30f);
-                rt.DOLocalRotate(new Vector3(0, 0, angle), fallTime);
+                //  랜덤 거리, 랜덤 시간
+                float thisDistance = Random.Range(fallDistance * 0.5f, fallDistance * 1.5f);
+                float thisTime = Random.Range(fallTime * 0.8f, fallTime * 1.2f);
+
+                // 랜덤 회전
+                float thisAngle = Random.Range(-45f, 45f);
+
+              
+                rt.DOAnchorPosY(rt.anchoredPosition.y - thisDistance, thisTime)
+                  .SetEase(Ease.InQuad);
+                img.DOFade(0, thisTime);
+                rt.DOLocalRotate(new Vector3(0, 0, thisAngle), thisTime);
             }
+
+            // 3) 모두 애니 완료될 때까지 충분히 대기
+            yield return new WaitForSeconds(fallTime * 1.5f);
         }
+
     }
 }

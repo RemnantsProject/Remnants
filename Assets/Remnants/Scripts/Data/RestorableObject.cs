@@ -9,16 +9,11 @@ namespace Remnants
 
         private void Start()
         {
-            Debug.Log($"[RestorableObject] Start: {objectID}");
             // 씬이 로드될 때마다 이 오브젝트를 SceneObjectRegistry에 등록
             // => 비활성화 상태에서도 복원 시 찾을 수 있도록
             if (SceneObjectRegistry.Instance != null)
             {
                 SceneObjectRegistry.Instance.Register(this);
-            }
-            else
-            {
-                Debug.LogError("[RestorableObject] SceneObjectRegistry.Instance가 null입니다!");
             }
         }
     }

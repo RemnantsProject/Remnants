@@ -21,7 +21,7 @@ namespace Remnants
 
             if (allIDs.Count == 0)
             {
-                Debug.LogWarning("등록된 오브젝트 ID가 하나도 없습니다!");
+                //Debug.LogWarning("등록된 오브젝트 ID가 하나도 없습니다!");
             }
 
             //foreach (var key in allIDs)
@@ -41,11 +41,11 @@ namespace Remnants
                     if (obj != null)
                     {
                         obj.SetActive(true);
-                        Debug.Log($"[SceneRestorer] {name} 활성화 복원 완료");
+                       // Debug.Log($"[SceneRestorer] {name} 활성화 복원 완료");
                     }
                     else
                     {
-                        Debug.LogWarning($"[SceneRestorer] {name} 오브젝트 찾을 수 없음");
+                       // Debug.LogWarning($"[SceneRestorer] {name} 오브젝트 찾을 수 없음");
                     }
                 }
                 // 플레이어 복원
@@ -54,7 +54,7 @@ namespace Remnants
                 {
                     player.transform.position = data.playerPosition;
                     player.transform.rotation = data.playerRotation;
-                    Debug.Log($"[SceneRestorer] 플레이어 위치 복원됨: {data.playerPosition}");
+                   // Debug.Log($"[SceneRestorer] 플레이어 위치 복원됨: {data.playerPosition}");
                 }
             }
           

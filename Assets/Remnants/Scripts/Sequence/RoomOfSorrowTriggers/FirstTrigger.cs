@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,12 +14,6 @@ namespace Remnants
 
         // 등장시킬 펫 오브젝트
         public GameObject pet;
-
-        [SerializeField]
-        private List<GameObject> soundsObjects;
-
-        [SerializeField]
-        private int activeIndex = 0;
 
         [SerializeField]
         private string sequence;
@@ -40,18 +33,6 @@ namespace Remnants
             {
                 player = other.GetComponent<PlayerInput>();
                 StartCoroutine(StartTrigger());
-                if (soundsObjects == null)
-                    return;
-                DistanceBgm stopSounds = soundsObjects[0].GetComponent<DistanceBgm>();
-                foreach (var stopSound in stopSounds.sounds)
-                {
-                    stopSounds.audioManager.Stop(stopSound);
-                }
-                soundsObjects[0].SetActive(false);
-
-                soundsObjects[1].SetActive(true);
-
-                stopSounds.FalsePlaying();
             }
         }
         #endregion
@@ -97,11 +78,9 @@ namespace Remnants
                 // 트리거 재실행 방지
                 DisableAllColliders();
 
-                if (sequence != "")
-                {
-                    // 연출용 텍스트 출력
-                    StartTyping(sequence);
-                }
+                // 연출용 텍스트 출력
+                StartTyping(sequence);
+
                 // 연출 시간 대기
                 yield return new WaitForSeconds(sequence.Length * typingSpeed + 2f);
 

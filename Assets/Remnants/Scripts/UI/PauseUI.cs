@@ -58,10 +58,6 @@ namespace Remnants
         //메뉴가기 버튼 호출  
         public void Menu()
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Time.timeScale = 1f;
-
             fader.FadeTo(loadToScene);
         }
         #endregion

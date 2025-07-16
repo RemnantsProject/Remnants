@@ -88,9 +88,9 @@ namespace Remnants
             //PlayerPrefs 모드
             //sceneNumber = PlayerPrefs.GetInt("SceneNumber", -1);
             //FileSystem 모드
-            PlayData playData = SaveLoad.LoadData();
-            PlayerDataManager.Instance.InitPlayerData(playData);
-            sceneNumber = PlayerDataManager.Instance.SceneNumber;
+            //PlayData playData = SaveLoad.LoadData();
+            //PlayerDataManager.Instance.InitPlayerData(playData);
+            //sceneNumber = PlayerDataManager.Instance.SceneNumber;
         }
 
         public void NewGame()
