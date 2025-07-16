@@ -6632,14 +6632,20 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    isBgm: 0
+    spitalBlend: 0
     source: {fileID: 0}
   - name: TitleBgm
     clip: {fileID: 8300000, guid: 6edd45a6d7c5a784ea361393b8e29426, type: 3}
     volume: 1
     pitch: 1
     loop: 1
+    isBgm: 0
+    spitalBlend: 0
     source: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+  bgmGroup: {fileID: -1811767578506980792, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+  sfxGroup: {fileID: 7466808881337224984, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
 --- !u!1 &1703630419
 GameObject:
   m_ObjectHideFlags: 0

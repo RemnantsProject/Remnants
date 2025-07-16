@@ -10923,26 +10923,36 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+    isBgm: 1
+    spitalBlend: 0
     source: {fileID: 0}
   - name: EndingOpenDoor
     clip: {fileID: 8300000, guid: 266bf89c95933e84fa330ce77f715755, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    isBgm: 0
+    spitalBlend: 0
     source: {fileID: 0}
   - name: HappyEndingBgm
     clip: {fileID: 8300000, guid: 80ab6f90d4b50b042b6f8862f8000cbd, type: 3}
     volume: 1
     pitch: 1
     loop: 1
+    isBgm: 1
+    spitalBlend: 0
     source: {fileID: 0}
   - name: BadEndingBgm
     clip: {fileID: 8300000, guid: 7bc786f15716ad34e8385efdef7049bc, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    isBgm: 0
+    spitalBlend: 0
     source: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+  bgmGroup: {fileID: -1811767578506980792, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+  sfxGroup: {fileID: 7466808881337224984, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
 --- !u!4 &1141109456
 Transform:
   m_ObjectHideFlags: 0

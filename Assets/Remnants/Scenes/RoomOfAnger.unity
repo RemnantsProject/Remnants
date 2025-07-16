@@ -7623,6 +7623,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: bgmGroup
+      value: 
+      objectReference: {fileID: -1811767578506980792, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sfxGroup
+      value: 
+      objectReference: {fileID: 7466808881337224984, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
     - target: {fileID: 4773477632440126901, guid: cad587b9df9690849a340b37321c471c, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -10916,6 +10924,7 @@ MonoBehaviour:
   fader: {fileID: 1156908648}
   sequence01: "\uC65C \uBCF5\uB3C4\uAC00 \uAE30\uC6B8\uC5B4\uC838 \uC788\uC9C0..?"
   isWhite: 0
+  bgmName: 
 --- !u!114 &1470047850
 MonoBehaviour:
   m_ObjectHideFlags: 0
