@@ -26,9 +26,15 @@ namespace Remnants
         #endregion
 
         #region Unity Event Method
-        private void Start()
+        private void Awake()
         {
             typewriterEffect = this.GetComponent<TypewriterEffect>();
+        }
+
+        private void Start()
+        {
+            PlayerDataManager.Instance.SceneNumber = SceneManager.GetActiveScene().buildIndex;
+            SaveLoad.SaveData();
 
             //커서 제어
             Cursor.lockState = CursorLockMode.Locked;

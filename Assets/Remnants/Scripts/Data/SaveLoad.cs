@@ -21,7 +21,7 @@ namespace Remnants
 
             //저장할 데이터를 준비 : 생성자를 통해 세이브 데이터 셋팅
             PlayData playData = new PlayData();
-            Debug.Log($"Save SceneNumber: {playData.sceneNumber}");
+            //Debug.Log($"Save SceneNumber: {playData.sceneNumber}");
 
             //준비한 데이터를 이진화 저장
             formatter.Serialize(fs, playData);
@@ -50,7 +50,7 @@ namespace Remnants
 
                 //이진화로 포맷으로 파일에 저장된 데이터를 역진화해서 가져온다
                 playData = formatter.Deserialize(fs) as PlayData;
-                Debug.Log($"Load SceneNumber: {playData.sceneNumber}");
+                //Debug.Log($"Load SceneNumber: {playData.sceneNumber}");
 
                 //파일에 접근하면 항상 파일을 닫아주어야 한다
                 fs.Close();
