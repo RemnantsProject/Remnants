@@ -43,6 +43,9 @@ namespace Remnants
         #region Property
         // 자식 클래스에서 사용할 페이드 색상
         protected abstract Color FadeColor { get; }
+
+        // 자식 클래스에서 사용할 BGM 이름
+        protected abstract string EndingBgmName { get; }
         #endregion
 
         #region Unity Event Method
@@ -71,7 +74,7 @@ namespace Remnants
                 this.GetComponent<BoxCollider>().enabled = false;
                 StartCoroutine(SequencePlayer());
 
-                // 소리 멈춤
+                // BGM 중지
                 audioManager.StopBgm();
             }
         }

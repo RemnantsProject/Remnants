@@ -266,10 +266,11 @@ namespace Remnants
             // 선택 직후 잠시 기다림
             yield return new WaitForSeconds(delay);
 
+            // 분기별 대사 출력
             foreach (var line in selectedSequence)
             {
                 whoIsSaying = line.speaker;
-                sequenceText.text = line.line;
+                typeWritter.StartTyping(line.line);
                 yield return new WaitForSeconds(line.waitTime);
             }
 
