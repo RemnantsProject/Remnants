@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 1047385082}
   - component: {fileID: 1047385081}
   m_Layer: 0
-  m_Name: RoomOfFear
+  m_Name: RoomOfAnger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4477e99d7384a4f8e1f2da1f418581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectID: RoomOfFear
+  objectID: RoomOfAnger
 --- !u!114 &1047385082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   theParticle: {fileID: 590220945}
   CameraRoot: {fileID: 4165248518483720237}
   fader: {fileID: 1485509104}
-  loadToScene: RoomOfFear
+  loadToScene: RoomOfAnger
 --- !u!65 &1047385083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2016,8 +2016,8 @@ Transform:
   - {fileID: 8590520473219000378}
   - {fileID: 8755117403418822692}
   - {fileID: 6822757182726294458}
-  - {fileID: 1047385086}
   - {fileID: 3968355176005636837}
+  - {fileID: 1047385086}
   - {fileID: 1845581623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5441,7 +5441,7 @@ GameObject:
   - component: {fileID: 4787382545641117248}
   - component: {fileID: 6704972426970231454}
   m_Layer: 0
-  m_Name: RoomOfAnger
+  m_Name: RoomOfFear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5633,7 +5633,7 @@ MonoBehaviour:
   theParticle: {fileID: 935712560}
   CameraRoot: {fileID: 4165248518483720237}
   fader: {fileID: 1485509104}
-  loadToScene: RoomOfAnger
+  loadToScene: RoomOfFear
 --- !u!4 &4816565730381622554
 Transform:
   m_ObjectHideFlags: 0
@@ -7190,7 +7190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4477e99d7384a4f8e1f2da1f418581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectID: RoomOfAnger
+  objectID: RoomOfFear
 --- !u!4 &6710294694350343126
 Transform:
   m_ObjectHideFlags: 0
