@@ -10,7 +10,6 @@ namespace Remnants
     {
         #region Variables
         //액자 오브젝트
-        public GameObject fakePicture;  //빈 액자
         public GameObject realPicture;  //눈 그림이 있는 액자
         public GameObject nextPicture;  //다음 액자
 
@@ -26,14 +25,17 @@ namespace Remnants
         void Start()
         {
             SceneStateSaver.Instance.SaveCurrentSceneState();
+
         }
         protected override void DoAction()
         {
-            // 상호작용을 이미 한 경우 다시 실행되지 않도록
-            if (hasInteracted) return;
+            // 이미 상호작용했거나, 상호작용 불가능한 상태라면 무시
+            if (hasInteracted || unInteractive) return;
+            hasInteracted = true;
+            unInteractive = true;  // 더 이상 상호작용 안되게
 
-            hasInteracted = true;  // 상호작용했음을 표시
             StartCoroutine(TouchingPaint());
+
         }
         #endregion
 
@@ -48,13 +50,13 @@ namespace Remnants
                 theParticle.Play();
             }
 
+            AudioManager.Instance.Play("PaintSound");
             //플레이어 빨려들기 타겟 지정 
             var playerSuck = CameraRoot.GetComponent<PlayerBlackholeSuck>();         
             playerSuck.targetObject = this.transform; 
             playerSuck.StartSuck();
 
             // 액자 상태 변경
-            fakePicture.SetActive(false);
             realPicture.SetActive(true);
             nextPicture.SetActive(true);
 
@@ -64,9 +66,11 @@ namespace Remnants
 
             SceneStateSaver.Instance.SaveCurrentSceneState();
 
+ 
             // 씬 전환
             fader.FadeTo(loadToScene);
             yield return new WaitForSeconds(2f);
+
         }
         #endregion
     }

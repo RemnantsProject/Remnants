@@ -60,7 +60,7 @@ namespace Remnants
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f, isWhite);
 
-            AudioManager.Instance.PlayBgm(bgmName);
+            AudioManager.Instance.PlayBgm("LobbyBgm");
 
             //2.화면 하단에 시나리오 텍스트 화면 출력
             if(sequence01 != "")
