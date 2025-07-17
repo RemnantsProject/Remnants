@@ -9,7 +9,7 @@ namespace Remnants
         protected override Color FadeColor => Color.gray;
 
         // BGM
-        protected override string EndingBgmName => "HappyEndingBgm";
+        protected override string EndingBgmName => "BadEndingBgm";
     }
 }
 

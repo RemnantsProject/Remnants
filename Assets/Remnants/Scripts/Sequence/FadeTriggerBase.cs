@@ -90,6 +90,12 @@ namespace Remnants
             // 페이드 아웃 효과 연출
             yield return StartCoroutine(FadeOutImage(FadeColor, fadeDuration));
 
+            // 페이드 아웃 후 BGM 재생
+            if(!string.IsNullOrEmpty(EndingBgmName))
+            {
+                audioManager.PlayBgm(EndingBgmName);
+            }
+
             // 대사 표시 코루틴 시작
             yield return StartCoroutine(PlayEndingLines());
         }
