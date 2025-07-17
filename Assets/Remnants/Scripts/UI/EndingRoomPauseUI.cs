@@ -35,27 +35,17 @@ namespace Remnants
             if (pauseUI.activeSelf)  //창이 열린 상태
             {
                 Time.timeScale = 0f;
-
-                //커서 제어
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
             else //창이 닫힌 상태
             {
                 Time.timeScale = 1f;
-
-                //커서 제어
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
             }
         }
 
 
-        //메뉴가기 버튼 호출  
+        //메뉴가기 버튼 호출 
         public void Menu()
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             Time.timeScale = 1f;
 
             fader.FadeTo(loadToScene);
