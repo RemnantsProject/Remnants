@@ -85,6 +85,10 @@ namespace Remnants
             happyEndingTrigger.SetActive(false);
             badEndingTrigger.SetActive(false);
 
+            // 마우스 보이게
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             //참조
             audioManager = AudioManager.Instance;
             typeWritter = sequenceText.GetComponent<TypewriterEffect>();
