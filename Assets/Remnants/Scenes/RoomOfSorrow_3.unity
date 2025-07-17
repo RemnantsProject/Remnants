@@ -563,6 +563,62 @@ PrefabInstance:
       propertyPath: sfxGroup
       value: 
       objectReference: {fileID: 7466808881337224984, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d91e6ac2009b0514abda6359fbf2e784, type: 3}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: RoomOfSorrow_3Bgm
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 70a05e2ec8273ed4a98eb2bd668b2675, type: 3}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: FadeOutSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].isBgm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].isBgm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].spitalBlend
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4773477632440126901, guid: cad587b9df9690849a340b37321c471c, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -9546,7 +9602,7 @@ MonoBehaviour:
   fader: {fileID: 1686769567}
   sequence01: "\uD558\uC580 \uACF5\uAC04..?"
   isWhite: 1
-  bgmName: 
+  bgmName: RoomOfSorrow_3Bgm
 --- !u!114 &1958770566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11737,7 +11793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7966399893365672818}
   walkSpeed: 6
-  runSpeed: 10
+  runSpeed: 6
   acceleration: 10
   jumpHeight: 1
   velocity: {x: 0, y: 0, z: 0}

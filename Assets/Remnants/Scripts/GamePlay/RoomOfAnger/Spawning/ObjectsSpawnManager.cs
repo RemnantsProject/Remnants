@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Remnants
 {
@@ -14,11 +15,14 @@ namespace Remnants
         public List<GameObject> spheres;
         public GameObject finalShpere;
 
-        [Header("UI 연결")]
+        [Header("연결")]
         public GameObject actionUI;
         public TextMeshProUGUI actionText;
         public TextMeshProUGUI actionKey;
         public GameObject extraCross;
+        public Transform playerTransform;
+        public AudioManager audioManager;
+        public AudioMixer audioMixer;
 
         [Header("설정")]
         [SerializeField] private float spawnInterval = 3f;        
@@ -75,12 +79,19 @@ namespace Remnants
         private void AssignUIToSphere(GameObject instance)
         {
             BreakSphere interactive = instance.GetComponent<BreakSphere>();
+            DistanceBgm distanceBgm = instance.GetComponent<DistanceBgm>();
             if (interactive != null)
             {
                 if (actionUI != null) interactive.actionUI = actionUI;
                 if (actionText != null) interactive.actionText = actionText;
                 if (actionKey != null) interactive.actionKey = actionKey;
                 if (extraCross != null) interactive.extraCross = extraCross;
+            }
+            if(distanceBgm != null)
+            {
+                if (playerTransform != null) distanceBgm.player = playerTransform;
+                if (audioManager != null) distanceBgm.audioManager = audioManager;
+                if (audioMixer != null) distanceBgm.audioMixer = audioMixer;
             }
         }
         #endregion
