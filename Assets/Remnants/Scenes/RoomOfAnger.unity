@@ -7631,6 +7631,58 @@ PrefabInstance:
       propertyPath: sfxGroup
       value: 
       objectReference: {fileID: 7466808881337224984, guid: e0f59c410e54fba4888b32cea31b03fd, type: 2}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 278a002ebdcd6f84eac4665b6b577bd9, type: 3}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: RoomOfAngerBgm
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: aad8616d5bdfa144a91d074fad906744, type: 3}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: SphereRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].isBgm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].isBgm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685099971995372650, guid: cad587b9df9690849a340b37321c471c, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4773477632440126901, guid: cad587b9df9690849a340b37321c471c, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -20890,7 +20942,7 @@ MonoBehaviour:
   action: "\uBBF8\uC220\uAD00\uC73C\uB85C \uB3CC\uC544\uAC04\uB2E4."
   actionDistance: 2
   fader: {fileID: 1156908648}
-  loadToScene: Lobby
+  loadToScene: RoomOfEnding
   animator: {fileID: 8662794427868259251}
   sequnce: "\uB098\uB294 \uADF8 \uC8C4\uB97C \uBAA8\uB450 \uAE30\uC5B5\uD558\uACE0,
     \uB0B4 \uC548\uC5D0\uC11C \uAEF4\uC548\uAE30\uB85C \uD588\uB2E4"

@@ -6,22 +6,17 @@ namespace Remnants
     {
         #region Variables
         public SceneFader fader;
+        public AudioManager audioManager;
         [SerializeField]
         private string loadToScene = "Lobby";
-        
-        public AudioSource bgm01;       //배경음
         #endregion
 
         #region Custom Method
-        private void Start()
-        {
-            bgm01.Play();
-        }
         protected override void DoAction()
         {
 
             //배경음 종료
-            bgm01.Stop();
+            audioManager.StopBgm();
             
             //씬 종료시 처리할 내용 구현
             //....

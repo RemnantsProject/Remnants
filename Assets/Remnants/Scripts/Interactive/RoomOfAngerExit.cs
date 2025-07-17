@@ -46,6 +46,8 @@ namespace Remnants
 
             yield return new WaitForSeconds(1f);
 
+            AudioManager.Instance.StopBgm();
+
             fader.FadeTo(loadToScene);
         }
         #endregion

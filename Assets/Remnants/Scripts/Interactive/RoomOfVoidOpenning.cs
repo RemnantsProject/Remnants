@@ -10,6 +10,7 @@ namespace Remnants
         #region Variables
         //플레이어 오브젝트
         public GameObject thePlayer;
+        public AudioManager audioManager;
         //페이더 객체
         public SceneFader fader;
 
@@ -34,6 +35,8 @@ namespace Remnants
             //커서 제어
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            audioManager.Play("VoidBgm");
 
             //오프닝 연출 시작
             StartCoroutine(SequencePlay());
