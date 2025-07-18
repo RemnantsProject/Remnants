@@ -47,6 +47,12 @@ namespace Remnants
                 data.activatedObjectNames.Add(objectName);
         }
 
+        public void MarkObjectInteracted(string sceneName, string objectID)
+        {
+            var data = GetOrCreateSceneData(sceneName);
+            if (!data.interactedObjectNames.Contains(objectID))
+                data.interactedObjectNames.Add(objectID);
+        }
         public void SavePlayerState(string sceneName, Vector3 pos, Quaternion rot)
         {
             var data = GetOrCreateSceneData(sceneName);

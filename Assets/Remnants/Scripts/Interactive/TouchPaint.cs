@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,12 @@ namespace Remnants
         [SerializeField] private string loadToScene = "Room1";
 
         private bool hasInteracted = false;  // 상호작용을 했는지 확인
+        private string objectID;
+        public bool IsInteracted => unInteractive;
+        public void SetInteracted(bool interacted)
+        {
+            unInteractive = interacted;
+        }
         #endregion
 
         #region Unity Event Method
@@ -26,6 +33,18 @@ namespace Remnants
         {
             SceneStateSaver.Instance.SaveCurrentSceneState();
 
+            // ID 가져오기
+            var restorable = GetComponent<RestorableObject>();
+            if (restorable != null)
+                objectID = restorable.objectID;
+
+            // 이전에 상호작용했던 오브젝트라면 비활성화
+            string sceneName = SceneManager.GetActiveScene().name;
+            var data = GameStateManager.Instance.GetSceneData(sceneName);
+            if (data != null && data.interactedObjectNames.Contains(objectID))
+            {
+                unInteractive = true;  // 더 이상 상호작용 안되게
+            }
         }
         protected override void DoAction()
         {
@@ -57,19 +76,19 @@ namespace Remnants
             playerSuck.StartSuck();
 
             // 액자 상태 변경
-            realPicture.SetActive(true);
             nextPicture.SetActive(true);
-
+            yield return new WaitForSeconds(1f);
+            realPicture.SetActive(true);
+            //씬 데이터 저장
             string sceneName = SceneManager.GetActiveScene().name;
             GameStateManager.Instance.MarkObjectActivated(sceneName, realPicture.GetComponent<RestorableObject>().objectID);
             GameStateManager.Instance.MarkObjectActivated(sceneName, nextPicture.GetComponent<RestorableObject>().objectID);
-
+            GameStateManager.Instance.MarkObjectInteracted(sceneName, this.GetComponent<RestorableObject>().objectID);
             SceneStateSaver.Instance.SaveCurrentSceneState();
 
  
             // 씬 전환
             fader.FadeTo(loadToScene);
-            yield return new WaitForSeconds(2f);
 
         }
         #endregion

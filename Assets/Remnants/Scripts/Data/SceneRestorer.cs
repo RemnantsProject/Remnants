@@ -33,31 +33,39 @@ namespace Remnants
             SceneData data = GameStateManager.Instance.GetSceneData(sceneName);
             if (data != null)
             {
-                Debug.Log($"[SceneRestorer] 복원 시작: {sceneName}");
-                //오브젝트 복원
+                //  오브젝트 활성화 복원
                 foreach (var name in data.activatedObjectNames)
                 {
                     GameObject obj = SceneObjectRegistry.Instance.GetObjectByID(name);
                     if (obj != null)
                     {
                         obj.SetActive(true);
-                       // Debug.Log($"[SceneRestorer] {name} 활성화 복원 완료");
-                    }
-                    else
-                    {
-                       // Debug.LogWarning($"[SceneRestorer] {name} 오브젝트 찾을 수 없음");
                     }
                 }
+
                 // 플레이어 복원
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
                 if (player != null)
                 {
                     player.transform.position = data.playerPosition;
                     player.transform.rotation = data.playerRotation;
-                   // Debug.Log($"[SceneRestorer] 플레이어 위치 복원됨: {data.playerPosition}");
+                }
+
+                //  상호작용했던 오브젝트는 다시 상호작용 못 하게
+                foreach (var id in data.interactedObjectNames)
+                {
+                    GameObject obj = SceneObjectRegistry.Instance.GetObjectByID(id);
+                    if (obj != null)
+                    {
+                        var interactive = obj.GetComponent<Interactive>();
+                        if (interactive != null)
+                        {
+                            interactive.SetInteracted(true); // 비활성화 처리
+                        }
+                    }
                 }
             }
-          
+
         }
     }
 }

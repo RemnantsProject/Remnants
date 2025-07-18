@@ -99,6 +99,10 @@ namespace Remnants
         #endregion
 
         #region Custom Method
+        public void SetInteracted(bool value)
+        {
+            unInteractive = value;
+        }
         //Action UI 보여주기
         protected void ShowActionUI()
         {
