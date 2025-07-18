@@ -6,8 +6,6 @@ namespace Remnants
     public class RoomOfFearOpenning : TypewriterEffect
     {
         #region Variables
-        //참조
-        private AudioManager audioManager;
         //플레이어 오브젝트
         public GameObject thePlayer;
         //페이더 객체
@@ -25,10 +23,7 @@ namespace Remnants
         #region Unity Event Method
         private void Start()
         {
-            //참조
-            audioManager = AudioManager.Instance;
-            //메뉴 배경음 플레이
-            audioManager.PlayBgm("FearBgm");
+            AudioManager.Instance.PlayBgm("FearBgm");
 
             //커서 제어
             Cursor.lockState = CursorLockMode.Locked;

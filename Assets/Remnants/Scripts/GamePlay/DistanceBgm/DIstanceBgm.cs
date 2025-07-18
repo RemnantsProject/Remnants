@@ -29,6 +29,7 @@ namespace Remnants
             float volume = Mathf.Lerp(-80f, 0f, t);
 
             audioMixer.SetFloat("Bgm", volume);
+            audioMixer.SetFloat("Sfx", volume);
 
             if (!isPlaying)
             {
