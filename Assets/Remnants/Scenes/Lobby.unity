@@ -2029,17 +2029,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5217204927491537304, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887917002213778683, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
+      propertyPath: isStop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7052585251812454545, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.007
       objectReference: {fileID: 0}
     - target: {fileID: 7052585251812454545, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.875
+      value: 0.495
       objectReference: {fileID: 0}
     - target: {fileID: 7052585251812454545, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.172
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 7052585251812454545, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: m_LocalRotation.w

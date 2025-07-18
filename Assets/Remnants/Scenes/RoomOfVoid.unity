@@ -2893,7 +2893,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 3959
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -18126,7 +18126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTrans: {fileID: 6288749264059040569}
-  sensivity: 70
+  sensivity: 15
 --- !u!4 &1245659777590718894
 Transform:
   m_ObjectHideFlags: 0
