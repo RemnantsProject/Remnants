@@ -43,6 +43,14 @@ namespace Remnants
                 s.source.spatialBlend = s.spitalBlend ? 1f : 0f;
 
                 s.source.playOnAwake = false;
+                if (s.source.loop) //BGM
+                {
+                    s.source.outputAudioMixerGroup = audioMixerGroups[1];
+                }
+                else //SFX
+                {
+                    s.source.outputAudioMixerGroup = audioMixerGroups[2];
+                }
             }
         }
         #endregion

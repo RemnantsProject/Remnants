@@ -21,8 +21,10 @@ namespace Remnants
         public GameObject mainMenuUI;
         public GameObject optionUI;
         public GameObject loadGameButton;
+        public GameObject creditCanvas;
 
         private bool isShowOption = false;
+        private bool isShowCredit = false;
 
         //볼륨 조절
         public AudioMixer audioMixer;
@@ -62,6 +64,7 @@ namespace Remnants
 
             //초기화
             isShowOption = false;
+            isShowCredit = false;
         }
 
         private void Update()
@@ -72,6 +75,10 @@ namespace Remnants
                 if (isShowOption)
                 {
                     HideOptionUI();
+                }
+                else if (isShowCredit)
+                {
+                    HideCreditUI();
                 }
             }
         }
@@ -113,6 +120,7 @@ namespace Remnants
             fader.FadeTo(sceneNumber);
         }
 
+
         public void Options()
         {
             //메뉴 선택 사운드
@@ -122,6 +130,14 @@ namespace Remnants
             isShowOption = true;
             mainMenuUI.SetActive(false);
             optionUI.SetActive(true);
+        }
+        public void Credits()
+        {
+            //메뉴 선택 사운드
+            audioManager.Play("MenuSelect");
+
+            //크레딧 UI 보여주기
+            StartCoroutine(ShowCreditUI());
         }
 
         public void QuitGame()
@@ -136,6 +152,7 @@ namespace Remnants
         //옵션 UI 나가기
         public void HideOptionUI()
         {
+            audioManager.Play("ButtonClick");
             optionUI.SetActive(false);
             mainMenuUI.SetActive(true);
 
@@ -195,6 +212,28 @@ namespace Remnants
             //UI에 적용
             masterSlider.value = masterVolume;
             //기타...
+        }
+
+        //크레딧 UI 보여주기
+        IEnumerator ShowCreditUI()
+        {
+            isShowCredit = true;
+
+            mainMenuUI.SetActive(false);
+            creditCanvas.SetActive(true);
+
+            yield return new WaitForSeconds(10f);
+
+            HideCreditUI();
+        }
+
+        //크레딧 UI 나가기
+        public void HideCreditUI()
+        {
+            creditCanvas.SetActive(false);
+            mainMenuUI.SetActive(true);
+
+            isShowCredit = false;
         }
         #endregion
     }

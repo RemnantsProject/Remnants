@@ -1456,7 +1456,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sound   <#00ff00>"Shout" by mariallinas (Freesound), Pixabay
 
-    
+
 
     </color>'
   m_isRightToLeft: 0
@@ -3629,7 +3629,7 @@ MonoBehaviour:
   m_text: 'Sound   <#00ff00>"Sound Effects - Man Screaming 02" by ScottishPerson,
     Pixabay
 
-    
+
 
     </color>'
   m_isRightToLeft: 0
@@ -7146,63 +7146,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085860648}
   m_CullTransparentMesh: 1
---- !u!1001 &1135960997
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468173566774060986, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4452140318328001694, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 45df6babee03ae5429d736f0ccde78c4, type: 3}
 --- !u!1 &1186156209
 GameObject:
   m_ObjectHideFlags: 0
@@ -7829,7 +7772,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sound   <#00ff00>"Echoes" by Andrew Ev, Mixkit [mixkit.co/free-stock-music]
 
-    
+
 
     </color>'
   m_isRightToLeft: 0
@@ -10927,7 +10870,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sound   <#00ff00>"hope" by Tomomi_Kato, Pixabay
 
-    
+
 
     </color>'
   m_isRightToLeft: 0
@@ -12038,7 +11981,7 @@ Animator:
   m_GameObject: {fileID: 3475248340691601176}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6345e3023a978db4ab18a4396d386e1d, type: 2}
+  m_Controller: {fileID: 9100000, guid: d66fea41ce03c5448a3368d12b8c271a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12448,6 +12391,21 @@ Transform:
   - {fileID: 7922238868372748255}
   m_Father: {fileID: 469869582564797309}
   m_LocalEulerAnglesHint: {x: 57.887463, y: 27.547684, z: 12.795104}
+--- !u!4 &2468173567790335007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452140317312284475}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2588541952813993586
 Transform:
   m_ObjectHideFlags: 0
@@ -12826,6 +12784,23 @@ Transform:
   - {fileID: 409917868311441007}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4452140317312284475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2468173567790335007}
+  - component: {fileID: 5142564153508857709}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4479861976908955807
 Transform:
   m_ObjectHideFlags: 0
@@ -13028,8 +13003,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 49e0e61b5316e344ab3de6d11e395964, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13054,6 +13029,18 @@ Transform:
   - {fileID: 6681951911477931584}
   m_Father: {fileID: 6079914605163739829}
   m_LocalEulerAnglesHint: {x: 19.380205, y: -47.92305, z: -63.258118}
+--- !u!114 &5142564153508857709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452140317312284475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e46059cee40d904eb47c6017012dbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5221802705110271342
 Transform:
   m_ObjectHideFlags: 0
@@ -14023,8 +14010,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -464}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -652.0002}
+  m_SizeDelta: {x: 0, y: -375.99963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8457244107000031842
 GameObject:
@@ -14273,7 +14260,7 @@ SceneRoots:
   - {fileID: 1899486314}
   - {fileID: 51042276}
   - {fileID: 1370889489}
-  - {fileID: 1135960997}
+  - {fileID: 2468173567790335007}
   - {fileID: 1700577483}
   - {fileID: 1944609278}
   - {fileID: 4381548740136839405}

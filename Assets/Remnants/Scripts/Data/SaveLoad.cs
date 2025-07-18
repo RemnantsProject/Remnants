@@ -33,31 +33,37 @@ namespace Remnants
         //가져오기 - 저장된 데이터를 반환값으로 받아온다
         public static PlayData LoadData()
         {
-            //가져오는 데이터
             PlayData playData = null;
-
-            //파일 이름, 경로 지정
             string path = Application.persistentDataPath + "/pData.arr";
 
-            //지정된 경로에 지정된 파일 있는지 없는지 체크
-            if(File.Exists(path) == true)
+            if (File.Exists(path))
             {
-                //이진화 데이터를 가져올 준비
-                BinaryFormatter formatter = new BinaryFormatter();
+                FileInfo fileInfo = new FileInfo(path);
 
-                //파일 접근
-                FileStream fs = new FileStream(path, FileMode.Open);
+                //파일이 비어 있으면 역직렬화 시도 금지
+                if (fileInfo.Length == 0)
+                {
+                    Debug.LogWarning("저장 파일이 비어 있어 역직렬화할 수 없습니다.");
+                    return null;
+                }
 
-                //이진화로 포맷으로 파일에 저장된 데이터를 역진화해서 가져온다
-                playData = formatter.Deserialize(fs) as PlayData;
-                //Debug.Log($"Load SceneNumber: {playData.sceneNumber}");
-
-                //파일에 접근하면 항상 파일을 닫아주어야 한다
-                fs.Close();
+                try
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    using (FileStream fs = new FileStream(path, FileMode.Open))
+                    {
+                        playData = formatter.Deserialize(fs) as PlayData;
+                        Debug.Log($"로드 성공: 씬 번호 {playData.sceneNumber}");
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError("역직렬화 중 오류 발생: " + e.Message);
+                }
             }
             else
             {
-                Debug.Log("Not Found Load File");
+                Debug.Log("저장 파일이 없습니다.");
             }
 
             return playData;
