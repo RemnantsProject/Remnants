@@ -21,9 +21,7 @@ namespace Remnants
             {
                 GameClear();
             }
-
         }
-
         private void GameClear()
         {
             //씬 클리어 처리
