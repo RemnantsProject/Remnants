@@ -51,6 +51,7 @@ namespace Remnants
         private TypewriterEffect typeWritter;
 
         private bool isSkip = false;
+        private bool isSkippable = false;
 
         // 대사 정보를 담는 구조체
         private struct Dialogue
@@ -90,6 +91,9 @@ namespace Remnants
             // 마우스 보이게
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            // 스킵 가능 초기화
+            isSkippable = false;
 
             //참조
             audioManager = AudioManager.Instance;
@@ -211,8 +215,8 @@ namespace Remnants
                     break;
             }
 
-            // Shift + S 누르면 스킵 요청
-            if (Keyboard.current.leftShiftKey.isPressed && Keyboard.current.sKey.wasPressedThisFrame)
+            // 스킵 허용 가능하면, Shift + S 누르면 스킵 요청
+            if (isSkippable && Keyboard.current.leftShiftKey.isPressed && Keyboard.current.sKey.wasPressedThisFrame)
             {
                 isSkip = true;
             }
@@ -252,6 +256,10 @@ namespace Remnants
             fog.SetActive(true);
             audioManager.PlayBgm("EndingRoomBgm");
 
+            // 페이드 아웃 되기 전까지는 스킵 불가능하게 대기
+            isSkippable = false;
+            StartCoroutine(EnableSkipAfterDelay(17f));
+
             // 대사 순서대로 출력
             foreach (var line in sequence)
             {
@@ -272,6 +280,13 @@ namespace Remnants
 
             // 선택지 보이기
             selectUI.SetActive(true);
+        }
+
+        // 스킵 가능 여부 제어
+        IEnumerator EnableSkipAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            isSkippable = true;
         }
 
         // 선택지 연출
