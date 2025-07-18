@@ -62,6 +62,7 @@ namespace Remnants
 
                 if (disapperEffect != null)
                 {
+                    AudioManager.Instance.Play("FadeOutSound");
                     disapperEffect.StartDisapper();
                 }
             }
