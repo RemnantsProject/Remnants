@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7052585251812454545
 Transform:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7354981975924922404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed51d6c15f9e4424c964ac2dcf43a3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStop: 1
 --- !u!114 &9125480284573417869
 MonoBehaviour:
   m_ObjectHideFlags: 0

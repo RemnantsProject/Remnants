@@ -50,6 +50,8 @@ namespace Remnants
         // 타이핑 효과
         private TypewriterEffect typeWritter;
 
+        private bool isSkip = false;
+
         // 대사 정보를 담는 구조체
         private struct Dialogue
         {
@@ -208,6 +210,12 @@ namespace Remnants
                     sequenceText.color = Color.cyan;
                     break;
             }
+
+            // Shift + S 누르면 스킵 요청
+            if (Keyboard.current.leftShiftKey.isPressed && Keyboard.current.sKey.wasPressedThisFrame)
+            {
+                isSkip = true;
+            }
         }
         #endregion
 
@@ -247,6 +255,9 @@ namespace Remnants
             // 대사 순서대로 출력
             foreach (var line in sequence)
             {
+                if (isSkip)
+                    break;
+
                 whoIsSaying = line.speaker;
                 typeWritter.StartTyping(line.line);
                 yield return new WaitForSeconds(line.waitTime);
@@ -254,6 +265,7 @@ namespace Remnants
 
             isSequencePlaying = false;
             typeWritter.ClearText();
+            isSkip = false;
 
             // 대사 텍스트 및 누가 말하는지 숨기기
             sequenceText.text = "";
@@ -273,6 +285,9 @@ namespace Remnants
             // 분기별 대사 출력
             foreach (var line in selectedSequence)
             {
+                if (isSkip)
+                    break;
+
                 whoIsSaying = line.speaker;
                 typeWritter.StartTyping(line.line);
                 yield return new WaitForSeconds(line.waitTime);
@@ -281,6 +296,7 @@ namespace Remnants
             // 대사 숨김
             isSequencePlaying = false;
             sequenceText.text = "";
+            isSkip = false;
 
             PlayerInput input = thePlayer.GetComponent<PlayerInput>();
             input.enabled = true;

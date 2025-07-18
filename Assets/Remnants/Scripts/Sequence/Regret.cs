@@ -7,15 +7,13 @@ using UnityEngine.SceneManagement;
 namespace Remnants
 {
     //플레이 씬 오프닝 연출
-    public class Regret : MonoBehaviour
+    public class Regret : TypewriterEffect
     {
         #region Variables
         //플레이어 오브젝트
         public GameObject thePlayer;
         //페이더 객체
         public SceneFader fader;
-        //시나리오 대사 처리
-        public TextMeshProUGUI sequenceText;
 
         [SerializeField]
         private string sequence01 = "너무 익숙한 교실이잖아";
@@ -49,10 +47,9 @@ namespace Remnants
             //1. 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f);
             //2.화면 하단에 시나리오 텍스트 화면 출력
-            sequenceText.text = sequence01;
-            yield return new WaitForSeconds(3f);
-
-            sequenceText.text = "";
+            StartTyping(sequence01);
+            yield return new WaitForSeconds(sequence01.Length * typingSpeed + 2f);
+            ClearText();
             //4.플레이 캐릭터 활성화
             //thePlayer.SetActive(true);
             input.enabled = true;

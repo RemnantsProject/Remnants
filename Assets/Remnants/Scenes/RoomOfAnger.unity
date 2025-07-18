@@ -12277,7 +12277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetText: {fileID: 1156908647}
   typingSpeed: 0.05
-  sequenceOne: "\uB0B4\uAC00 \uADF8 \uC544\uC774\uC5D0\uAC8C \uD588\uB358 \uB9D0\uB4E4\uC774\uC57C..."
+  sequenceOne: "\uB0B4\uAC00 \uADF8 \uC544\uC774\uC5D0\uAC8C \uD588\uB358 \uC5BC\uAD74\uB4E4\uC774\uC57C..."
   petSequenceOne: "\uC720\uB839: \uC815\uC2E0\uCC28\uB824! \uB10C \uB098\uC544\uAC00\uC57C\uD574."
   petSequenceTwo: "\uC720\uB839: \uBB3C\uCCB4\uB294 [Q]\uC640[E]\uB97C \uB20C\uB7EC
     \uBD80\uC2E4 \uC218 \uC788\uC5B4!"
@@ -15597,6 +15597,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1689917684570389486, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217204927491537304, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887917002213778683, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
+      propertyPath: isStop
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7052585251812454545, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}

@@ -9,6 +9,9 @@ namespace Remnants
         //플레이어를 따라가게 하기 위한 NavMeshAgent
         private NavMeshAgent navMeshAgent;
         private GameObject target;
+
+        [SerializeField]
+        private bool isStop = false;
         #endregion
 
         #region Unity Event Method
@@ -39,6 +42,8 @@ namespace Remnants
                 return;
 
             //목표물 따라가기
+            if (isStop)
+                return;
             navMeshAgent.SetDestination(target.transform.position);
         }
         #endregion

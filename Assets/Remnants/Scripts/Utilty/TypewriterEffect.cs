@@ -10,16 +10,15 @@ namespace Remnants
         #region Variables
 
         [SerializeField]
-        protected TMP_Text targetText;
         // 타이핑 효과를 적용할 대상 텍스트 (TextMeshProUGUI 컴포넌트)
+        protected TMP_Text targetText;
 
+        // 글자 하나당 출력 지연 시간 (초)
         [SerializeField]
         public float typingSpeed = 0.05f;
-        // 글자 하나당 출력 지연 시간 (초)
 
-        protected Coroutine typingCoroutine;
         // 현재 실행 중인 타이핑 코루틴을 저장
-
+        protected Coroutine typingCoroutine;
         #endregion
 
         #region Unity Event Method

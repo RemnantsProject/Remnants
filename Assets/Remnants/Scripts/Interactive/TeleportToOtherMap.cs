@@ -13,12 +13,12 @@ namespace Remnants
 {
     public class TeleportToOtherMap : Interactive
     {
+        private TypewriterEffect typewriterEffect;
+
         [SerializeField] private Transform otherMap;
         [SerializeField] private Volume urpVolume;
         [SerializeField] private Image[] crackImages;
         [SerializeField] private CanvasGroup fadePanel;
-        [SerializeField] private TextMeshProUGUI sequenceText;
-
 
         [SerializeField] private float overlayInterval = 0.02f;
         [SerializeField] private float overlayHold = 0.5f;
@@ -26,6 +26,9 @@ namespace Remnants
         [SerializeField] private float fallDistance = 300f;
         [SerializeField] private float fallTime = 1f;
         [SerializeField] private float fadeDuration = 1f;
+
+        [SerializeField]
+        private string sequence;
 
         private ColorAdjustments _colorAdjustments;
         private static bool _goToOtherMap = true;
@@ -37,6 +40,11 @@ namespace Remnants
             if (urpVolume != null && urpVolume.profile.TryGet(out _colorAdjustments))
                 _colorAdjustments.saturation.overrideState = true;
 
+        }
+
+        private void Start()
+        {
+            typewriterEffect = this.GetComponent<TypewriterEffect>();
         }
 
         protected override void DoAction()
@@ -53,6 +61,9 @@ namespace Remnants
         }
         private IEnumerator MirrorBreakThenTeleport()
         {
+            typewriterEffect.StartTyping(sequence);
+            yield return new WaitForSeconds(sequence.Length * typewriterEffect.typingSpeed + 2f);
+            typewriterEffect.ClearText();
 
             // 모든 조각을 한 번에 켜기
             for (int i = 0; i < crackImages.Length; i++)
