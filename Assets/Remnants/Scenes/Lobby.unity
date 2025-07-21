@@ -1225,6 +1225,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f3832c02d1e1544a97d20f31aada69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1277319580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 446581356854822744, guid: 5115363c929474d40ab25428b913c32d, type: 3}
+  m_PrefabInstance: {fileID: 1485509099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068884d362585d448a056a3a7eb202cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306132326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6163,7 +6174,19 @@ MonoBehaviour:
     m_ActionId: 107e4a1d-b029-43c9-90ff-4548f2f0cc00
     m_ActionName: 'Player/Run[/Keyboard/shift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1277319580}
+        m_TargetAssemblyTypeName: Remnants.PauseUI, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 96aa9dbd-61af-455f-a8ee-6c78b6fe64d6
     m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0

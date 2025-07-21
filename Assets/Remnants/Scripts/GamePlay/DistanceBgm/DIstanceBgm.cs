@@ -28,7 +28,6 @@ namespace Remnants
             float t = Mathf.Clamp01(1 - distance / maxDistance);
             float volume = Mathf.Lerp(-80f, 0f, t);
 
-            audioMixer.SetFloat("Bgm", volume);
             audioMixer.SetFloat("Sfx", volume);
 
             if (!isPlaying)

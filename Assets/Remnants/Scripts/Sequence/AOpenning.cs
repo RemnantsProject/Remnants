@@ -52,17 +52,15 @@ namespace Remnants
         //오프닝 연출 코루틴 함수
         IEnumerator SequencePlay()
         {
-            //0.플레이 캐릭터 비 활성화
-            //thePlayer.SetActive(false);
             PlayerInput input = thePlayer.GetComponent<PlayerInput>();
             input.enabled = false;
 
-            //1. 페이드인 연출 (1초 대기후 페인드인 효과)
+            // 페이드인 연출 (1초 대기후 페인드인 효과)
             fader.FadeStart(1f, isWhite);
 
             AudioManager.Instance.PlayBgm(bgmName);
 
-            //2.화면 하단에 시나리오 텍스트 화면 출력
+            //화면 하단에 시나리오 텍스트 화면 출력
             if(sequence01 != "")
             {
                 typewriterEffect.StartTyping(sequence01);
@@ -70,8 +68,6 @@ namespace Remnants
                 typewriterEffect.ClearText();
             }
             
-            //4.플레이 캐릭터 활성화
-            //thePlayer.SetActive(true);
             input.enabled = true;
         }
         #endregion

@@ -17713,7 +17713,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Run[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 799641800}
         m_TargetAssemblyTypeName: Remnants.PauseUI, Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 0

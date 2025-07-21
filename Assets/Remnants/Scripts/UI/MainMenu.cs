@@ -168,7 +168,7 @@ namespace Remnants
             //볼륨 조절
             audioMixer.SetFloat("Bgm", value);
         }
-
+        
         //Sfx 볼륨 조절
         public void SetSfxVolume(float value)
         {
