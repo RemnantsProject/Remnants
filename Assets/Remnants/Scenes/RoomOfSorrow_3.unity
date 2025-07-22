@@ -1214,6 +1214,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 539567902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &466249153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4613392093699529866, guid: 5115363c929474d40ab25428b913c32d, type: 3}
+  m_PrefabInstance: {fileID: 1686769565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467751751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1663,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6703173029693614905, guid: 31566ab00b9f2fe47a0a766dd862cc62, type: 3}
+      propertyPath: story
+      value: 
+      objectReference: {fileID: 466249153}
+    - target: {fileID: 6703173029693614905, guid: 31566ab00b9f2fe47a0a766dd862cc62, type: 3}
       propertyPath: storyUI
       value: 
       objectReference: {fileID: 362500921}
@@ -1663,6 +1678,14 @@ PrefabInstance:
       propertyPath: actionKey
       value: 
       objectReference: {fileID: 1686769570}
+    - target: {fileID: 6703173029693614905, guid: 31566ab00b9f2fe47a0a766dd862cc62, type: 3}
+      propertyPath: storyText
+      value: "\uC911\uD559\uAD50 \uB54C \uC8FC\uC778\uACF5\uC774 \uB2E4\uCCE4\uC744
+        \uB54C, \uAC00\uC7A5 \uBA3C\uC800 \uB6F0\uC5B4\uC628 \uAC74 \uC18C\uAFC9\uCE5C\uAD6C\uC600\uB2E4.\r\n\u201C\uB0B4\uAC00
+        \uB300\uC2E0 \uC544\uD50C \uC218 \uC788\uC73C\uBA74 \uC88B\uC744 \uD150\uB370.\u201D
+        \uADF8 \uB9D0\uC774 \uC9C4\uC2EC\uC774\uC5C8\uC74C\uC744,  \uC774\uC81C\uC57C
+        \uC54C\uC558\uB2E4."
+      objectReference: {fileID: 0}
     - target: {fileID: 6703173029693614905, guid: 31566ab00b9f2fe47a0a766dd862cc62, type: 3}
       propertyPath: actionText
       value: 
@@ -3523,11 +3546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613392093699529866, guid: 5115363c929474d40ab25428b913c32d, type: 3}
       propertyPath: m_text
-      value: "\uC911\uD559\uAD50 \uB54C \uC8FC\uC778\uACF5\uC774 \uB2E4\uCCE4\uC744
-        \uB54C, \uAC00\uC7A5 \uBA3C\uC800 \uB6F0\uC5B4\uC628 \uAC74 \uC18C\uAFC9\uCE5C\uAD6C\uC600\uB2E4.\r\n\u201C\uB0B4\uAC00
-        \uB300\uC2E0 \uC544\uD50C \uC218 \uC788\uC73C\uBA74 \uC88B\uC744 \uD150\uB370.\u201D
-        \uADF8 \uB9D0\uC774 \uC9C4\uC2EC\uC774\uC5C8\uC74C\uC744,  \uC774\uC81C\uC57C
-        \uC54C\uC558\uB2E4."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4613392093699529866, guid: 5115363c929474d40ab25428b913c32d, type: 3}
       propertyPath: m_fontAsset

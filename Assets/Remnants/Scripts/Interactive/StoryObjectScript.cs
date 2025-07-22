@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Remnants
@@ -6,6 +7,10 @@ namespace Remnants
     {
         #region Variables
         public GameObject storyUI;
+        public TextMeshProUGUI story;
+
+        [TextArea]
+        public string storyText;
         #endregion
 
         #region Property
@@ -34,11 +39,14 @@ namespace Remnants
 
         private void StoryOpen()
         {
+            story.text = storyText;
+
             storyUI.SetActive(true);
             IsUIOpened = true;
         }
         private void StoryClose()
         {
+            story.text = "";
             storyUI.SetActive(false);
             IsUIOpened = false;
         }
