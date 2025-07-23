@@ -9001,7 +9001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 405807244945322029, guid: 5115363c929474d40ab25428b913c32d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 446581356854822744, guid: 5115363c929474d40ab25428b913c32d, type: 3}
       propertyPath: playerInput
