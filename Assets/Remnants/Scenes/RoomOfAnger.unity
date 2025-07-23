@@ -9001,7 +9001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 405807244945322029, guid: 5115363c929474d40ab25428b913c32d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 446581356854822744, guid: 5115363c929474d40ab25428b913c32d, type: 3}
       propertyPath: playerInput
@@ -9089,6 +9089,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7784393623006358520, guid: 5115363c929474d40ab25428b913c32d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955063477077866445, guid: 5115363c929474d40ab25428b913c32d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: df9d9923178718d4692d216d33fa44b8, type: 2}
+    - target: {fileID: 8955063477077866445, guid: 5115363c929474d40ab25428b913c32d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4276385738909970701, guid: df9d9923178718d4692d216d33fa44b8, type: 2}
+    - target: {fileID: 8955063477077866445, guid: 5115363c929474d40ab25428b913c32d, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
