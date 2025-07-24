@@ -2042,11 +2042,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5217204927491537304, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6887917002213778683, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: isStop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7052585251812454545, guid: 3f38dedb48325cd4ea440b52a2a10b3a, type: 3}
       propertyPath: m_LocalPosition.x
